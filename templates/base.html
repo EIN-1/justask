@@ -1,5 +1,6 @@
 {% load bootstrap5 %}
 {% load fontawesome_5 %}
+{% load staticfiles %}
 
 
 
@@ -11,7 +12,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JustAsk</title>
-    {% fontawesome_5_static %} 
+    {% fontawesome_5_static %}
+    {% static 'static_jquery/js/jquery.js' %}
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">

@@ -1,5 +1,7 @@
 asgiref==3.8.1
 Django==4.2.13
 django-bootstrap-v5==1.0.11
+django-fontawesome-5==1.0.18
+django-static-jquery==2.1.4
 Faker==26.0.0
 sqlparse==0.5.0
