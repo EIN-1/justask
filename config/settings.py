@@ -31,6 +31,9 @@ ALLOWED_HOSTS = ["8000-ein1-justask-2lb39gbyi8i.ws.codeinstitute-ide.net"]
 # Application definition
 
 INSTALLED_APPS = [
+    'question',
+    'comments',
+    'users',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
