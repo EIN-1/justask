@@ -5,6 +5,9 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 
 class QuestionForm(forms.ModelForm):
+    """
+        
+    """
     class Meta:
         model = Question
         fields = ['title', 'content']

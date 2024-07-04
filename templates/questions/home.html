@@ -2,31 +2,46 @@
 {% extends "base.html" %}
 
 {% load bootstrap5 %}
+{% load fontawesome_5 %}
 
 {% block content %}
-    <div class="container">
-    <div class="row gap-3">
-        <form action="/url/to/submit/" method="post" class="form">
-            {% csrf_token %}
-            {% bootstrap_form form %}
-            {% buttons %}
-              <button type="submit" class="btn btn-primary">
-                Submit
-              </button>
-            {% endbuttons %}
-          </form>
-    {% for question in questions %}
-    <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">{{question.title}}</h5>
-          <h6 class="card-subtitle mb-2 text-muted">{{question.created_at}}</h6>
-          <p class="card-text">{{question.content|truncatechars:300}}</p>
-          <a href="#" class="card-link">{{question.comment_count}}</a>
-          <a href="#" class="card-link">{{question.likes}}</a>
-          <a href="#" class="card-link">{{question.dislikes}}</a>
+<div class="continer mx-5">
+  <div class="row">
+    <div class="col">
+      <div class="container">
+        <div class="row gap-2">          
+          {% for question in questions %}
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">{{question.title}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{question.created_at}}</h6>
+                <p class="card-text">{{question.content|truncatechars:300}}</p>
+                <a href="#" class="card-link">{{question.comment_count}} {% fa5_icon 'comment' %}</a>
+                <a href="#" class="card-link">{{question.likes}} {% fa5_icon 'thumbs-up' %}</a>
+                <a href="#" class="card-link">{{question.dislikes}} {% fa5_icon 'thumbs-down' %}</a>
+              </div>
+            </div>
+          {% endfor %}
         </div>
       </div>
-    {% endfor %}
     </div>
+
+    <div class="col-sm-12 col-md-4 col-sm-order-first">
+      <div class="container">
+        <div class="row gap-2">
+      <form action="/url/to/submit/" method="post" class="form">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        {% buttons %}
+          <button type="submit" class="btn btn-primary">
+            Submit
+          </button>
+            {% endbuttons %}
+      </form>
+    </div>
+  </div>
+    </div>
+  </div>
 </div>
+  
 {% endblock %}

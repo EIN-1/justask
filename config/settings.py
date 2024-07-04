@@ -32,6 +32,7 @@ ALLOWED_HOSTS = ["8000-ein1-justask-2lb39gbyi8i.ws.codeinstitute-ide.net"]
 
 INSTALLED_APPS = [
     'bootstrap5',
+    'fontawesome_5',
     'question',
     'comments',
     'users',
