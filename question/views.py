@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Question
-from django.db.models import Count
+from .models import Question, Reaction
+from django.http import JsonResponse
+from django.db.models import Count, Case, When, IntegerField
 from forms import QuestionForm, CommentForm
 from comments.models import Comment
 from django.views.decorators.http import require_POST
@@ -12,7 +13,22 @@ def home(request):
         Render the home template passing questions into context.
     """
     question_form = QuestionForm()
-    questions = Question.objects.annotate(comment_count=Count('comments')).order_by('-created_at')
+    questions = Question.objects.annotate(
+        comment_count=Count('comments', distinct=True),
+        like_count=Count(Case(
+            When(reaction__reaction='like', then=1),
+            output_field=IntegerField(),
+        )),
+        dislike_count=Count(
+            Case(
+                When(reaction__reaction='dislike', then=1),
+                output_field=IntegerField(),
+            )
+        )
+    ).order_by('-created_at')
+
+
+    # questions = Question.objects.annotate(comment_count=Count('comments')).order_by('-created_at')
     return render(request, 'questions/home.html',{'questions': questions, 'form':question_form})
 
 def question_detail(request, pk):
@@ -42,3 +58,27 @@ def add_comment(request):
         comment.save()
         return render(request, 'partials/comment.html', {'comment': comment})
     return JsonResponse({'error': form.errors}, status=400)
+
+def react_to_question(request):
+    if request.method == 'POST':
+        question_id = request.POST.get('question_id')
+        reaction_type = request.POST.get('reaction')
+        question = get_object_or_404(Question, pk=question_id)
+        user = request.user
+
+        reaction, created =  Reaction.objects.get_or_create(
+            user=user,
+            question=question,
+            defaults={'reaction': reaction_type}
+        )
+
+        if not created:
+            reaction.reaction = reaction_type
+            reaction.save()
+
+        like_count = Reaction.objects.filter(question=question, reaction="like").count()
+        dislike_count = Reaction.objects.filter(question=question, reaction="dislike").count()
+
+        return JsonResponse({'likes': like_count, 'dislikes': dislike_count})
+
+    return JsonResponse({}, status=400)
