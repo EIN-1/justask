@@ -17,12 +17,12 @@ def home(request):
     question_list = Question.objects.annotate(
         comment_count=Count('comments', distinct=True),
         like_count=Count(Case(
-            When(reaction__reaction='like', then=1),
+            When(reactions__reaction='like', then=1),
             output_field=IntegerField(),
         )),
         dislike_count=Count(
             Case(
-                When(reaction__reaction='dislike', then=1),
+                When(reactions__reaction='dislike', then=1),
                 output_field=IntegerField(),
             )
         )

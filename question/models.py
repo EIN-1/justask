@@ -24,7 +24,7 @@ class Reaction(models.Model):
         ('dislike', 'Dislike'),
     )
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="reactions")
-    question = models.ForeignKey(Question, on_delete=models.CASCADE)
+    question = models.ForeignKey(Question, on_delete=models.CASCADE, related_name="reactions")
     reaction = models.CharField(max_length=10, choices=REACTION_CHOICES)
 
     class Meta:

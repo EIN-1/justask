@@ -6,6 +6,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.urls import reverse_lazy
 from django.contrib.auth.models import User
 from django.db.models import Count, Q
+from question.models import Question
 
 # Create your views here.
 def register(request):
@@ -37,8 +38,13 @@ def view_profile(request, pk):
     dislikes_count = user.reactions.filter(reaction='dislike').count()
     # Get all comments, liked questions, and disliked questions
     comments = user.comments.all()
-    liked_questions = user.reactions.filter(reaction='like').distinct()
-    disliked_questions = user.reactions.filter(reaction='dislike').distinct()
+    # liked_questions = user.reactions.filter(reaction='like').distinct()
+    # liked_questions = user.reactions.filter(reaction='like').values_list('question').distinct()
+    liked_questions = Question.objects.filter(reactions__user=user, reactions__reaction='like')
+    disliked_questions = Question.objects.filter(reactions__user=user, reactions__reaction='dislike')
+    user_questions =  Question.objects.filter(author=user)
+
+  
     
     context = {
         'user': user,
@@ -48,6 +54,7 @@ def view_profile(request, pk):
         'comments': comments,
         'liked_questions': liked_questions,
         'disliked_questions': disliked_questions,
+        'user_questions': user_questions,
     }
     
     return render(request, 'users/profile.html', context)
