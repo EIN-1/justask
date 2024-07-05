@@ -1,6 +1,7 @@
 {% load bootstrap5 %}
 {% load fontawesome_5 %}
 {% load static %}
+{% load gravatar %}
 
 
 
@@ -19,10 +20,10 @@
         <div class="container-fluid">
             <div class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Profile
+                  <img src="{% gravatar_url user.email 30 %}" alt="{{ user.name }}" class="rounded-circle mr-2" style="margin-right: 0.2rem;"> 
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#">View Profile</a></li>
+                  <li><a class="dropdown-item" href="{% url 'profile' user.pk %}">View Profile</a></li>
                   <li><a class="dropdown-item" href="{% url 'logout' %}">Log out</a></li>                  
                 </ul>
             </div>
@@ -48,6 +49,8 @@
           </div>
         </div>
       </nav>
+      <div class="mt-5">
       {% block content %} {% endblock content %}
+      </div>
     </body>
 </html>

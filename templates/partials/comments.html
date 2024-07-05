@@ -1,8 +1,9 @@
 {% load gravatar %}
 
-<form class="add-comment-form mb-3" data-question-id="{{ question_id }}">
+<form class="add-comment-form mb-3 mt-3" data-question-id="{{ question_id }}">
     {% csrf_token %}
     <div class="input-group">
+      <img src="{% gravatar_url user.email 30 %}" alt="{{ user.name }}" class="rounded-circle mr-2" style="margin-right: 1rem;"> 
       <input type="text" class="form-control" name="content" id="inputGroupFile04" placeholder="Add comment..." aria-describedby="inputGroupFileAddon04" aria-label="Comment">
       <button class="btn btn-outline-secondary" type="submit" id="inputGroupFileAddon04">Add Comment</button>
     </div>
