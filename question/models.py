@@ -23,7 +23,7 @@ class Reaction(models.Model):
         ('like', 'Like'),
         ('dislike', 'Dislike'),
     )
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="reactions")
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     reaction = models.CharField(max_length=10, choices=REACTION_CHOICES)
 

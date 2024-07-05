@@ -30,11 +30,25 @@ class CustomLoginView(LoginView):
 
 def view_profile(request, pk):
     user = get_object_or_404(User, pk=pk)
-    user = get_object_or_404(User.objects.annotate(
-        like_count=Count('reaction', filter=Q(reaction__reaction='like')),
-        dislike_count=Count('reaction', filter=Q(reaction__reaction='dislike')),
-        comments_count=Count('comment')
-    ), pk=pk)
-    print(user)
-    return render(request, 'users/profile.html', {'user':user})
+    
+    # Count comments, likes, and dislikes
+    comments_count = user.comments.count()
+    likes_count = user.reactions.filter(reaction='like').count()
+    dislikes_count = user.reactions.filter(reaction='dislike').count()
+    # Get all comments, liked questions, and disliked questions
+    comments = user.comments.all()
+    liked_questions = user.reactions.filter(reaction='like').distinct()
+    disliked_questions = user.reactions.filter(reaction='dislike').distinct()
+    
+    context = {
+        'user': user,
+        'comments_count': comments_count,
+        'likes_count': likes_count,
+        'dislikes_count': dislikes_count,
+        'comments': comments,
+        'liked_questions': liked_questions,
+        'disliked_questions': disliked_questions,
+    }
+    
+    return render(request, 'users/profile.html', context)
 
