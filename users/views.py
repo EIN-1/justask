@@ -5,6 +5,7 @@ from django.contrib.auth.views import LoginView
 from django.contrib.auth.forms import AuthenticationForm
 from django.urls import reverse_lazy
 from django.contrib.auth.models import User
+from django.db.models import Count, Q
 
 # Create your views here.
 def register(request):
@@ -29,5 +30,11 @@ class CustomLoginView(LoginView):
 
 def view_profile(request, pk):
     user = get_object_or_404(User, pk=pk)
+    user = get_object_or_404(User.objects.annotate(
+        like_count=Count('reaction', filter=Q(reaction__reaction='like')),
+        dislike_count=Count('reaction', filter=Q(reaction__reaction='dislike')),
+        comments_count=Count('comment')
+    ), pk=pk)
+    print(user)
     return render(request, 'users/profile.html', {'user':user})
 
