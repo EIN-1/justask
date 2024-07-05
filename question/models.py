@@ -13,8 +13,19 @@ class Question(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    likes = models.IntegerField(default=0)
-    dislikes = models.IntegerField(default=0)
+    
 
     def __str__(self):
         return self.title
+
+class Reaction(models.Model):
+    REACTION_CHOICES = (
+        ('like', 'Like'),
+        ('dislike', 'Dislike'),
+    )
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    question = models.ForeignKey(Question, on_delete=models.CASCADE)
+    reaction = models.CharField(max_length=10, choices=REACTION_CHOICES)
+
+    class Meta:
+        unique_together = (('user', 'question'))
