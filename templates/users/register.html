@@ -1,0 +1,48 @@
+{% load bootstrap5 %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <title>JustAsk | Register</title>
+</head>
+<body>
+    <div class="bg-light py-3 py-md-5">
+        <div class="container">
+          <div class="row justify-content-md-center">
+            <div class="col-12 col-md-11 col-lg-8 col-xl-7 col-xxl-6">
+              <div class="bg-white p-4 p-md-5 rounded shadow-sm">
+                <div class="row">
+                  <div class="col-12">
+                    <div class="text-center mb-5">
+                      <a href="#!">
+                        {% comment %} <img src="./assets/img/bsb-logo.svg" alt="BootstrapBrain Logo" width="175" height="57"> {% endcomment %}
+                      </a>
+                    </div>
+                  </div>
+                </div>       
+                <form method="post" class="form">
+                    {% csrf_token %}
+                    {% bootstrap_form form %}
+                    {% buttons %}
+                    <button type="submit" class="btn btn-primary">
+                        Submit
+                    </button>
+                    {% endbuttons %}
+                </form>
+           
+                <div class="row">
+                    <div class="col-12">
+                      <hr class="mt-5 mb-4 border-secondary-subtle">
+                      <p class="m-0 text-secondary text-center">Already have an account? <a href="#!" class="link-primary text-decoration-none">Sign in</a></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+</body>
+</html>
