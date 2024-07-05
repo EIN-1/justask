@@ -1,3 +1,12 @@
+<form class="add-comment-form mb-3" data-question-id="{{ question_id }}">
+    {% csrf_token %}
+    <div class="input-group">
+      <input type="text" class="form-control" name="content" id="inputGroupFile04" placeholder="Add comment..." aria-describedby="inputGroupFileAddon04" aria-label="Comment">
+      <button class="btn btn-outline-secondary" type="submit" id="inputGroupFileAddon04">Add Comment</button>
+    </div>
+</form>
+  
+
 {% for comment in comments %}
     <div class="card mb-2">
         <div class="card-body">
@@ -6,3 +15,30 @@
         </div>
     </div>
 {% endfor %}
+
+<script>
+$('.add-comment-form').submit(function(e){
+    e.preventDefault();
+    var form = $(this);
+    var questionId = form.data('question-id');
+    var commentsDiv = $('#comments-'+questionId);
+    console.log(questionId)
+
+    $.ajax({
+      type: 'POST',
+      url: '{% url "add_comment" %}',
+      data: {
+        'question_id': questionId,
+        'content': form.find('input[name="content"]').val(),
+        'csrfmiddlewaretoken': $('input[name="csrfmiddlewaretoken"]').val()
+      },
+      success: function(data){
+        commentsDiv.append(data);
+        form.find('input[name="content"]').val('');
+      },
+      error: function(){
+        alert('Anerror occured while adding your comment.')
+      }
+    })
+  }) 
+</script>     
