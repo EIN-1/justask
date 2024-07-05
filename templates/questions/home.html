@@ -2,6 +2,7 @@
 {% extends "base.html" %}
 
 {% load static %}
+{% load gravatar %}
 {% static 'static_jquery/js/jquery.js' %}
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js">
@@ -19,8 +20,14 @@
           {% for question in questions %}
             <div class="card">
               <div class="card-body">
+                <div class="d-flex align-items-center mb-2">
+                  <img src="{% gravatar_url question.author.email 40 %}" alt="{{ question.author.name }}" class="rounded-circle mr-5"> 
+                  <div>
+                      <h6 class="card-subtitle mb-0">{{ question.author.username }}</h6>
+                      <small class="text-muted">{{ question.created_at }}</small>
+                  </div>
+              </div>
                 <h5 class="card-title">{{question.title}}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">{{question.created_at}}</h6>
                 <p class="card-text">{{question.content|truncatechars:300}}</p>
                 <a href="javascript:void(0);" class="card-link show-comments" data-question-id="{{ question.id }}">
                   {{question.comment_count}} {% fa5_icon 'comment' %}

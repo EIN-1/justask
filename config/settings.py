@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'question',
     'comments',
     'users',
+    'django_gravatar',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
