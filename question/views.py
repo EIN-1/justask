@@ -5,6 +5,7 @@ from django.db.models import Count, Case, When, IntegerField
 from forms import QuestionForm, CommentForm
 from comments.models import Comment
 from django.views.decorators.http import require_POST
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 # Create your views here.
 def home(request):
@@ -13,7 +14,7 @@ def home(request):
         Render the home template passing questions into context.
     """
     question_form = QuestionForm()
-    questions = Question.objects.annotate(
+    question_list = Question.objects.annotate(
         comment_count=Count('comments', distinct=True),
         like_count=Count(Case(
             When(reaction__reaction='like', then=1),
@@ -27,9 +28,20 @@ def home(request):
         )
     ).order_by('-created_at')
 
+    paginator = Paginator(question_list, 10)
+
+    page = request.GET.get('page')
+    try:
+        questions = paginator.page(page)
+    except PageNotAnInteger:
+        questions = paginator.page(1)
+    except EmptyPage:
+        questions = paginator.page(paginator.num_pages)
+    return render(request, 'questions/home.html',{'questions': questions, 'form':question_form})
+
 
     # questions = Question.objects.annotate(comment_count=Count('comments')).order_by('-created_at')
-    return render(request, 'questions/home.html',{'questions': questions, 'form':question_form})
+    # return render(request, 'questions/home.html',{'questions': questions, 'form':question_form})
 
 def question_detail(request, pk):
     """
