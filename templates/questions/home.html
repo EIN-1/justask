@@ -21,7 +21,7 @@
             <div class="card">
               <div class="card-body">
                 <div class="d-flex align-items-center mb-2">
-                  <img src="{% gravatar_url question.author.email 40 %}" alt="{{ question.author.name }}" class="rounded-circle mr-5"> 
+                  <img style="margin-right: 1rem;" src="{% gravatar_url question.author.email 40 %}" alt="{{ question.author.name }}" class="rounded-circle mr-5"> 
                   <div>
                       <h6 class="card-subtitle mb-0">{{ question.author.username }}</h6>
                       <small class="text-muted">{{ question.created_at }}</small>

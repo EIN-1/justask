@@ -1,3 +1,5 @@
+{% load gravatar %}
+
 <form class="add-comment-form mb-3" data-question-id="{{ question_id }}">
     {% csrf_token %}
     <div class="input-group">
@@ -10,7 +12,13 @@
 {% for comment in comments %}
     <div class="card mb-2">
         <div class="card-body">
-            <h6 class="card-subtitle mb-2 text-muted">{{ comment.user.username }} - {{ comment.created_at }}</h6>
+          <div class="d-flex align-items-center mb-2">
+            <img src="{% gravatar_url comment.author.email 30 %}" alt="{{ comment.author.name }}" class="rounded-circle mr-2" style="margin-right: 1rem;"> 
+            <div>
+                <h6 class="card-subtitle mb-0">{{ comment.author.username }}</h6>
+                <small class="text-muted">{{ comment.created_at }}</small>
+            </div>
+        </div>
             <p class="card-text">{{ comment.content }}</p>
         </div>
     </div>
