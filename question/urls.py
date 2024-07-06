@@ -7,4 +7,5 @@ urlpatterns = [
     path('get-comments/', views.get_comments, name='get_comments'),
     path('add-comment/', views.add_comment, name='add_comment'),
     path('react-to-question/', views.react_to_question, name="react_to_question"),
+    path('add-question/', views.create_question, name="add-question"),
 ]

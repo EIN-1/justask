@@ -19,12 +19,12 @@
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
         <!-- Logo on the left -->
-        <a class="navbar-brand" href="#">JustAsk</a>
+        <a class="navbar-brand" href="{% url 'home' %}">JustAsk</a>
 
         <!-- Search in the middle -->
         <div class="collapse navbar-collapse justify-content-center" id="navbarSearch">
-            <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <form class="d-flex" method='get' action="{% url 'home' %}">
+                <input name="q" value="{{query}}" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
         </div>

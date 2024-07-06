@@ -4,8 +4,10 @@ from django.http import JsonResponse
 from django.db.models import Count, Case, When, IntegerField
 from forms import QuestionForm, CommentForm
 from comments.models import Comment
-from django.views.decorators.http import require_POST
+from django.views.decorators.http import require_POST 
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.db.models import Q
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def home(request):
@@ -13,8 +15,13 @@ def home(request):
         First get all questions with the latest (one that was added last) on top.
         Render the home template passing questions into context.
     """
+    query = request.GET.get('q', '')
+
     question_form = QuestionForm()
-    question_list = Question.objects.annotate(
+    
+
+    if query:
+        question_list = Question.objects.filter(Q(title__icontains=query) | Q(content__icontains=query)).annotate(
         comment_count=Count('comments', distinct=True),
         like_count=Count(Case(
             When(reactions__reaction='like', then=1),
@@ -26,8 +33,24 @@ def home(request):
                 output_field=IntegerField(),
             )
         )
-    ).order_by('-created_at')
+        ).order_by('-created_at')
+    else:
+        question_list = Question.objects.annotate(
+        comment_count=Count('comments', distinct=True),
+        like_count=Count(Case(
+            When(reactions__reaction='like', then=1),
+            output_field=IntegerField(),
+        )),
+        dislike_count=Count(
+            Case(
+                When(reactions__reaction='dislike', then=1),
+                output_field=IntegerField(),
+            )
+        )
+        ).order_by('-created_at')
+    
     category_list = Category.objects.all()
+
 
     paginator = Paginator(question_list, 10)
     category_paginator = Paginator(category_list, 10)
@@ -49,7 +72,7 @@ def home(request):
     except EmptyPage:
         categories= category_paginator.page(category_paginator.num_pages)
 
-    return render(request, 'questions/home.html',{'questions': questions, 'form':question_form, 'categories':categories})
+    return render(request, 'questions/home.html',{'questions': questions, 'form':question_form, 'categories':categories, 'query':query})
 
 
     # questions = Question.objects.annotate(comment_count=Count('comments')).order_by('-created_at')
@@ -105,3 +128,17 @@ def react_to_question(request):
 
         return JsonResponse({'likes': like_count, 'dislikes': dislike_count})
     return JsonResponse({}, status=400)
+
+
+@login_required
+def create_question(request):
+    if request.method == 'POST':
+        form = QuestionForm(request.POST)
+        if form.is_valid():
+            question = form.save(commit=False)
+            question.author = request.user
+            question.save()
+            return redirect('home')
+    else:
+        form = QuestionForm()
+        return redirect('home')

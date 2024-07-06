@@ -111,7 +111,7 @@
 
     <div class="col-sm-12 col-md-4 col-sm-order-first">
       <div class="container">
-        {% if request.user.is_loggedin %}
+        {% if request.user.is_authenticated %}
           <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
             Add a question
           </button>
@@ -143,7 +143,7 @@
       </div>
       <div class="modal-body">
         <div class="row gap-2">
-          <form action="/url/to/submit/" method="post" class="form">
+          <form action="{% url 'add-question' %}" method="post" class="form">
             {% csrf_token %}
             {% bootstrap_form form %}
             {% buttons %}

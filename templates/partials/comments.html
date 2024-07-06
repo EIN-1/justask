@@ -1,6 +1,6 @@
 {% load gravatar %}
 
-{% if request.user.is_loggedin %}
+{% if request.user.is_authenticated %}
   <form class="add-comment-form mb-3 mt-3" data-question-id="{{ question_id }}">
       {% csrf_token %}
       <div class="input-group">
