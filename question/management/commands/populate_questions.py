@@ -1,46 +1,73 @@
+import random
 from django.core.management.base import BaseCommand
 from django.contrib.auth.models import User
-from question.models import Question
+from question.models import Category, Question,Reaction
 from comments.models import Comment
 from faker import Faker
-import random
+from datetime import timedelta
+from django.utils import timezone
+
 
 class Command(BaseCommand):
-    help = 'Popilate the database with fake questions and comments'
+    help = 'Populate the database with fake data'
 
     def handle(self, *args, **kwargs):
-        self.stdout.write('Starting database population...')
-
         fake = Faker()
 
-        #create fake Users
-        self.stdout.write('Creating users...')
+        # Create categories
+        categories = []
+        self.stdout.write("Generating categories....")
+        for _ in range(5):
+            category = Category.objects.create(name=fake.word())
+            categories.append(category)
+
+        # Create users
         users = []
-        for _ in range(20):
+        self.stdout.write("Generating users....")
+        for _ in range(10):
             user = User.objects.create_user(
-                username = fake.user_name(),
-                email = fake.email(),
-                password = 'password'
+                username=fake.user_name(),
+                email=fake.email(),
+                password='password123'
             )
             users.append(user)
 
-        #create fake questions
-        self.stdout.write('Creating questions...')
+        # Create questions
         questions = []
-        for _ in range(80):
+        self.stdout.write("Generating questions....")
+        for _ in range(20):
+            created_at = fake.date_time_between(start_date='-1y', end_date='now', tzinfo=timezone.get_current_timezone())
             question = Question.objects.create(
                 title=fake.sentence(),
-                content=fake.paragraphs(nb=20),
-                author=random.choice(users)
+                content=fake.paragraph(),
+                author=random.choice(users),
+                category=random.choice(categories),
+                created_at=created_at,
+                updated_at=created_at
             )
             questions.append(question)
 
-        #create fake comments
-        self.stdout.write('Creating comments...')
-        for _ in range(400):
-            Comment.objects.create(
-                question=random.choice(questions),
-                author=random.choice(users),
-                content=fake.paragraph()
-            )
-        self.stdout.write('Database population completed sucessfully!!!')
+        # Create reactions
+        self.stdout.write("Generating reactions....")
+        for question in questions:
+            for _ in range(random.randint(0, 10)):
+                try:
+                    Reaction.objects.create(
+                        user=random.choice(users),
+                        question=question,
+                        reaction=random.choice(['like', 'dislike'])
+                    )
+                except:
+                    continue
+
+        # Create comments
+        self.stdout.write("Generating comments....")
+        for question in questions:
+            for _ in range(random.randint(0, 5)):
+                Comment.objects.create(
+                    question=question,
+                    author=random.choice(users),
+                    content=fake.paragraph()
+                )
+
+        self.stdout.write(self.style.SUCCESS('Successfully populated the database with fake data'))
