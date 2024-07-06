@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Question, Reaction
+from .models import Question, Reaction, Category
 from django.http import JsonResponse
 from django.db.models import Count, Case, When, IntegerField
 from forms import QuestionForm, CommentForm
@@ -27,17 +27,29 @@ def home(request):
             )
         )
     ).order_by('-created_at')
+    category_list = Category.objects.all()
 
     paginator = Paginator(question_list, 10)
+    category_paginator = Paginator(category_list, 10)
 
     page = request.GET.get('page')
+    category_page = request.GET.get('category_page')
+
     try:
-        questions = paginator.page(page)
+        questions = paginator.page(page)    
     except PageNotAnInteger:
         questions = paginator.page(1)
     except EmptyPage:
         questions = paginator.page(paginator.num_pages)
-    return render(request, 'questions/home.html',{'questions': questions, 'form':question_form})
+
+    try:
+        categories = category_paginator.page(category_page)        
+    except PageNotAnInteger:
+        categories = category_paginator.page(1)
+    except EmptyPage:
+        categories= category_paginator.page(category_paginator.num_pages)
+
+    return render(request, 'questions/home.html',{'questions': questions, 'form':question_form, 'categories':categories})
 
 
     # questions = Question.objects.annotate(comment_count=Count('comments')).order_by('-created_at')
