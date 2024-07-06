@@ -111,18 +111,49 @@
 
     <div class="col-sm-12 col-md-4 col-sm-order-first">
       <div class="container">
-        <div class="row gap-2">
-      <form action="/url/to/submit/" method="post" class="form">
-        {% csrf_token %}
-        {% bootstrap_form form %}
-        {% buttons %}
-          <button type="submit" class="btn btn-primary">
-            Submit
+        {% if request.user.is_loggedin %}
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Add a question
           </button>
-            {% endbuttons %}
-      </form>
+        {% endif %}
+        <div "row">
+          <h5>Categories</h5>
+          <ul class="list-group">
+            {% for category in categories %}
+              <li class="list-group-item">
+                <a href="#">{{category.name}}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Ask Something</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row gap-2">
+          <form action="/url/to/submit/" method="post" class="form">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            {% buttons %}
+              <button type="submit" class="btn btn-primary">
+                Submit
+              </button>
+                {% endbuttons %}
+          </form>
+        </div>
+      </div>
     </div>
   </div>
 </div>
