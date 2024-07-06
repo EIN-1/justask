@@ -104,5 +104,4 @@ def react_to_question(request):
         dislike_count = Reaction.objects.filter(question=question, reaction="dislike").count()
 
         return JsonResponse({'likes': like_count, 'dislikes': dislike_count})
-
     return JsonResponse({}, status=400)
