@@ -142,3 +142,20 @@ def create_question(request):
     else:
         form = QuestionForm()
         return redirect('home')
+
+
+@login_required
+def update_question(request, id):
+    print(id)
+    question = get_object_or_404(Question, id=id)
+    if request.method == 'POST':
+        form = QuestionForm(request.POST, instance=question)
+        if form.is_valid():
+            print("Okay")
+            form.save()
+            return JsonResponse({'success': True})
+        else:
+            print(form.errors)
+            return JsonResponse({'success': False, 'errors': form.errors })
+    print('Metho not supported')
+    return JsonResponse({'success': False})

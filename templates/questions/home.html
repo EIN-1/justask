@@ -40,7 +40,21 @@
                   <span class="dislike-count">
                     {{question.dislike_count}}
                   </span> 
-                  {% fa5_icon 'thumbs-down' %}</a>
+                  {% fa5_icon 'thumbs-down' %}
+                </a>
+                <a href="#" 
+                  class="edit-button card-link editQuestion" 
+                  data-question-id="{{ question.id }}" 
+                  data-question-title="{{ question.title }}" 
+                  data-question-content="{{ question.content }}"
+                  data-question-category="{{ question.category.id }}"
+                  data-bs-toggle="modal" 
+                  data-bs-target="#editQuestionModal">
+                    {% fa5_icon 'pen-fancy' %}
+                </a>
+                <a href="#" class="edit-button card-link">
+                  {% fa5_icon 'trash' %}
+                </a>
                 <div class="comments mt3" id="comments-{{ question.id }}" style="display: none;"></div>
               </div>
             </div>
@@ -158,6 +172,32 @@
   </div>
 </div>
 
+<!-- Edit Question Modal -->
+<div class="modal fade" id="editQuestionModal" tabindex="-1" aria-labelledby="editQuestionModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit Something</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row gap-2">
+          <form id="editQuestionForm" method="post" class="form">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            <input type="hidden" id="question_id" name="question_id">
+            {% buttons %}
+              <button type="submit" class="btn btn-primary">
+                Submit
+              </button>
+                {% endbuttons %}
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -187,6 +227,49 @@
         commentsDiv.slideToggle();
       }
     })
+
+    var editQuestionModal = new bootstrap.Modal(document.getElementById('editQuestionModal'));
+
+    $('.editQuestion').click(function(){
+
+      console.log('Clicked');
+      var question_id = $(this).data('question-id');
+      var question_title = $(this).data('question-title');
+      var question_content = $(this).data('question-content');
+      var question_category = $(this).data('question-category');
+      console.log(question_title)
+
+      $('#question_id').val(question_id);
+      $('#id_title').val(question_title);
+      $('#id_content').val(question_content);
+      $('#id_category').val(question_category);
+
+      editQuestionModal.show();
+    })
+
+    $('#editQuestionForm').submit(function(e){
+      e.preventDefault();
+      var formData = $(this).serialize();
+      var questionId = $('#question_id').val();
+      var url = `/update-question/${questionId}/`;
+
+
+      $.ajax({
+        type:'POST',
+        url: url,
+        data: formData,
+        success: function(response){
+          if (response.success){
+            window.location.reload();
+          }else{
+            alert('Failed to edit question')
+          }
+        },
+        error:function(){
+          alert('An error occured while trying to update the question.')
+        }
+      });
+    });
 
     $('.like-button, .dislike-button').click(function(e) {
       e.preventDefault();
