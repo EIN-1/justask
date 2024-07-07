@@ -52,7 +52,7 @@
                   data-bs-target="#editQuestionModal">
                     {% fa5_icon 'pen-fancy' %}
                 </a>
-                <a href="#" class="edit-button card-link">
+                <a href="#" class="delete-button card-link" data-question-id={{ question.id }}>
                   {% fa5_icon 'trash' %}
                 </a>
                 <div class="comments mt3" id="comments-{{ question.id }}" style="display: none;"></div>
@@ -297,5 +297,67 @@
     });
   })
 </script>
+
+<script>
+  function getCookie(name) {
+      var cookieValue = null;
+      if (document.cookie && document.cookie !== '') {
+          var cookies = document.cookie.split(';');
+          for (var i = 0; i < cookies.length; i++) {
+              var cookie = cookies[i].trim();
+              // Does this cookie string begin with the name we want?
+              if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                  cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                  break;
+              }
+          }
+      }
+      return cookieValue;
+  }
+
+  var csrftoken = getCookie('csrftoken');
+
+  function csrfSafeMethod(method) {
+      // these HTTP methods do not require CSRF protection
+      return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+  }
+
+  $.ajaxSetup({
+      beforeSend: function(xhr, settings) {
+          if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+              xhr.setRequestHeader("X-CSRFToken", csrftoken);
+          }
+      }
+  });
+
+  $(document).ready(function() {
+      $('.delete-button').click(function(event) {
+          event.preventDefault();
+          
+          if (!confirm('Are you sure you want to delete this question?')) {
+              return;
+          }
+          
+          var questionId = $(this).data('question-id');
+          var url = '{% url "delete_question" 0 %}'.replace('0', questionId);
+          
+          $.ajax({
+              type: 'DELETE',
+              url: url,
+              success: function(response) {
+                  if (response.success) {
+                      window.location.reload();
+                  } else {
+                      alert('Failed to delete the question.');
+                  }
+              },
+              error: function() {
+                  alert('An error occurred while deleting the question.');
+              }
+          });
+      });
+  });
+</script>
+
   
 {% endblock %}

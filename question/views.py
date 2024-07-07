@@ -159,3 +159,14 @@ def update_question(request, id):
             return JsonResponse({'success': False, 'errors': form.errors })
     print('Metho not supported')
     return JsonResponse({'success': False})
+
+def delete_question(request, id):
+    if request.method == 'DELETE':
+        question = get_object_or_404(Question, id=id)
+        if request.user == question.author:  # Ensure the user is the author
+            question.delete()
+            return JsonResponse({'success': True})
+        else:
+            return JsonResponse({'success': False, 'error': 'You do not have permission to delete this question.'})
+    
+    return JsonResponse({'success': False, 'error': 'Invalid request method.'})
