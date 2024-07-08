@@ -23,47 +23,27 @@ def home(request):
     
 
     if query:
-        question_list = Question.objects.filter(Q(title__icontains=query) | Q(content__icontains=query)).annotate(
-        comment_count=Count('comments', distinct=True),
-        like_count=Count(Case(
-            When(reactions__reaction='like', then=1),
-            output_field=IntegerField(),
-        )),
-        dislike_count=Count(
-            Case(
-                When(reactions__reaction='dislike', then=1),
-                output_field=IntegerField(),
-            )
-        )
+        question_list = Question.objects.filter(
+            Q(title__icontains=query) | Q(content__icontains=query)
+        ).annotate(
+            comment_count=Count('comments', distinct=True),
+            like_count=Count('reactions', filter=Q(reactions__reaction='like'), distinct=True),
+            dislike_count=Count('reactions', filter=Q(reactions__reaction='dislike'), distinct=True)
         ).order_by('-created_at')
     elif category_id:
-        question_list = Question.objects.filter(category__id=category_id).annotate(
-        comment_count=Count('comments', distinct=True),
-        like_count=Count(Case(
-            When(reactions__reaction='like', then=1),
-            output_field=IntegerField(),
-        )),
-        dislike_count=Count(
-            Case(
-                When(reactions__reaction='dislike', then=1),
-                output_field=IntegerField(),
-            )
-        )
+        question_list = Question.objects.filter(
+            category__id=category_id
+        ).annotate(
+            comment_count=Count('comments', distinct=True),
+            like_count=Count('reactions', filter=Q(reactions__reaction='like'), distinct=True),
+            dislike_count=Count('reactions', filter=Q(reactions__reaction='dislike'), distinct=True)
         ).order_by('-created_at')
 
     else:
-        question_list = Question.objects.annotate(
-        comment_count=Count('comments', distinct=True),
-        like_count=Count(Case(
-            When(reactions__reaction='like', then=1),
-            output_field=IntegerField(),
-        )),
-        dislike_count=Count(
-            Case(
-                When(reactions__reaction='dislike', then=1),
-                output_field=IntegerField(),
-            )
-        )
+        question_list = Question.objects.all().annotate(
+            comment_count=Count('comments', distinct=True),
+            like_count=Count('reactions', filter=Q(reactions__reaction='like'), distinct=True),
+            dislike_count=Count('reactions', filter=Q(reactions__reaction='dislike'), distinct=True)
         ).order_by('-created_at')
     
     category_list = Category.objects.all()
@@ -146,11 +126,10 @@ def react_to_question(request):
         if not created:
             reaction.reaction = reaction_type
             reaction.save()
+        like_count = Reaction.objects.filter(question__id=question_id,reaction="like").count()
+        dislike_count = Reaction.objects.filter(question__id=question_id,reaction="dislike").count()
 
-        like_count = Reaction.objects.filter(question=question, reaction="like").count()
-        dislike_count = Reaction.objects.filter(question=question, reaction="dislike").count()
-
-        return JsonResponse({'likes': like_count, 'dislikes': dislike_count})
+        return JsonResponse({'like_count': like_count, 'dislike_count': dislike_count})
     return JsonResponse({}, status=400)
 
 

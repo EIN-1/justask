@@ -310,8 +310,7 @@
               'csrfmiddlewaretoken': '{{ csrf_token }}'
           },
           success: function(data) {
-              likeCount.text(data.likes);
-              dislikeCount.text(data.dislikes);
+            window.location.href = window.location.href;
           },
           error: function() {
               alert('Login to React');
