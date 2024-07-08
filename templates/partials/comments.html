@@ -1,4 +1,5 @@
 {% load gravatar %}
+{% load fontawesome_5 %}
 
 {% if request.user.is_authenticated %}
   <form class="add-comment-form mb-3 mt-3" data-question-id="{{ question_id }}">
@@ -22,6 +23,11 @@
             </div>
         </div>
             <p class="card-text">{{ comment.content }}</p>
+            {% if request.user == comment.author or request.user == comment.question.author %}
+                <a href="javascript:void(0);" class="delete-comment-button btn-outline-danger" data-comment-id="{{ comment.id }}">
+                    {% fa5_icon 'trash' %}
+                </a>
+            {% endif %}
         </div>
     </div>
 {% endfor %}
@@ -50,5 +56,29 @@ $('.add-comment-form').submit(function(e){
         alert('Anerror occured while adding your comment.')
       }
     })
-  }) 
+  })
+
+  $('.delete-comment-button').on('click', function(e) {
+    e.preventDefault();
+    var commentId = $(this).data('comment-id');
+    var commentCard = $(this).closest('.card');
+    var url = `/delete-comment/${commentId}`
+
+    if (confirm('Are you sure you want to delete this comment?')) {
+        $.ajax({
+            type: 'get',
+            url: url,
+            success: function(data) {
+                if (data.success) {
+                    commentCard.remove();
+                } else {
+                    alert('You do not have permission to delete this comment.');
+                }
+            },
+            error: function() {
+                alert('An error occurred while trying to delete the comment.');
+            }
+        });
+    }
+});
 </script>     

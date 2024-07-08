@@ -178,3 +178,13 @@ def delete_question(request, id):
             return JsonResponse({'success': False, 'error': 'You do not have permission to delete this question.'})
     
     return JsonResponse({'success': False, 'error': 'Invalid request method.'})
+
+@login_required
+def delete_comment(request, id):
+    comment = get_object_or_404(Comment, id=id)
+    question = comment.question
+    if request.user == comment.author or request.user == question.author:
+        comment.delete()
+        return JsonResponse({'success': True})
+    else:
+        return HttpResponseForbidden()
