@@ -22,6 +22,8 @@
         <!-- Logo on the left -->
         <a class="navbar-brand" href="{% url 'home' %}"><img src="">JustAsk</a>
 
+        <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+
         <!-- Search in the middle -->
         <div class="collapse navbar-collapse justify-content-center" id="navbarSearch">
             <form class="d-flex" method='get' action="{% url 'home' %}">
@@ -45,7 +47,9 @@
             {% else %}
                 <a class="btn btn-outline-primary" href="{% url 'login' %}">Login</a>
             {% endif %}
-        </div>
+        </div>          
+            
+         
 
         <!-- Toggler for small screens -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSearch" aria-controls="navbarSearch" aria-expanded="false" aria-label="Toggle navigation">
