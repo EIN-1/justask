@@ -250,7 +250,7 @@ Tested for responsiveness manually.
 
 ## **5.3. Bugs**
 
-Bugs is documented separately in [validation.md](/docs/bugs/bugs.md.md) file.
+- [** Stackoverflow Django annotate() multiple times causes wrong answers **] (https://stackoverflow.com/questions/1265190/django-annotate-multiple-times-causes-wrong-answers) - It helped in fixing bug with likes and disks showing wrong counts by adding distinct=True in my multiple annotation in the home view.
 
 # **6. Deployment**
 
@@ -391,6 +391,14 @@ EMAIL_USE_TLS = True`
  
 ### 7.3. Credits
 -this might change!!!!
+- [**jQuery.post()**](https://api.jquery.com/jQuery.post/)
+- [**Django documentation template comments**](https://docs.djangoproject.com/en/5.0/ref/templates/language/#comments)
+- [**django-gravatar**](https://github.com/twaddington/django-gravatar)
+- [** Geeksforgeeks Django Jinja **] (https://www.geeksforgeeks.org/jinja-for-server-side-rendering-in-django/)
+- [** Django Templates **] (https://docs.djangoproject.com/fr/4.2/topics/templates/)
+- [** Django documentation Model.__str__ **] (https://docs.djangoproject.com/en/5.0/ref/models/instances/)
+- [** Stackoverflow How to set up Django website with jQuery **] (https://stackoverflow.com/questions/12031825/how-to-set-up-django-website-with-jquery)
+
 - [**Precious Ijege**](https://www.linkedin.com/in/precious-ijege/?originalSubdomain=uk) - massive shout-out for keeping me in the right direction
 thank you for all the support
 

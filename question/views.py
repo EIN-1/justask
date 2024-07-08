@@ -15,14 +15,19 @@ def home(request):
         First get all questions with the latest (one that was added last) on top.
         Render the home template passing questions into context.
     """
+
+    #Get query parameters for the search input, the question_id and category_id
     query = request.GET.get('q', '')
     highlighted_question_id = request.GET.get('question_id')
     category_id = request.GET.get('category_id')
 
+    # Initialize the question form
     question_form = QuestionForm()
     
 
     if query:
+        #if there is a search query
+        #return only questions whose title and or content contains what is in the search
         question_list = Question.objects.filter(
             Q(title__icontains=query) | Q(content__icontains=query)
         ).annotate(

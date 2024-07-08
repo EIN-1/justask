@@ -21,11 +21,12 @@ class Question(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     
-
+    # Function displays the question title when searched
     def __str__(self):
         return self.title
 
 class Reaction(models.Model):
+    # User can like or dislike a question
     REACTION_CHOICES = (
         ('like', 'Like'),
         ('dislike', 'Dislike'),
@@ -35,4 +36,5 @@ class Reaction(models.Model):
     reaction = models.CharField(max_length=10, choices=REACTION_CHOICES)
 
     class Meta:
+        #User can only have one reaction on a question either like or dislike
         unique_together = (('user', 'question'))
