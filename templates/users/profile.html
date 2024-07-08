@@ -61,7 +61,7 @@
                                             <div class="card-body">
                                                 <h6 class="card-subtitle mb-2 text-muted">{{ question.created_at }}</h6>
                                                 <h5 class="card-title">{{ question.title }}</h5>
-                                                <a href="#" class="card-link">View Question</a>
+                                                <a href="{% url 'home' %}?question_id={{ question.id }}" class="view-question-link card-link">View Question</a>
                                             </div>
                                         </div>
                                         {% endfor %}
@@ -89,7 +89,7 @@
                                             <div class="card-body">
                                                 <h6 class="card-subtitle mb-2 text-muted">{{ question.created_at }}</h6>
                                                 <h5 class="card-title">{{ question.title }}</h5>
-                                                <a href="#" class="card-link">View Question</a>
+                                                <a href="{% url 'home' %}?question_id={{ question.id }}" class="view-question-link card-link">View Question</a>
                                             </div>
                                         </div>
                                         {% endfor %}
@@ -100,7 +100,7 @@
                                             <div class="card-body">
                                                 <h6 class="card-subtitle mb-2 text-muted">{{ comment.created_at }}</h6>
                                                 <p class="card-text">{{ comment.content }}</p>
-                                                <a href="#" class="card-link">View Question</a>
+                                                <a href="{% url 'home' %}?question_id={{ question.id }}" class="view-question-link card-link">View Question</a>
                                             </div>
                                         </div>
                                         {% endfor %}

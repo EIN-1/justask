@@ -16,6 +16,7 @@ def home(request):
         Render the home template passing questions into context.
     """
     query = request.GET.get('q', '')
+    highlighted_question_id = request.GET.get('question_id')
 
     question_form = QuestionForm()
     
@@ -58,6 +59,13 @@ def home(request):
     page = request.GET.get('page')
     category_page = request.GET.get('category_page')
 
+    # Find the position of the highlighted question
+    if highlighted_question_id:
+        highlighted_question = get_object_or_404(Question, id=highlighted_question_id)
+        position = list(question_list).index(highlighted_question) + 1  # +1 to get 1-based index
+        # Calculate the page number
+        page = (position - 1) // paginator.per_page + 1
+
     try:
         questions = paginator.page(page)    
     except PageNotAnInteger:
@@ -72,7 +80,7 @@ def home(request):
     except EmptyPage:
         categories= category_paginator.page(category_paginator.num_pages)
 
-    return render(request, 'questions/home.html',{'questions': questions, 'form':question_form, 'categories':categories, 'query':query})
+    return render(request, 'questions/home.html',{'questions': questions, 'form':question_form, 'categories':categories, 'query':query, 'question_id':highlighted_question_id})
 
 
     # questions = Question.objects.annotate(comment_count=Count('comments')).order_by('-created_at')
