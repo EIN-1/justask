@@ -242,21 +242,33 @@
     var editQuestionModal = new bootstrap.Modal(document.getElementById('editQuestionModal'));
 
     $('.editQuestion').click(function(){
-
-      console.log('Clicked');
       var question_id = $(this).data('question-id');
-      var question_title = $(this).data('question-title');
-      var question_content = $(this).data('question-content');
-      var question_category = $(this).data('question-category');
-      console.log(question_title)
+      var questionTitle = $(this).data('question-title');
+      var questionContent = $(this).data('question-content');
+      var questionCategory = $(this).data('question-category');
 
       $('#question_id').val(question_id);
-      $('#id_title').val(question_title);
-      $('#id_content').val(question_content);
-      $('#id_category').val(question_category);
+      $('#id_title').val(questionTitle);
+      $('#id_content').val(questionContent);
+      $('#id_category').val(questionCategory);
 
       editQuestionModal.show();
     })
+
+    // Event listener for the modal show event to make sure the form is populated correctly
+    $('#editQuestionModal').on('show.bs.modal', function(event) {
+      var button = $(event.relatedTarget); // Button that triggered the modal
+      var questionId = button.data('question-id');
+      var questionTitle = button.data('question-title');
+      var questionContent = button.data('question-content');
+      var questionCategory = button.data('question-category');
+
+      var modal = $(this);
+      modal.find('#question_id').val(questionId);
+      modal.find('#id_title').val(questionTitle);
+      modal.find('#id_content').val(questionContent);
+      modal.find('#id_category').val(questionCategory);
+    });
 
     $('#editQuestionForm').submit(function(e){
       e.preventDefault();

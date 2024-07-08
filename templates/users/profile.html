@@ -72,7 +72,7 @@
                                             <div class="card-body">
                                                 <h6 class="card-subtitle mb-2 text-muted">{{ comment.created_at }}</h6>
                                                 <p class="card-text">{{ comment.content }}</p>
-                                                <a href="#" class="card-link">View Comment</a>
+                                                <a href="{% url 'home' %}?highlight_comment={{ comment.id }}" class="view-question-link card-link">View Comment</a>
                                             </div>
                                         </div>
                                         {% endfor %}
