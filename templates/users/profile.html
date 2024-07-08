@@ -16,7 +16,9 @@
                                 <h5>{{user.email}}</h5>
                                 <p class="text-secondary mb-1">{{user.date_joined}}</p>
                                 <p class="text-muted font-size-sm">{{user.last_login}}</p>
-                                <button class="btn btn-primary">Change Password</button>
+                                {% if user.id == request.user.id %}
+                                    <a class="btn btn-primary" href="{% url 'change_password' %}" role="button">Change Password</a>
+                                {% endif %}
                             </div>
                         </div>
                         <hr class="my-4">
@@ -73,7 +75,7 @@
                                             <div class="card-body">
                                                 <h6 class="card-subtitle mb-2 text-muted">{{ comment.created_at }}</h6>
                                                 <p class="card-text">{{ comment.content }}</p>
-                                                <a href="{% url 'home' %}?highlight_comment={{ comment.id }}" class="view-question-link card-link">View Comment</a>
+                                                <a href="{% url 'home' %}?question_id={{ comment.question.id }}" class="view-question-link card-link">View Comment</a>
                                             </div>
                                         </div>
                                         {% endfor %}
