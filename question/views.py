@@ -17,6 +17,7 @@ def home(request):
     """
     query = request.GET.get('q', '')
     highlighted_question_id = request.GET.get('question_id')
+    category_id = request.GET.get('category_id')
 
     question_form = QuestionForm()
     
@@ -35,6 +36,21 @@ def home(request):
             )
         )
         ).order_by('-created_at')
+    elif category_id:
+        question_list = Question.objects.filter(category__id=category_id).annotate(
+        comment_count=Count('comments', distinct=True),
+        like_count=Count(Case(
+            When(reactions__reaction='like', then=1),
+            output_field=IntegerField(),
+        )),
+        dislike_count=Count(
+            Case(
+                When(reactions__reaction='dislike', then=1),
+                output_field=IntegerField(),
+            )
+        )
+        ).order_by('-created_at')
+
     else:
         question_list = Question.objects.annotate(
         comment_count=Count('comments', distinct=True),
