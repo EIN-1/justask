@@ -19,7 +19,7 @@ class Command(BaseCommand):
 
         # Create categories
         # 1. create an empty list of categories
-        # 2. Inform the user that categories are being created
+        # 2. Inform the admin that categories are being created
         # 3. Loop 5 times
         #    3.a Create a category with a random word using faker
         #    3.b Append the created category to the categories array
@@ -32,7 +32,7 @@ class Command(BaseCommand):
 
         # Create users
         # 1. create an empty list of users
-        # 2. Inform the user that users are being created
+        # 2. Inform the admin that users are being created
         # 3. Loop 10 times
         #    3.a Create a user with a random username and email using faker and a password
         #    3.b Append the created user to the user array
@@ -48,7 +48,7 @@ class Command(BaseCommand):
 
         # Create questions
         # 1. create an empty list of questions
-        # 2. Inform the user that questions are being created
+        # 2. Inform the admin that questions are being created
         # 3. Loop 20 times
         #    3.a Create a random time (created_at) between 1 year ago and today
         #    3.b Create a question with a random title, content, author, category and the created_at time, and a rondom author
