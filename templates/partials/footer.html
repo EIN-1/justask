@@ -1,0 +1,109 @@
+<style>
+    footer {
+        background-color: #f8f9fa;
+      }
+      
+      footer h5 {
+        color: #343a40;
+        font-weight: bold;
+      }
+      
+      footer a {
+        color: #343a40;
+        text-decoration: none;
+      }
+      
+      footer a:hover {
+        color: #007bff;
+      }
+      
+      footer .social-icons i {
+        font-size: 1.25rem;
+        margin-right: 10px;
+      }
+      
+      footer .social-icons i:hover {
+        color: #007bff;
+      }
+      
+</style>
+
+
+
+<footer class="bg-light text-dark py-4">
+    <div class="container">
+      <div class="row">
+        <!-- About Us -->
+        <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+          <h5 class="text-uppercase">About Us</h5>
+          <p class="mb-0">
+            JustAsk is a platform where users can ask questions, share knowledge, and connect with others.
+          </p>
+        </div>
+        <!-- Contact -->
+        <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+          <h5 class="text-uppercase">Contact</h5>
+          <ul class="list-unstyled">
+            <li>
+              <a href="mailto:contact@justask.com" class="text-dark">Email: contact@justask.com</a>
+            </li>
+            <li>
+              <a href="tel:+1234567890" class="text-dark">Phone: +123 456 7890</a>
+            </li>
+            <li>
+              <a href="{% url 'home' %}" class="text-dark">Address: 123 JustAsk Street, Knowledge City</a>
+            </li>
+          </ul>
+        </div>
+        <!-- Social Media -->
+        <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+          <h5 class="text-uppercase">Follow Us</h5>
+          <ul class="list-unstyled">
+            <li>
+              <a href="{% url 'home' %}" class="text-dark">
+                <i class="fab fa-facebook-f"></i> Facebook
+              </a>
+            </li>
+            <li>
+              <a href="{% url 'home' %}" class="text-dark">
+                <i class="fab fa-twitter"></i> Twitter
+              </a>
+            </li>
+            <li>
+              <a href="{% url 'home' %}" class="text-dark">
+                <i class="fab fa-linkedin-in"></i> LinkedIn
+              </a>
+            </li>
+            <li>
+              <a href="{% url 'home' %}" class="text-dark">
+                <i class="fab fa-instagram"></i> Instagram
+              </a>
+            </li>
+          </ul>
+        </div>
+        <!-- Quick Links -->
+        <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+          <h5 class="text-uppercase">Quick Links</h5>
+          <ul class="list-unstyled">
+            <li>
+              <a href="{% url 'home' %}" class="text-dark">Home</a>
+            </li>
+            <li>
+              <a href="{% url 'home' %}" class="text-dark">Ask a Question</a>
+            </li>
+            <li>
+              <a href="{% url 'home' %}" class="text-dark">Categories</a>
+            </li>
+            <li>
+              <a href="{% url 'home' %}" class="text-dark">Contact Us</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <hr class="my-3">
+      <div class="text-center">
+        <p class="mb-0">&copy; 2024 JustAsk. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+  
