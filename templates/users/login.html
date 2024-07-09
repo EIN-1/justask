@@ -1,4 +1,5 @@
 {% load bootstrap5 %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,8 +18,8 @@
                 <div class="row">
                   <div class="col-12">
                     <div class="text-center mb-5">
-                      <a href="#!">
-                        {% comment %} <img src="./assets/img/bsb-logo.svg" alt="BootstrapBrain Logo" width="175" height="57"> {% endcomment %}
+                      <a href="{% url 'home' %}">
+                        <img src="{% static 'img/justask.png' %}" alt="JustAsk Logo" width="175" height="100"> 
                       </a>
                     </div>
                   </div>
@@ -36,6 +37,7 @@
                 <div class="row">
                     <div class="col-12">
                       <hr class="mt-5 mb-4 border-secondary-subtle">
+                      <p class="m-0 text-secondary text-center">Back <a href="{% url 'home' %}" class="link-primary text-decoration-none">Home</a></p>
                       <p class="m-0 text-secondary text-center">Forgot Password? <a href="{% url 'password_reset' %}" class="link-primary text-decoration-none">Reset</a></p>
                       <p class="m-0 text-secondary text-center">Don't have an account? <a href="{% url 'register' %}" class="link-primary text-decoration-none">Register</a></p>
 

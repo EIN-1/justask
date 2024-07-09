@@ -391,6 +391,7 @@ EMAIL_USE_TLS = True`
  
 ### 7.3. Credits
 -this might change!!!!
+- [**The Django admin site**](https://docs.djangoproject.com/en/5.0/ref/contrib/admin/)
 - [**jQuery.post()**](https://api.jquery.com/jQuery.post/)
 - [**Django documentation template comments**](https://docs.djangoproject.com/en/5.0/ref/templates/language/#comments)
 - [**django-gravatar**](https://github.com/twaddington/django-gravatar)
