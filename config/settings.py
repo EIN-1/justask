@@ -32,11 +32,13 @@ DEBUG = os.environ.get('DEBUG')
 ALLOWED_HOSTS = [
     "https://just-ask-b3c36fe12bcc.herokuapp.com",
     "http://just-ask-b3c36fe12bcc.herokuapp.com",
+    "just-ask-b3c36fe12bcc.herokuapp.com",
 ]
 
 CSRF_TRUSTED_ORIGINS = [
     "https://just-ask-b3c36fe12bcc.herokuapp.com",
     "http://just-ask-b3c36fe12bcc.herokuapp.com",
+    "just-ask-b3c36fe12bcc.herokuapp.com",
 ]
 
 if DEBUG:
