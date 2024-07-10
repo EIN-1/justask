@@ -1,0 +1,156 @@
+{% extends 'base.html' %}
+{% load gravatar %}
+{% load fontawesome_5 %}
+
+{% block content %}
+<div class="container">
+    <div class="main-body">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex flex-column align-items-center text-center">
+                            <img src="{% gravatar_url user.email 80 %}" alt="{{user.username}}" class="rounded-circle p-1 bg-primary" width="110">
+                            <div class="mt-3">
+                                <h4>{{user.username}}</h4>
+                                <h5>{{user.email}}</h5>
+                                <p class="text-secondary mb-1">{{user.date_joined}}</p>
+                                <p class="text-muted font-size-sm">{{user.last_login}}</p>
+                                {% if user.id == request.user.id %}
+                                    <a class="btn btn-primary" href="{% url 'change_password' %}" role="button">Change Password</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <hr class="my-4">
+                        <ul class="list-group list-group-flush">
+                            <li data-type="comments" class="list-group-item d-flex justify-content-between align-items-start">
+                                <div class="ms-2 me-auto">
+                                  <div class="fw-bold">{% fa5_icon 'comment' %}</div>
+                                  Comments
+                                </div>
+                                <span class="badge bg-primary rounded-pill">{{comments_count}}</span>
+                              </li>
+
+                            <li data-type="likes" class="list-group-item d-flex justify-content-between align-items-start">
+                                <div class="ms-2 me-auto">
+                                  <div class="fw-bold">{% fa5_icon 'thumbs-up' %}</div>
+                                  Likes
+                                </div>
+                                <span class="badge bg-primary rounded-pill">{{likes_count}}</span>
+                              </li>
+                          
+
+                            <li data-type="dislikes" class="list-group-item d-flex justify-content-between align-items-start">
+                                <div class="ms-2 me-auto">
+                                  <div class="fw-bold">{% fa5_icon 'thumbs-down' %}</div>
+                                  Dislikes
+                                </div>
+                                <span class="badge bg-primary rounded-pill">{{dislikes_count}}</span>
+                              </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Likes</h5>
+                                        {% for question in liked_questions %}
+                                        <div class="card mb-2">
+                                            <div class="card-body">
+                                                <h6 class="card-subtitle mb-2 text-muted">{{ question.created_at }}</h6>
+                                                <h5 class="card-title">{{ question.title }}</h5>
+                                                <a href="{% url 'home' %}?question_id={{ question.id }}" class="view-question-link card-link">View Question</a>
+                                            </div>
+                                        </div>
+                                        {% endfor %}
+                    
+                                        <h5 class="card-title mt-4">Comments</h5>
+                                        {% for comment in comments %}
+                                        <div class="card mb-2">
+                                            <div class="card-body">
+                                                <h6 class="card-subtitle mb-2 text-muted">{{ comment.created_at }}</h6>
+                                                <p class="card-text">{{ comment.content }}</p>
+                                                <a href="{% url 'home' %}?question_id={{ comment.question.id }}" class="view-question-link card-link">View Comment</a>
+                                            </div>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Questions</h5>
+                                        {% for question in user_questions %}
+                                        <div class="card mb-2">
+                                            <div class="card-body">
+                                                <h6 class="card-subtitle mb-2 text-muted">{{ question.created_at }}</h6>
+                                                <h5 class="card-title">{{ question.title }}</h5>
+                                                <a href="{% url 'home' %}?question_id={{ question.id }}" class="view-question-link card-link">View Question</a>
+                                            </div>
+                                        </div>
+                                        {% endfor %}
+                    
+                                        <h5 class="card-title mt-4">Dislikes</h5>
+                                        {% for comment in comments %}
+                                        <div class="card mb-2">
+                                            <div class="card-body">
+                                                <h6 class="card-subtitle mb-2 text-muted">{{ comment.created_at }}</h6>
+                                                <p class="card-text">{{ comment.content }}</p>
+                                                <a href="{% url 'home' %}?question_id={{ question.id }}" class="view-question-link card-link">View Question</a>
+                                            </div>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</script>
+<script>
+    $(document).ready(function(){
+        $('.list-group-item').on('click', function(){
+            var content = '';
+            var type = $(this).data('type');
+            switch(type){
+                case 'comments':
+                    content='<h5>Comment</h5>';
+                    {% for comment in comments %}
+                        content += '<p>{{ comment.content }}</p><p>{{ comment.question.title }}</p>'
+                    {% endfor %}
+                    break;
+                case 'likes':
+                    content = '<h5>Likes</h5>'
+                    {% for question in liked_questions %}
+                            content += '<p>{{question.title}}</p>';
+                    {% endfor %}
+                    break;
+                case 'dislikes':
+                    content = '<h5>Dislikes</h5>'
+                    {% for question in disliked_questions %}
+                            content += '<p>{{ question.title }}</p>'
+                    {% endfor %}
+                    break;
+                default:
+                    content = '<p>No data available</p>';
+                    break;
+            }
+            $('.dynamic-area').html(content);
+        });
+    });
+</script>
+{% endblock content %}

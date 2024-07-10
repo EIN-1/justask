@@ -1,0 +1,103 @@
+<style>
+    footer {
+        background-color: #f8f9fa;
+      }
+      
+      footer h5 {
+        color: #343a40;
+        font-weight: bold;
+      }
+      
+      footer a {
+        color: #343a40;
+        text-decoration: none;
+      }
+      
+      footer a:hover {
+        color: #007bff;
+      }
+      
+      footer .social-icons i {
+        font-size: 1.25rem;
+        margin-right: 10px;
+      }
+      
+      footer .social-icons i:hover {
+        color: #007bff;
+      }
+      
+</style>
+
+
+
+<footer class="bg-primary text-light py-4">
+    <div class="container">
+      <div class="row">
+        <!-- About Us -->
+        <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+          <h5 class="text-uppercase text-light">About Us</h5>
+          <p class="mb-0">
+            JustAsk is a platform where users can ask questions, share knowledge, and connect with others.
+          </p>
+        </div>
+        <!-- Contact -->
+        <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+          <h5 class="text-uppercase text-light">Contact</h5>
+          <ul class="list-unstyled">
+            <li>
+              <a href="mailto:contact@justask.com" class="text-light">Email: contact@justask.com</a>
+            </li>
+          </ul>
+        </div>
+        <!-- Social Media -->
+        <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+          <h5 class="text-uppercase text-light">Follow Us</h5>
+          <ul class="list-unstyled">
+            <li>
+              <a href="https://facebook.com" target="blank" class="text-light">
+                <i class="fab fa-facebook-f"></i> Facebook
+              </a>
+            </li>
+            <li>
+              <a href="https://twitter.com" target="blank" class="text-light">
+                <i class="fab fa-twitter"></i> Twitter
+              </a>
+            </li>
+            <li>
+              <a href="https://linkedin.com" target="blank" class="text-light">
+                <i class="fab fa-linkedin-in"></i> LinkedIn
+              </a>
+            </li>
+            <li>
+              <a href="https://instagram.com" target="blank" class="text-light">
+                <i class="fab fa-instagram"></i> Instagram
+              </a>
+            </li>
+          </ul>
+        </div>
+        <!-- Quick Links -->
+        <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+          <h5 class="text-uppercase text-light">Quick Links</h5>
+          <ul class="list-unstyled">
+            <li>
+              <a href="{% url 'home' %}" class="text-light">Home</a>
+            </li>
+            <li>
+              <a href="{% url 'home' %}" class="text-light" data-bs-toggle="modal" data-bs-target="#exampleModal">Ask a Question</a>
+            </li>
+            <li>
+              <a href="{% url 'home' %}" class="text-light">Categories</a>
+            </li>
+            <li>
+              <a href="{% url 'home' %}" class="text-light">Contact Us</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <hr class="my-3">
+      <div class="text-center">
+        <p class="mb-0">&copy; 2024 JustAsk. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+  
