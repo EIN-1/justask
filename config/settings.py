@@ -32,16 +32,20 @@ DEBUG = config('DEBUG')
 ALLOWED_HOSTS = [
     "https://just-ask-b3c36fe12bcc.herokuapp.com",
     "http://just-ask-b3c36fe12bcc.herokuapp.com",
-    "https://8000-ein1-justask-2lb39gbyi8i.ws.codeinstitute-ide.net",
-    "http://8000-ein1-justask-2lb39gbyi8i.ws.codeinstitute-ide.net",
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://8000-ein1-justask-2lb39gbyi8i.ws.codeinstitute-ide.net",
-    "http://8000-ein1-justask-2lb39gbyi8i.ws.codeinstitute-ide.net",
     "https://just-ask-b3c36fe12bcc.herokuapp.com",
     "http://just-ask-b3c36fe12bcc.herokuapp.com",
 ]
+
+if DEBUG:
+    ALLOWED_HOSTS = ['*']
+    CSRF_TRUSTED_ORIGINS = [
+        'https://8000-ein1-justask-lcrfvyput1g.ws.codeinstitute-ide.net'
+        ]
+
+
 
 
 # Application definition
