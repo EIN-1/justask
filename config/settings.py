@@ -30,8 +30,6 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = os.environ.get('DEBUG')
 
 ALLOWED_HOSTS = [
-    "just-ask-b3c36fe12bcc.herokuapp.com",
-    "https://8000-ein1-justask-2lb39gbyi8i.ws.codeinstitute-ide.net",
     "https://just-ask-b3c36fe12bcc.herokuapp.com",
     "http://just-ask-b3c36fe12bcc.herokuapp.com",
 ]
@@ -47,10 +45,6 @@ if DEBUG:
         'https://8000-ein1-justask-lcrfvyput1g.ws.codeinstitute-ide.net'
         ]
 
-
-    "https://8000-ein1-justask-2lb39gbyi8i.ws.codeinstitute-ide.net",
-    "just-ask-b3c36fe12bcc.herokuapp.com",
-]
 
 
 # Application definition
@@ -73,8 +67,6 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
    # 'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
-    # 'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
