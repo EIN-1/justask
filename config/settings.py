@@ -30,11 +30,17 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG')
 
 ALLOWED_HOSTS = [
-    "*"
+    "https://just-ask-b3c36fe12bcc.herokuapp.com",
+    "http://just-ask-b3c36fe12bcc.herokuapp.com",
+    "https://8000-ein1-justask-2lb39gbyi8i.ws.codeinstitute-ide.net",
+    "http://8000-ein1-justask-2lb39gbyi8i.ws.codeinstitute-ide.net",
 ]
 
 CSRF_TRUSTED_ORIGINS = [
     "https://8000-ein1-justask-2lb39gbyi8i.ws.codeinstitute-ide.net",
+    "http://8000-ein1-justask-2lb39gbyi8i.ws.codeinstitute-ide.net",
+    "https://just-ask-b3c36fe12bcc.herokuapp.com",
+    "http://just-ask-b3c36fe12bcc.herokuapp.com",
 ]
 
 
@@ -57,7 +63,8 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
+   # 'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
