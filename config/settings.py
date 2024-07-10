@@ -30,11 +30,13 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = os.environ.get('DEBUG')
 
 ALLOWED_HOSTS = [
-    "*"
+    "https://hidden-wildwood-94710-b23a9f390c07.herokuapp.com",
+    "https://8000-ein1-justask-2lb39gbyi8i.ws.codeinstitute-ide.net",
 ]
 
 CSRF_TRUSTED_ORIGINS = [
     "https://8000-ein1-justask-2lb39gbyi8i.ws.codeinstitute-ide.net",
+    "https://hidden-wildwood-94710-b23a9f390c07.herokuapp.com",
 ]
 
 
