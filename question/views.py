@@ -154,12 +154,10 @@ def create_question(request):
 
 @login_required
 def update_question(request, id):
-    print(id)
     question = get_object_or_404(Question, id=id)
     if request.method == 'POST':
         form = QuestionForm(request.POST, instance=question)
         if form.is_valid():
-            print("Okay")
             form.save()
             return JsonResponse({'success': True})
         else:
@@ -188,3 +186,11 @@ def delete_comment(request, id):
         return redirect("/")
     else:
         return HttpResponseForbidden()
+
+@login_required
+def update_comment(request, id):
+    comment = get_object_or_404(Comment, id=id)
+    new_comment = request.POST.get("content")
+    Comment.objects.filter(id=id).update(content=new_comment)
+    return JsonResponse({'success': True})
+   

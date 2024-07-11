@@ -51,8 +51,8 @@
           <form id="editCommentForm" method="post" class="form">
             {% csrf_token %}
             <div class="mb-3">
-              <label for="exampleFormControlTextarea1" class="form-label">Content</label>
-              <textarea class="form-control" id="exampleFormControlTextarea1" name="content"></textarea>
+              <label for="editCommentFormControlLabel" class="form-label">Content</label>
+              <textarea class="form-control" id="editComment" name="content"></textarea>
             </div>
             <input type="hidden" id="comment_id" name="comment_id">
             {% buttons %}
@@ -68,18 +68,52 @@
 </div>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const editCommentModal = document.getElementById('editCommentModal');
-    editCommentModal.addEventListener('show.bs.modal', function(event) {
-      const button = event.relatedTarget;
-      const commentContent = button.getAttribute('data-comment-content');
-      const commentId = button.getAttribute('data-comment-id');
+  $(document).ready(function() {
+  var editCommentModal = new bootstrap.Modal(document.getElementById('editCommentModal'));
+
+    $('.editEdit').click(function(){
+      var comment_id = $(this).data('comment-id');
+      var commentContent = $(this).data('comment-content');
+
+      $('#comment_id').val(comment_id);
+      $('#editComment').val(commentContent);
+    
+      editCommentModal.show();
+    })
+
+    // Event listener for the modal show event to make sure the form is populated correctly
+    $('#editCommentModal').on('show.bs.modal', function(event) {
+      var button = $(event.relatedTarget); // Button that triggered the modal
+      var commentId = button.data('comment-id');
+      var commentContent = button.data('comment-content');
       
-      const modalTextarea = editCommentModal.querySelector('#exampleFormControlTextarea1');
-      const commentIdInput = editCommentModal.querySelector('#comment_id');
-      
-      modalTextarea.value = commentContent;
-      commentIdInput.value = commentId;
+      var modal = $(this);
+      modal.find('#comment_id').val(commentId);
+      modal.find('#editComment').val(commentContent);
     });
-  });
+
+    $('#editCommentForm').submit(function(e){
+      e.preventDefault();
+      var formData = $(this).serialize();
+      var commentId = $('#comment_id').val();
+      var url = `/update-comment/${commentId}/`;
+
+
+      $.ajax({
+        type:'POST',
+        url: url,
+        data: formData,
+        success: function(response){
+          if (response.success){
+            window.location.reload();
+          }else{
+            alert('Failed to edit comment')
+          }
+        },
+        error:function(){
+          editCommentModal.hide();
+        }
+      });
+    });
+  })
 </script>
