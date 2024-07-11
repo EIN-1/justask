@@ -35,7 +35,6 @@ ALLOWED_HOSTS = [
 
 CSRF_TRUSTED_ORIGINS = [
     "https://just-ask-b3c36fe12bcc.herokuapp.com",
-    "http://just-ask-b3c36fe12bcc.herokuapp.com",
 ]
 
 if DEBUG:
