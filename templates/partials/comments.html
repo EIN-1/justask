@@ -13,23 +13,7 @@
 {% endif %}
 
 {% for comment in comments %}
-    <div class="card mb-2">
-        <div class="card-body">
-          <div class="d-flex align-items-center mb-2">
-            <img src="{% gravatar_url comment.author.email 30 %}" alt="{{ comment.author.name }}" class="rounded-circle mr-2" style="margin-right: 1rem;"> 
-            <div>
-                <h6 class="card-subtitle mb-0">{{ comment.author.username }}</h6>
-                <small class="text-muted">{{ comment.created_at }}</small>
-            </div>
-        </div>
-            <p class="card-text">{{ comment.content }}</p>
-            {% if request.user == comment.author or request.user == comment.question.author %}
-                <a href="javascript:void(0);" class="delete-comment-button btn-outline-danger" data-comment-id="{{ comment.id }}">
-                    {% fa5_icon 'trash' %}
-                </a>
-            {% endif %}
-        </div>
-    </div>
+    {% include 'partials/comment.html' with comment=comment %}
 {% endfor %}
 
 <script>

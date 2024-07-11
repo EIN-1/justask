@@ -185,6 +185,6 @@ def delete_comment(request, id):
     question = comment.question
     if request.user == comment.author or request.user == question.author:
         comment.delete()
-        return JsonResponse({'success': True})
+        return redirect("/")
     else:
         return HttpResponseForbidden()

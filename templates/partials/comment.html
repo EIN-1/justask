@@ -1,6 +1,85 @@
+{% load gravatar %}
+{% load fontawesome_5 %}
+{% load bootstrap5 %}
+
 <div class="card mb-2">
-    <div class="card-body">
-        <h6 class="card-subtitle mb-2 text-muted">{{ comment.user.username }} - {{ comment.created_at }}</h6>
-        <p class="card-text">{{ comment.content }}</p>
+  <div class="card-body">
+    <div class="d-flex align-items-center mb-2">
+      <img
+        src="{% gravatar_url comment.author.email 30 %}"
+        alt="{{ comment.author.name }}"
+        class="rounded-circle mr-2"
+        style="margin-right: 1rem"
+      />
+      <div>
+        <h6 class="card-subtitle mb-0">{{ comment.author.username }}</h6>
+        <small class="text-muted">{{ comment.created_at }}</small>
+      </div>
     </div>
+    <p class="card-text">{{ comment.content }}</p>
+    {% if comment.author == request.user %}
+    <a
+      href="#"
+      class="btn btn-outline-primary edit-button editComment"
+      data-comment-id="{{ comment.id }}"
+      data-comment-content="{{ comment.content }}"
+      data-bs-toggle="modal"
+      data-bs-target="#editCommentModal"
+    >
+      <i class="fas fa-pen-fancy"></i>
+    </a>
+    <a
+      href="{% url "delete_comment" comment.id %}"
+      class="btn btn-outline-danger delete-button"
+      data-comment-id="{{ comment.id }}"
+    >
+      <i class="fas fa-trash"></i>
+    </a>
+    {% endif %}
+  </div>
 </div>
+
+<div class="modal fade" id="editCommentModal" tabindex="-1" aria-labelledby="editCommentModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editCommentModalLabel">Edit Comment</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row gap-2">
+          <form id="editCommentForm" method="post" class="form">
+            {% csrf_token %}
+            <div class="mb-3">
+              <label for="exampleFormControlTextarea1" class="form-label">Content</label>
+              <textarea class="form-control" id="exampleFormControlTextarea1" name="content"></textarea>
+            </div>
+            <input type="hidden" id="comment_id" name="comment_id">
+            {% buttons %}
+              <button type="submit" class="btn btn-primary">
+                Submit
+              </button>
+            {% endbuttons %}
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const editCommentModal = document.getElementById('editCommentModal');
+    editCommentModal.addEventListener('show.bs.modal', function(event) {
+      const button = event.relatedTarget;
+      const commentContent = button.getAttribute('data-comment-content');
+      const commentId = button.getAttribute('data-comment-id');
+      
+      const modalTextarea = editCommentModal.querySelector('#exampleFormControlTextarea1');
+      const commentIdInput = editCommentModal.querySelector('#comment_id');
+      
+      modalTextarea.value = commentContent;
+      commentIdInput.value = commentId;
+    });
+  });
+</script>

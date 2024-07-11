@@ -22,24 +22,21 @@
 
 
 {% block content %}
-<div class="continer mx-5 py-4">
+<div class="container py-4">
   <div class="row">
-    <div class="col">
+    <div class="col-lg-8 col-md-12">
       <div class="container">
         <div class="row gap-5">          
           {% for question in questions %}
             <div class="card question-card" data-question-id="{{ question.id }}">
-              <div class="card-body">
-                
+              <div class="card-body">                
                 <a href="{% url 'profile' question.author.pk %}" class="d-flex align-items-center mb-2 text-decoration-none text-dark">
-                  <img style="margin-right: 1rem;" src="{% gravatar_url question.author.email 40 %}" alt="{{ question.author.name }}" class="rounded-circle mr-5"> 
+                  <img style="margin-right: 1rem;" src="{% gravatar_url question.author.email 40 %}" alt="{{ question.author.name }}" class="rounded-circle"> 
                   <div>
                       <h6 class="card-subtitle mb-0">{{ question.author.username }}</h6>
                       <small class="text-muted">{{ question.created_at }}</small>
                   </div>
                 </a>
-              </div>
-              
                 <h5 class="card-title">{{ question.title }}</h5>
                 <p class="card-text">{{ question.content }}</p>
                 <div class="btn-group" role="group" aria-label="Question actions">
@@ -63,14 +60,13 @@
                       data-bs-target="#editQuestionModal">
                         <i class="fas fa-pen-fancy"></i>
                     </a>
-                    <a href="#" class="btn btn-outline-danger delete-button" data-question-id={{ question.id }}>
+                    <a href="#" class="btn btn-outline-danger delete-button" data-question-id="{{ question.id }}">
                         <i class="fas fa-trash"></i>
                     </a>
                   {% endif %}
+                </div>
               </div>
-              
-                <div class="comments mt3" id="comments-{{ question.id }}" style="display: none;"></div>
-              </div>
+              <div class="comments mt-3" id="comments-{{ question.id }}" style="display: none;"></div>
             </div>
           {% endfor %}
         </div>
@@ -134,17 +130,16 @@
           </ul>
         </div>
       </div>
-      
     </div>
 
-    <div class="col-sm-12 col-md-4 col-sm-order-first">
+    <div class="col-lg-4 col-md-12 col-sm-order-first">
       <div class="container">
         {% if request.user.is_authenticated %}
-          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
             Add a question
           </button>
         {% endif %}
-        <div "row">
+        <div class="row">
           <h5>Categories</h5>
           <ul class="list-group">
             {% for category in categories %}
@@ -158,6 +153,8 @@
     </div>
   </div>
 </div>
+
+
 
 
 
