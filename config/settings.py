@@ -30,8 +30,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = os.environ.get('DEBUG')
 
 ALLOWED_HOSTS = [
-    "https://just-ask-b3c36fe12bcc.herokuapp.com",
-    "http://just-ask-b3c36fe12bcc.herokuapp.com",
+    "just-ask-b3c36fe12bcc.herokuapp.com",
 ]
 
 CSRF_TRUSTED_ORIGINS = [
@@ -42,7 +41,7 @@ CSRF_TRUSTED_ORIGINS = [
 if DEBUG:
     ALLOWED_HOSTS = ['*']
     CSRF_TRUSTED_ORIGINS = [
-        'https://8000-ein1-justask-lcrfvyput1g.ws.codeinstitute-ide.net'
+        'https://*'
         ]
 
 
