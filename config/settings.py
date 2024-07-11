@@ -206,6 +206,7 @@ ALLOWED_HOSTS = [
     "https://just-ask-b3c36fe12bcc.herokuapp.com",
     "http://just-ask-b3c36fe12bcc.herokuapp.com",
     "just-ask-b3c36fe12bcc.herokuapp.com",
+    "ui.dev/amiresponsive",
 ]
 
 CSRF_TRUSTED_ORIGINS = [
