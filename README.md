@@ -154,7 +154,7 @@ After decided on the strategy, the scope plane was carefully created.
 
 Following schema shows intended database structure:
 
-![Database schema](/docs/schema.db.png)
+![Database schema](/docs/-/dbase/)
 -I designed my database for coding to stay in the line and to have a clear picture of my database.
 
 ## **3.4. The Skeleton Plane**
@@ -287,7 +287,7 @@ Validation is documented separately in [validation.md](/docs/validation.md) file
 ## **5.2. Testing**
 
 -Tested for responsiveness manually.
-![lighthouse testing ](/docs/lighthouse3.png) 
+![lighthouse testing ](/docs/-/lighthouse3.png) 
 -I used lighthouse testing for my page
 
 ## **5.3. Bugs**
