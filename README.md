@@ -1,15 +1,15 @@
-![logo](mylogo)
+![logo](static/img/justask.png)
 
 
-# ***justask Blog - Portfolio Project 4***
----
+# ***JustAsk Blog - Pp4***
+![am responsive]()
 # **1. Key project information**
 
 - **Description :** **Just ask** is a question-and-answer website where users can ask questions, answer questions, and interact with other users.
 - **Key project goal :** To familiarize visitors of this page with **justask** blog
-- **Audience :** Target audience are users that are using search engines to ask quetions and those who are looking for answers.
-- **Live version :** Live version of **justask** page can be viewed at [Just Ask](https://will add my link.herokuapp.com/).
-- **Developer :** [Elsie Nagawa ](https://github.com/EIN-1/justask)
+- **Audience :** Target audience are users that are using search engines to ask quetions and those who are looking for answers from various topics
+- **Live version :** Live version of **Just Ask** page can be viewed at [JustAsk](https://just-ask-b3c36fe12bcc.herokuapp.com/).
+- **Developer :** [Elsie Nagawa ](https://just-ask-b3c36fe12bcc.herokuapp.com/)
 
 ![Mockup]()
 
@@ -89,13 +89,14 @@
 
 ### **3.1.1 The Idea**
 
-**Just ask** Blog website is a question-and-answer website where users can ask questions, answer questions, and interact with other users by upvoting or downvoting answers. It covers a wide range of topics from technology and business to health and entertainment. Users can follow topics, answer questions based on their expertise, and engage in discussions with a community of users. Quora's objective is to connect people with information and allow them to share knowledge and learn from each other.
+**Just ask** Blog website is a question-and-answer website where users can ask questions, answer questions, and interact with other users by liking or dislinking comments. It covers a wide range of topics from technology and business to health and entertainment. Users can follow topics, answer questions based on their expertise, and engage in discussions with a community of users. Just Ask's objective is to connect people with information and allow them to share knowledge and learn from each other.
 ### **3.1.2 The Ideal User**
 
-The target audience are young parents and couples planning to have a baby
+The target audience is anyone curouis of the outside world and is interested to interact with other people.
 
-- Ideal user can upvote or downvote on posts
-- Ideal user can comment
+- User can `like` or `dislike`on posts
+- User can comment
+- User can `delete` or `edit` his/her posts
 
 ### **3.1.3 Site Goals**
 
@@ -142,7 +143,7 @@ After decided on the strategy, the scope plane was carefully created.
 
 ### 3.2.1. Features to be implemented
 
-- **Search** : Search bar for users is provided on landing page so users can find specific News Posts, Styles or Team members.
+- **Search** : Search bar for guests and users is provided on landing page so users can find specific News Posts, Styles or Team members.
 - **Comment**: Allow users to reply directly to another comment. Replies would then be shown directly underneath that comment as a conversation.
 
 ## **3.3. The Structure Plane**
@@ -153,11 +154,14 @@ After decided on the strategy, the scope plane was carefully created.
 
 Following schema shows intended database structure:
 
-![Database schema](/docs/database_diagram.png)
+![Database schema](/docs/schema.db.png)
+-I designed my database for coding to stay in the line and to have a clear picture of my database.
 
 ## **3.4. The Skeleton Plane**
 
+
 ### 3.4.1. Wire-frames
+[wireframes](/docs/wireframes.png)
 
  I created simple ![wireframes](/docs/wireframes.png) for the homepage, and the article detail page. For the registration and login page I was planning to use the default layout, so I omitted wireframes for those pages.
 
@@ -186,6 +190,7 @@ Following schema shows intended database structure:
 ## **4.1. Features used in every HTML template**
 
 ### **4.1.1 Header**
+![header](/image/header.png)
 
 - It is fully responsive and includes the just ask blog name on the left and member links and blog slogan on the right.
 
@@ -194,14 +199,49 @@ Following schema shows intended database structure:
 - After logging in, the links on the right side are replaced by the Read Later and a log-out button.
 
 ### **4.1.2 Footer**
+![footer](/image/footer.png)
 
 - Every page has a footer at the bottom of the page.
 - The footer shows the copyright text and links to four different social media websites. Each link opens in a new tab.
 
-### **4.1.3 Favicon**
-
+### **4.1.3 Login**
+![login](/image/login-form.png)
 - Every template in this project is equipped with Favicon. This is to ease navigation for user in case of more tabs opened. 
+### **4.1.4 Register**
+![register](/image/register-form.png)
+- Every template in this project is equipped with Favicon. This is to ease navigation for user in case of more tabs opened. 
+### **4.1.5 Reset password**
+![reset](/image/reset-password.png)
+- Every template in this project is equipped with Favicon. This is to ease navigation for user in case of more tabs opened. 
+### **4.1.6 Landing page**
+![landing page](/image/landing%20page.png)
+- Every template in this project is equipped with Favicon. This is to ease navigation for user in case of more tabs opened. 
+### **4.1.6 Profile**
+![profile](/image/user-profile.png)
+- Every template in this project is equipped with Favicon. This is to ease navigation for user in case of more tabs opened. 
+### **4.1.7 Search**
+![search](/image/search.png)
+- Every template in this project is equipped with Favicon. This is to ease navigation for user in case of more tabs opened. 
+### **4.1.8 Highlight post**
+![post](/image/highlight.png)
+- Every template in this project is equipped with Favicon. This is to ease navigation for user in case of more tabs opened. 
+### **4.1.9 Categories**
+![categories](/image/categories.png)
+- Every template in this project is equipped with Favicon. This is to ease navigation for user in case of more tabs opened. 
+### **4.1.10 Admin**
+![Superuser](/image/superuser.png)
+- Every template in this project is equipped with Favicon. This is to ease navigation for user in case of more tabs opened.
+### **4.1.3 Admin comment**
+![Admin comment](/image/superuser-add-comment.png)
+- Every template in this project is equipped with Favicon. This is to ease navigation for user in case of more tabs opened.
+### **4.1.3 Admin delete**
+![Admin delete](/image/superuser-delete.png)
+- Every template in this project is equipped with Favicon. This is to ease navigation for user in case of more tabs opened.
+### **4.1.3 Admin reation**
+![Admin reation](/image/superuser-reaction2.png)
+- Every template in this project is equipped with Favicon. This is to ease navigation for user in case of more tabs opened.
 
+ 
 ### **4.1.4 Error Pages**
 
 - This project is designed to have custom error pages. In case of user clicks on broken link, submits action that isn't supported or tries to reach certain view without permission, then user isn't completely "cut off" from browsing, instead an error page with header and footer appears and user is informed of the situation.
@@ -215,7 +255,7 @@ The following custom error pages were created :
 ## **4.2. Main Content**
 
 ### **4.2.1. Landing Page**
-
+![header](/image/header.png)
 - **Template File :** `index.html` - extends `base.html`
 - Contains list of posts.
 - Provides user with all Posts published along with name of creator, date created and a snippet of Post body. Also information of amount of votes and comments is provided to both logged in and not logged in users 
@@ -246,7 +286,9 @@ Validation is documented separately in [validation.md](/docs/validation.md) file
 
 ## **5.2. Testing**
 
-Tested for responsiveness manually.
+-Tested for responsiveness manually.
+![lighthouse testing ](/docs/lighthouse3.png) 
+-I used lighthouse testing for my page
 
 ## **5.3. Bugs**
 

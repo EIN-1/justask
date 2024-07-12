@@ -25,3 +25,8 @@ footer {
     color: #007bff;
   }
   
+.navbar-toggler:focus,
+.navbar-toggler-icon:focus {
+    outline: none;
+    box-shadow: none;
+}
