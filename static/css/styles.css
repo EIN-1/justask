@@ -1,5 +1,21 @@
+/** navbar toggler icon**/
 .navbar-toggler:focus,
 .navbar-toggler-icon:focus {
     outline: none;
     box-shadow: none;
 }
+
+/** footer**/
+footer h5 {
+    color: #343a40;
+    font-weight: bold;
+  }
+  
+  footer a {
+    text-decoration: none;
+  }
+
+  footer .social-icons i {
+    font-size: 1.25rem;
+    margin-right: 10px;
+  }
