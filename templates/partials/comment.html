@@ -26,14 +26,14 @@
       data-bs-toggle="modal"
       data-bs-target="#editCommentModal"
     >
-      <i class="fas fa-pen-fancy"></i>
+      <i class="fas fa-pen-fancy" title="edit comment"></i>
     </a>
     <a
       href="{% url "delete_comment" comment.id %}"
       class="btn btn-outline-danger delete-button"
       data-comment-id="{{ comment.id }}"
     >
-      <i class="fas fa-trash"></i>
+      <i class="fas fa-trash" title="delete comment"></i>
     </a>
     {% endif %}
   </div>
