@@ -40,7 +40,7 @@
                 <h5 class="card-title">{{ question.title }}</h5>
                 <p class="card-text">{{ question.content }}</p>
                 <div class="btn-group" role="group" aria-label="Question actions">
-                  <a href="javascript:void(0);" class="btn btn-outline-secondary show-comments" data-question-id="{{ question.id }}">
+                  <a href="#home" class="btn btn-outline-secondary show-comments" data-question-id="{{ question.id }}">
                       <i class="fas fa-comments" title="comments"></i> {{question.comment_count}}
                   </a>
                   <a href="{% url 'home' %}" class="btn btn-outline-success like-button" data-question-id="{{ question.id }}" data-reaction="like">
