@@ -105,23 +105,23 @@ The target audience is anyone curouis of the outside world and is interested to 
 
 ### **3.1.4 Epics**
 
-As a thought process of the strategy plane, 9 epics were created and utilized. Please see below the detail list of epics with links, or a link to the project's [Kanban Board](https://github.com/users/FeruzaShokirjonovna/projects/3/views/1?visibleFields=%5B%22Title%22%2C%22Assignees%22%2C%22Status%22%2C%22Labels%22%5D). Those Epics were further sliced into USER STORIES.
+As a thought process of the strategy plane, 9 epics were created and utilized. Please see below the detail list of epics with links, or a link to the project's [Kanban Board](https://github.com/users/EIN-1/projects/5). Those Epics were further sliced into USER STORIES.
 
-![Kanban Board](/docs/kanban_board.png)
+![Kanban Board](/image/userstories1.png)
+![Kanban Board](/image/userstories2.png)
 
-- [Epic 1: Environment Configuration](https://github.com/users/FeruzaShokirjonovna/projects/3/views/1?visibleFields=%5B%22Title%22%2C%22Assignees%22%2C%22Status%22%2C%22Labels%22%5D&pane=issue&itemId=66288419)
-- [Epic 2: Database Models](https://github.com/users/FeruzaShokirjonovna/projects/3/views/1?visibleFields=%5B%22Title%22%2C%22Assignees%22%2C%22Status%22%2C%22Labels%22%5D&pane=issue&itemId=66676466)
-- [Epic 3: Admin Panel](https://github.com/users/FeruzaShokirjonovna/projects/3/views/1?visibleFields=%5B%22Title%22%2C%22Assignees%22%2C%22Status%22%2C%22Labels%22%5D&pane=issue&itemId=66676590)
-- [Epic 4: Post Views](https://github.com/users/FeruzaShokirjonovna/projects/3/views/1?visibleFields=%5B%22Title%22%2C%22Assignees%22%2C%22Status%22%2C%22Labels%22%5D&pane=issue&itemId=66676851)
-- [Epic 5: User Authentication](https://github.com/users/FeruzaShokirjonovna/projects/3/views/1?visibleFields=%5B%22Title%22%2C%22Assignees%22%2C%22Status%22%2C%22Labels%22%5D&pane=issue&itemId=66716110)
-- [Epic 6: Post Details View](https://github.com/users/FeruzaShokirjonovna/projects/3/views/1?visibleFields=%5B%22Title%22%2C%22Assignees%22%2C%22Status%22%2C%22Labels%22%5D&pane=issue&itemId=66795769)
-- [Epic 7: Comments](https://github.com/users/FeruzaShokirjonovna/projects/3/views/1?visibleFields=%5B%22Title%22%2C%22Assignees%22%2C%22Status%22%2C%22Labels%22%5D&pane=issue&itemId=66796667)
-- [Epic 8: Additional Features](https://github.com/users/FeruzaShokirjonovna/projects/3/views/1?visibleFields=%5B%22Title%22%2C%22Assignees%22%2C%22Status%22%2C%22Labels%22%5D&pane=issue&itemId=66797020)
-- [Epic 9: Testing and Validation](https://github.com/users/FeruzaShokirjonovna/projects/3/views/1?visibleFields=%5B%22Title%22%2C%22Assignees%22%2C%22Status%22%2C%22Labels%22%5D&pane=issue&itemId=66797478)
+- [Epic 1: Environment Configuration](https://github.com/users/EIN-1/projects/5/views/1?pane=issue&itemId=70745632)
+- [Epic 2: Database Models](https://github.com/users/EIN-1/projects/5/views/1?pane=issue&itemId=70745621)
+- [Epic 3: Admin Panel](https://github.com/users/EIN-1/projects/5/views/1?pane=issue&itemId=70745627)
+- [Epic 4: Post Views and likes](https://github.com/users/EIN-1/projects/5/views/1?pane=issue&itemId=70745630)
+- [Epic 5: User Authentication](https://github.com/users/EIN-1/projects/5/views/1?pane=issue&itemId=70745637)
+- [Epic 6: flowchart and design](https://github.com/users/EIN-1/projects/5/views/1?pane=issue&itemId=70745620)
+- [Epic 7: Create search bar and button](https://github.com/users/EIN-1/projects/5/views/1?pane=issue&itemId=70745624)
+- [Epic 9: Testing and Validation](https://github.com/users/EIN-1/projects/5/views/1?pane=issue&itemId=70745636)
 
 ### **3.1.5 User stories**
 
-User stories were created based on the Epics. Each user story uses the MoSCoW prioritization technique. Each user story on the [Kanban Board](https://github.com/users/FeruzaShokirjonovna/projects/3/views/1?visibleFields=%5B%22Title%22%2C%22Assignees%22%2C%22Labels%22%5D) was given labels (MoSCoW).
+User stories were created based on the Epics. Each user story uses the MoSCoW prioritization technique. Each user story on the [Kanban Board](https://github.com/users/EIN-1/projects/5/views/1) was given (MoSCoW) labels.
 
 
 **MoSCoW prioritization technique stands for**:
@@ -154,7 +154,7 @@ After decided on the strategy, the scope plane was carefully created.
 
 Following schema shows intended database structure:
 
-![Database schema](/docs/-/dbase/)
+![Database schema](/docs/dbase/schema.db.png)
 -I designed my database for coding to stay in the line and to have a clear picture of my database.
 
 ## **3.4. The Skeleton Plane**
@@ -287,7 +287,7 @@ Validation is documented separately in [validation.md](/docs/validation.md) file
 ## **5.2. Testing**
 
 -Tested for responsiveness manually.
-![lighthouse testing ](/docs/-/lighthouse3.png) 
+![lighthouse testing ](/docs/testing/lighthouse3.png) 
 -I used lighthouse testing for my page
 
 ## **5.3. Bugs**
