@@ -35,10 +35,11 @@
                   <div>
                       <h6 class="card-subtitle mb-0">{{ question.author.username }}</h6>
                       <small class="text-muted">{{ question.created_at }}</small>
-                      <span class="badge rounded-pill bg-primary">{{question.category.name}}</span>
+                      
                   </div>
                 </a>
                 <h5 class="card-title">{{ question.title }}</h5>
+                <span class="badge rounded-pill bg-primary">{{question.category.name}}</span>
                 <p class="card-text">{{ question.content }}</p>
                 <div class="btn-group" role="group" aria-label="Question actions">
                   <a href="#home" class="btn btn-outline-secondary show-comments" data-question-id="{{ question.id }}">
