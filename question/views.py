@@ -81,7 +81,17 @@ def home(request):
     except EmptyPage:
         categories= category_paginator.page(category_paginator.num_pages)
 
-    return render(request, 'questions/home.html',{'questions': questions, 'form':question_form, 'categories':categories, 'query':query, 'question_id':highlighted_question_id})
+    # Get user's reactions to each question
+    user_likes=[()]
+    user_dislikes=[()]
+    if request.user.is_authenticated:
+        user_likes = list(Reaction.objects.filter(user=request.user, reaction="like").values_list("question__id", flat=True))
+        user_dislikes = list(Reaction.objects.filter(user=request.user, reaction="dislike").values_list("question__id", flat=True))
+
+
+    print(user_likes)
+    print(user_dislikes)
+    return render(request, 'questions/home.html',{'questions': questions, 'form':question_form, 'categories':categories, 'query':query, 'question_id':highlighted_question_id, 'user_likes': user_likes, 'user_dislikes':user_dislikes})
 
 
     # questions = Question.objects.annotate(comment_count=Count('comments')).order_by('-created_at')

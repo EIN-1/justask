@@ -47,7 +47,7 @@ CSRF_TRUSTED_ORIGINS = [
 
 if DEBUG:
     ALLOWED_HOSTS = ['*']
-    CSRF_TRUSTED_ORIGINS = ['https://8000-ein1-justask-bbop0vp8is6.ws.codeinstitute-ide.net']
+    CSRF_TRUSTED_ORIGINS = ['https://8000-ein1-justask-bbop0vp8is6.ws.codeinstitute-ide.net', 'https://8000-ein1-justask-uchm1vk2muk.ws.codeinstitute-ide.net']
 
 
 
