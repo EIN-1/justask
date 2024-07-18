@@ -74,6 +74,46 @@ Make the game more challenging by introducing multiple difficulty levels for the
 
 [Back to top](<#table-of-contents>)
 
+## Project Management
+
+### Kanban Board & User Stories
+I've been using the application [Kanban Board](https://trello.com/) and the project board in GitHub to keep my project together. It has been working really well and has helped me structure up my work a lot. Trello was used on a more general plan and GitHub was used to plan and organize my user stories.
+
+<details><summary><b>Trello & Github Board</b></summary>
+
+![Kanban Board](readme/assets/images/trello.png)
+
+![User Stories](readme/assets/images/user_stories.png)
+</details><br/>
+
+[Back to top](<#table-of-content>)
+
+### Database Schema
+I have used a modelling tool called [Graph Models](https://django-extensions.readthedocs.io/en/latest/graph_models.html) to create the database schema. In short it shows the relationships between the different models in the database connected to the application. Graph Models exports a *.dot file which easily can be converted to a more 'easy to read' design with the help of the application [dreampuf](https://dreampuf.github.io/GraphvizOnline/).
+
+Models used (besides standard user model) in this project are:
+
+* **Category** - Handles categories. I made a specific model to be able to add more dynamics (create / remove categories going forward in the admin backend instead of 'hard code' it in the code).
+* **Genre** - Handles genres. I made a specific model to be able to add more dynamics (create / remove genres going forward in the admin backend instead of 'hard code' it in the code).
+* **Post** - Handles all the reviews
+* **Comment** - Handles all the comments
+* **UserProfile** - Handles the user profile information (first name, last name, presentation and featured image for the specific user/reviewer). There is a one-to-one relation to the user model to connect it to the standard user model.
+
+<details><summary><b>Database Schema</b></summary>
+
+![Database Schema](readme/assets/images/database_schema.png)
+</details><br/>
+
+# **User Experience (UX)**
+
+## Wireframes
+The wireframes for the site were created in the software [Balsamiq](https://balsamiq.com). The wireframes have been created for desktop, tablet and mobile devices. The text content wasn't finalized during the wireframe process. It's worth mentioning that there are visual differences compared to the wireframes, the reason being design choices that was made during the creation process.
+
+<details><summary><b>Wireframes</b></summary>
+
+![Wireframes](readme/assets/images/balsamiq.png)
+</details><br/>
+
 ## Design
 ### Flowchart:
 ![Flowchart](Documents/py.flowchart.png)
@@ -85,71 +125,6 @@ I used [Lucid](https://www.lucidchart.com/) to create a flowchart, to enhence th
 
 ### Existing Features:
 
-
-
-# **2. Table of content**
-
-- [Key project information](https://github.com/Blog#1key-project-information)
-- [Table of content](https://github.com/Blog#2table-of-content)
-- [User Experience (UX)](https://github.com/Blog/blob/main/README.md#-user-experience-ux)
-- [The Strategy Plane](https://github.com/Blog/blob/main/README.md#31-the-strategy-plane)
-- [The Idea](https://github.com/Blog/blob/main/README.md#311-the-idea)
-    - [The Ideal User](https://github.com/Blog/blob/main/README.md#312-the-ideal-user)
-    - [Site Goals](https://github.com/Blog/blob/main/README.md#313-site-goals)
-    - [Epics](https://github.com/Blog/blob/main/README.md#314-epics)
-    - [User stories](https://github.com/Blog/blob/main/README.md#315-user-stories)
-  - [The Scope Plane](https://github.com/Blog/blob/main/README.md#32-the-scope-plane)
-    - [Features to be implemented](https://github.com/Blog/blob/main/README.md#321-features-to-be-implemented)
-  - [The Structure Plane](https://github.com/Blog/blob/main/README.md#33-the-structure-plane)
-    - [Site Maps](https://github.com/Blog/blob/main/README.md#331-site-maps)
-    - [Database Schemas](https://github.com/Blog/blob/main/README.md#332-database-schemas)
-  - [The Skeleton Plane](https://github.com/Blog/blob/main/README.md#34-the-skeleton-plane)
-    - [Wire-frames](https://github.com/Blog/blob/main/README.md#341-wire-frames)
-  - [The Surface Plane](https://github.com/Blog/blob/main/README.md#35-the-surface-plane)
-    - [.5.1. Logo](https://github.com/Blog/blob/main/README.md#351-logo)
-    - [.5.2. Color pallette](https://github.com/Blog/blob/main/README.md#352-color-pallette)
-    - [.5.. Fonts](https://github.com/Blog/blob/main/README.md#353-fonts)
-- [4. Features](https://github.com/Blog/blob/main/README.md#4-features)
-  - [4.1. Features used in every HTML template](https://github.com/Blog/blob/main/README.md#41-features-used-in-every-html-template)
-    - [4.1.1. Header](https://github.com/Blog/blob/main/README.md#411-header)
-    - [4.1.2. Footer](https://github.com/Blog/blob/main/README.md#412-footer)
-    - [4.1.. Favicon](https://github.com/Blog/blob/main/README.md#413-favicon)
-    - [4.1.4. Error Pages](https://github.com/Blog/blob/main/README.md#414-error-pages)
-  - [4.2. Main Content](https://github.com/Blog/blob/main/README.md#42-main-content)
-    - [4.2.1. Landing Page](https://github.com/Blog/blob/main/README.md#421-landing-page)
-    - [4.2.2.  Page](https://github.com/Blog/blob/main/README.md#422-news-page)
-    - [4.2.. Post Detail Page](https://github.com/Blog/blob/main/README.md#423-post-detail-page)
-    - [4.2.4. Read Later Page](https://github.com/Blog/blob/main/README.md#423-read-later-page)
-    - [4.2.5. Forms](https://github.com/Blog/blob/main/README.md#4212-forms)
-  - [4.. Future Features](https://github.com/Blog/blob/main/README.md#43-future-features)
-- [5. Validation, Testing & Bugs](https://github.com/Blog/blob/main/README.md#5-validation-testing--bugs)
-  - [5.1. Validation](https://github.com/Blog/blob/main/README.md#51-validation)
-    - [5.1.1. Table of Content - Validation](https://github.com/Blog/blob/main/docs/validation.md#511-table-of-content---validation)
-    - [5.1.2. PEP8 Validation](https://github.com/Blog/blob/main/docs/validation.md#512-pep8-validation)
-    - [5.1.. HTML Validation](https://github.com/Blog/blob/main/docs/validation.md#513-html-validation)
-    - [5.1.4. CSS Validation](https://github.com/Blog/blob/main/docs/validation.md#514-css-validation)
-    - [5.1.5. JS Validation](https://github.com/Blog/blob/main/docs/validation.md#515-js-validation)
-    - [5.1.6. WAVE Validation](https://github.com/Blog/blob/main/docs/validation.md#516-wave-validation)
-    - [5.1.7. Lighthouse](https://github.com/Blog/blob/main/docs/validation.md#517-lighthouse)
-  - [5.2. Testing](https://github.com/Blog/blob/main/README.md#52-testing)
-    
-  - [5.. Bugs](https://github.com/Blog/blob/main/README.md#53-bugs)
-    - [5..1. Fixed Bugs](https://github.com/Blog/blob/main/docs/bugs.md#531-fixed-bugs)
-    - [5..2. Unfixed Bugs](https://github.com/Blog/blob/main/docs/bugs.md#532-unfixed-bugs)
-- [6. Deployment](https://github.com/Blog/blob/main/README.md#6-deployment)
-  - [6.1. Transfer of progress from IDE](https://github.com/Blog/blob/main/README.md#61-transfer-of-progress-from-ide)
-  - [6.2. Offline cloning](https://github.com/Blog/blob/main/README.md#62-offline-cloning)
-  - [6.. Deployment Prerequisites](https://github.com/Blog/blob/main/README.md#63-deployment-prerequisites)
-    - [6..1. Gmail](https://github.com/Blog/blob/main/README.md#631-gmail)
-    - [6..2. ElephantSQL](https://github.com/Blog/blob/main/README.md#632-elephantsql)
-    - [6... Cloudinary](https://github.com/Blog/blob/main/README.md#633-cloudinary)
-    - [6..4. Settings.py & file-tree](https://github.com/Blog/blob/main/README.md#634-settingspy--file-tree)
-  - [6.4. Heroku Deployment](https://github.com/Blog/blob/main/README.md#64-deployment-to-heroku)
-- [7. Technologies & Credits](https://github.com/Blog/blob/main/README.md#7-technologies--credits)
-  - [7.1. Technologies used to develop and deploy this project]()
-  - [7.2. Requirements.txt](https://github.com/Blog/blob/main/README.md#73-requirementstxt)
-  - [7.. Credits](https://github.com/Blog/blob/main/README.md#73-credits)
- 
 
 [Back to top](https://github.com/Blog#1key-project-information)
   
@@ -362,6 +337,28 @@ Following schema shows intended database structure:
   ![Invalid choise at the end](Documents/yes-or-no.png)
   Any input other than a `yes or no` will be considered `invalid` at the end of the game, this is not case sensitive so it can be in lower or uppercase letters.
 
+### Responsiveness Test
+The responsive design tests were carried out manually with [Google Chrome DevTools](https://developer.chrome.com/docs/devtools/) and [Responsive Design Checker](https://www.responsivedesignchecker.com/).
+
+| Desktop    | Display > 1280px      | Display < 1280px   |
+|------------|-----------------------|--------------------|
+| Render     | pass                  | pass               |
+| Links      | pass                  | pass               |
+| Images     | pass                  | pass               |
+
+| Tablet     | Samsung Galaxy Tab 10 | Amazon Kindle Fire | iPad Mini | iPad Pro |
+|------------|-----------------------|--------------------|-----------|----------|
+| Render     | pass                  | pass               | pass      | pass     |
+| Links      | pass                  | pass               | pass      | pass     |
+| Images     | pass                  | pass               | pass      | pass     |
+
+| Phone      |Galaxy S5/S6/S7/S20+   | iPhone 6/7/8/ plus | iPhone 14pro max     |
+|------------|-----------------------|--------------------|----------------------|
+| Render     | pass                  | pass               | pass      | pass     |
+| Links      | pass                  | pass               | pass      | pass     |
+| Images     | pass                  | pass               | pass      | pass     |
+
+[Back to top](<#table-of-content>) 
 ### Browser Compatibility
 `justask` blog was tested for functionality and appearance in the following browsers on desktop. No visible or funcional issues on all 
 the browsers below.
