@@ -8,6 +8,7 @@ from django.views.decorators.http import require_POST
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 # Create your views here.
 def home(request):
@@ -89,8 +90,7 @@ def home(request):
         user_dislikes = list(Reaction.objects.filter(user=request.user, reaction="dislike").values_list("question__id", flat=True))
 
 
-    print(user_likes)
-    print(user_dislikes)
+    # messages.info(request, message="Welcome Home")
     return render(request, 'questions/home.html',{'questions': questions, 'form':question_form, 'categories':categories, 'query':query, 'question_id':highlighted_question_id, 'user_likes': user_likes, 'user_dislikes':user_dislikes})
 
 

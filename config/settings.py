@@ -42,13 +42,11 @@ ALLOWED_HOSTS = [
 CSRF_TRUSTED_ORIGINS = [
     "https://just-ask-b3c36fe12bcc.herokuapp.com",
     "http://just-ask-b3c36fe12bcc.herokuapp.com",
-    "just-ask-b3c36fe12bcc.herokuapp.com",
+    "https://8000-ein1-justask-gd10zbphhse.ws.codeinstitute-ide.net"
 ]
 
 if DEBUG:
     ALLOWED_HOSTS = ['*']
-    CSRF_TRUSTED_ORIGINS = ['https://8000-ein1-justask-bbop0vp8is6.ws.codeinstitute-ide.net', 'https://8000-ein1-justask-uchm1vk2muk.ws.codeinstitute-ide.net']
-
 
 
 # Application definition

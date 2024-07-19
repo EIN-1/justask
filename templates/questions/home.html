@@ -22,55 +22,63 @@
 
 
 {% block content %}
+
+
+
+
 <div class="container py-4">
   <div class="row">
     <div class="col-lg-8 col-md-12">
       <div class="container">
-        <div class="row gap-5">          
-          {% for question in questions %}
-            <div class="card question-card" data-question-id="{{ question.id }}">
-              <div class="card-body">                
-                <a href="{% url 'profile' question.author.pk %}" class="d-flex align-items-center mb-2 text-decoration-none text-dark">
-                  <img style="margin-right: 1rem;" height="40px" width="40px" src="{% gravatar_url question.author.email 40 %}" alt="{{ question.author.name }}" class="rounded-circle"> 
-                  <div>
-                      <h6 class="card-subtitle mb-0">{{ question.author.username }}</h6>
-                      <small class="text-muted">{{ question.created_at }}</small>
-                      
+        <div class="row gap-5">
+          {% if not questions %}
+            <h1>No questions found</h1>
+          {% else %}          
+            {% for question in questions %}
+              <div class="card question-card" data-question-id="{{ question.id }}">
+                <div class="card-body">                
+                  <a href="{% url 'profile' question.author.pk %}" class="d-flex align-items-center mb-2 text-decoration-none text-dark">
+                    <img style="margin-right: 1rem;" height="40px" width="40px" src="{% gravatar_url question.author.email 40 %}" alt="{{ question.author.name }}" class="rounded-circle"> 
+                    <div>
+                        <h6 class="card-subtitle mb-0">{{ question.author.username }}</h6>
+                        <small class="text-muted">{{ question.created_at }}</small>
+                        
+                    </div>
+                  </a>
+                  <h5 class="card-title">{{ question.title }}</h5>
+                  <span class="badge rounded-pill bg-primary">{{question.category.name}}</span>
+                  <p class="card-text">{{ question.content }}</p>
+                  <div class="btn-group" role="group" aria-label="Question actions">
+                    <a href="#home" class="btn btn-outline-secondary show-comments" data-question-id="{{ question.id }}">
+                        <i class="fas fa-comments" title="comments"></i> {{question.comment_count}}
+                    </a>
+                    <a href="{% url 'home' %}" class="btn {% if question.id in user_likes %} btn-success {%else%} btn-outline-success {% endif %} like-button" data-question-id="{{ question.id }}" data-reaction="like">
+                        <i class="fas fa-thumbs-up" title="like"></i> <span class="like-count">{{question.like_count}}</span>
+                    </a>
+                    <a href="{% url 'home' %}" class="btn {% if question.id in user_dislikes %} btn-danger {% else %} btn-outline-danger {% endif %} dislike-button" data-question-id="{{ question.id }}" data-reaction="dislike">
+                        <i class="fas fa-thumbs-down" title="dislike"></i> <span class="dislike-count">{{question.dislike_count}}</span>
+                    </a>
+                    {% if question.author == request.user %}
+                      <a href="{% url 'home' %}" 
+                        class="btn btn-outline-primary edit-button editQuestion" 
+                        data-question-id="{{ question.id }}" 
+                        data-question-title="{{ question.title }}" 
+                        data-question-content="{{ question.content }}"
+                        data-question-category="{{ question.category.id }}"
+                        data-bs-toggle="modal" 
+                        data-bs-target="#editQuestionModal">
+                          <i class="fas fa-pen-fancy" title="edit comment"></i>
+                      </a>
+                      <a href="{% url 'home' %}" class="btn btn-outline-danger delete-button" data-question-id="{{ question.id }}">
+                          <i class="fas fa-trash" title="delete question"></i>
+                      </a>
+                    {% endif %}
                   </div>
-                </a>
-                <h5 class="card-title">{{ question.title }}</h5>
-                <span class="badge rounded-pill bg-primary">{{question.category.name}}</span>
-                <p class="card-text">{{ question.content }}</p>
-                <div class="btn-group" role="group" aria-label="Question actions">
-                  <a href="#home" class="btn btn-outline-secondary show-comments" data-question-id="{{ question.id }}">
-                      <i class="fas fa-comments" title="comments"></i> {{question.comment_count}}
-                  </a>
-                  <a href="{% url 'home' %}" class="btn {% if question.id in user_likes %} btn-success {%else%} btn-outline-success {% endif %} like-button" data-question-id="{{ question.id }}" data-reaction="like">
-                      <i class="fas fa-thumbs-up" title="like"></i> <span class="like-count">{{question.like_count}}</span>
-                  </a>
-                  <a href="{% url 'home' %}" class="btn {% if question.id in user_dislikes %} btn-danger {% else %} btn-outline-danger {% endif %} dislike-button" data-question-id="{{ question.id }}" data-reaction="dislike">
-                      <i class="fas fa-thumbs-down" title="dislike"></i> <span class="dislike-count">{{question.dislike_count}}</span>
-                  </a>
-                  {% if question.author == request.user %}
-                    <a href="{% url 'home' %}" 
-                      class="btn btn-outline-primary edit-button editQuestion" 
-                      data-question-id="{{ question.id }}" 
-                      data-question-title="{{ question.title }}" 
-                      data-question-content="{{ question.content }}"
-                      data-question-category="{{ question.category.id }}"
-                      data-bs-toggle="modal" 
-                      data-bs-target="#editQuestionModal">
-                        <i class="fas fa-pen-fancy" title="edit comment"></i>
-                    </a>
-                    <a href="{% url 'home' %}" class="btn btn-outline-danger delete-button" data-question-id="{{ question.id }}">
-                        <i class="fas fa-trash" title="delete question"></i>
-                    </a>
-                  {% endif %}
                 </div>
+                <div class="comments mt-3" id="comments-{{ question.id }}" style="display: none;"></div>
               </div>
-              <div class="comments mt-3" id="comments-{{ question.id }}" style="display: none;"></div>
-            </div>
-          {% endfor %}
+            {% endfor %}
+          {% endif %}
         </div>
         <div class="pagination mt-5">
           <ul class="pagination justify-content-center">
@@ -230,6 +238,9 @@
           success: function(data){
             commentsDiv.html(data);
             commentsDiv.slideDown();
+            var toastEl = document.getElementById('likeDislikeToast');
+            var toast = new bootstrap.Toast(toastEl);
+            toast.show();
           },
           error: function(){
             commentsDiv.html('<p>An error occured while loading comments.</p>');
@@ -285,6 +296,9 @@
         data: formData,
         success: function(response){
           if (response.success){
+            var toastEl = document.getElementById('likeDislikeToast');
+            var toast = new bootstrap.Toast(toastEl);
+            toast.show();
             window.location.reload();
           }else{
             alert('Failed to edit question')
@@ -314,6 +328,9 @@
               'csrfmiddlewaretoken': '{{ csrf_token }}'
           },
           success: function(data) {
+            var toastEl = document.getElementById('likeDislikeToast');
+            var toast = new bootstrap.Toast(toastEl);
+            toast.show();
             window.location.href = window.location.href;
           },
           error: function() {
@@ -389,6 +406,9 @@
               url: url,
               success: function(response) {
                   if (response.success) {
+                      var toastEl = document.getElementById('likeDislikeToast');
+                      var toast = new bootstrap.Toast(toastEl);
+                      toast.show();
                       window.location.reload();
                   } else {
                       alert('Failed to delete the question.');
