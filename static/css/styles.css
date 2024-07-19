@@ -7,8 +7,8 @@
 
 /** default button color override**/
 .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-outline-primary {
-  background-color: #FFFFFF !important;
-  Color: #003CF0 !important;
+  background-color:  #003CF0 !important;
+  Color:  #FFFFFF !important;
 }
 /** footer**/
 footer h5 {
