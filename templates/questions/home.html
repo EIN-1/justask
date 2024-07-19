@@ -38,7 +38,7 @@
               <div class="card question-card" data-question-id="{{ question.id }}">
                 <div class="card-body">                
                   <a href="{% url 'profile' question.author.pk %}" class="d-flex align-items-center mb-2 text-decoration-none text-dark">
-                    <img style="margin-right: 1rem;" height="40px" width="40px" src="{% gravatar_url question.author.email 40 %}" alt="{{ question.author.name }}" class="rounded-circle"> 
+                    <img style="margin-right: 1rem;" height="40" width="40" src="{% gravatar_url question.author.email 40 %}" alt="{{ question.author.name }}" class="rounded-circle"> 
                     <div>
                         <h6 class="card-subtitle mb-0">{{ question.author.username }}</h6>
                         <small class="text-muted">{{ question.created_at }}</small>
