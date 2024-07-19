@@ -6,7 +6,7 @@
 }
 
 /** default button color override**/
-.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-outline-primary {
+button .btn .btn-primary {
   color:  #003CF0 !important;
   text-decoration-color: #ffff !important;
 }
