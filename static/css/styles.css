@@ -1,8 +1,8 @@
 /** navbar toggler icon**/
 .navbar-toggler:focus,
 .navbar-toggler-icon:focus {
-    outline: none;
-    box-shadow: none;
+  outline: none;
+  box-shadow: none;
 }
 
 /** default button color override**/
@@ -10,17 +10,17 @@ button .btn .btn-primary {
   color:  #003CF0 !important;
   text-decoration-color: #ffff !important;
 }
-/** footer**/
-footer h5 {
-    color: #343a40;
-    font-weight: bold;
-  }
-  
-  footer a {
-    text-decoration: none;
-  }
 
-  footer .social-icons i {
-    font-size: 1.25rem;
-    margin-right: 10px;
-  }
+/** footer**/
+footer a {
+  color: #ffff !important;
+  text-decoration: none;
+}
+
+footer .social-icons i {
+  font-size: 1.25rem;
+  margin-right: 10px;
+}
+.bg-primary {
+  color:  #003CF0 !important;
+}
