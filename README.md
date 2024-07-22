@@ -25,16 +25,7 @@
 + [Design](#design "Design")
    + [Flowchart](#flowchart "Flowchart")
 + [Features](#features "Features")
-  + [Existing Features](#existing-features "Existing Features")
-    + [Start game](#start-game "Start game")
-    + [Game Rules](#game-rules "Game Rules")
-    + [Enter Country Location](#enter-country-location "Enter Country Location")
-    + [Enter Username](#enter-username "Enter Username")
-    + [Possible Outcomes](#possible-outcomes "Possible Outcomes")
-    + [Points Earned](#points-earned "Points Earned")
-    + [Score](#Score "Score")
-    + [Replay and Exit](#replay-and-exit "Play Again or Quit App")
-  + [Features Left to Implement](#features-left-to-implement "Features Left to Implement")
+  +
 + [Testing](#testing "Testing")
   + [Validator Testing](#validator-testing "Validator Testing")
   + [Manual Testing](#manual-testing "Manual Testing")
@@ -55,36 +46,14 @@
 ## UX
 
 ### Site Purpose:
-To provide a simple and fun platform where the user can play while learning about python through quiz and multi-choice answers.
-
-### Audience:
-Python learners, anyone who is interessed in learning python, it can be a programmer from a different language who wants to divert to python too. 
-
-### Communication:
-The game interface employs clear and colored print statements, ensuring an error-free and engaging gaming experience. These added colors enhances text readability and adds a visually appealing element to the game.
-
-### Current User Goals:
-The primary goal for current users is to be entertained and engaged in playing while learning something productive at the same time playing multiple rounds of the quiz Game will help the user master alot of python rules, it will help the user love python before stating to code. 
-
-### New User Goals:
-New users are encouraged to experiment with the computer-based version of the python quiz game and widen there python knowledge, the multi-choice answers helps them to guess the correct answer from the given options.
-
-### Future Goals:
-Make the game more challenging by introducing multiple difficulty levels for the user to choose to play and implementing a scoring leaderboard. 
-
-[Back to top](<#table-of-contents>)
 
 ## Project Management
 
 ### Kanban Board & User Stories
 I've been using the application [Kanban Board](https://trello.com/) and the project board in GitHub to keep my project together. It has been working really well and has helped me structure up my work a lot. Trello was used on a more general plan and GitHub was used to plan and organize my user stories.
 
-<details><summary><b>Trello & Github Board</b></summary>
-
 ![Kanban Board](readme/assets/images/trello.png)
 
-![User Stories](readme/assets/images/user_stories.png)
-</details><br/>
 
 [Back to top](<#table-of-content>)
 
@@ -215,22 +184,7 @@ Following schema shows intended database structure:
 ## The Surface Plane
 
  ### Color pallette
-
- - Primary Color (#763ae0): This vibrant shade of purple is eye-catching and energetic, serving as the primary color to draw attention to important 
-  elements on the website
-
- - Secondary Color (#a0d333): This soft green hue complements the primary color palette, bringing a refreshing and natural feel to the design
-
- - Background Color (#FFF5E1): This light cream or ivory tone provides a clean and neutral background for the website, ensuring readability and allowing   other colors to stand out effectively.
-
- - Text Dark (#333333): A dark gray color, perfect for body text or any content where readability is crucial.
-
-- Text Light (#767268): A lighter shade of gray, suitable for secondary text or elements where a softer contrast is desired
-
-### .5.. Fonts
-[Google Fonts](https://fonts.google.com/) site was used to pick the best typography style. The most importance was given to balance between style and readability. As a developer I needed to ensure that all text is displayed clear.
-
-### .5.4. Icons and pictures
+- I used primary, succeess, light, dark for my webpage as they are the defaults of bootstrap.
 
 # Features
 
@@ -447,37 +401,6 @@ the browsers below.
   [Back to top](<#table-of-content>)
 
 
-## Credits
-For inspiration, I watched the following YouTube tutorials by:
-- [Bro code](https://www.youtube.com/watch?v=zehwgTB0vV8) -Python quiz game
-- [Kite](https://www.youtube.com/watch?v=m4nEnsavl6w&t=3s)
-- [Colored Console Output in Python](https://www.youtube.com/watch?v=kf8kbUKeM5g) - to learn how to use colorama in the print statements to enhance the overall user experience.
-- [Bytive](https://www.youtube.com/watch?v=NLqSxyKh1EU) - How to measure elapsed time in Python.
-- [Learn Learn Scratch Tutorials](https://www.youtube.com/watch?v=U1aUteSg2a4) - Python - Converting text to Big ASCII Text using Pyfiglet.
-
-To understand and implement the logic required for the game the following pages were consulted:
-+ [Brock Byrd](https://brockbyrdd.medium.com/creating-a-multiple-choice-quiz-in-python-terminal-1c46123b86d5) -Creating a multiple choice quiz in Python.
-+ [some quiz quetions](https://www.w3schools.com/quiztest/quiztest.asp?qtest=PYTHON) - question ideas.
-+ [Change the color of text in python shell?](https://stackoverflow.com/questions/11043260/change-the-color-of-text-in-python-shell) - to print different colored text.
-+ [How to make colored text in python by MiloCat](https://ask.replit.com/t/how-do-i-make-colored-text-in-python/29288/8) - to display the text in different colors.
-+ [Timer](https://www.learndatasci.com/solutions/python-timer/) - as a reference how to add the execution time before the game begins. 
-+ [codedamn](https://codedamn.com/news/python/strip-whitespace-in-python) - Python Strip Whitespace: A Complete Guide
-+ [stack overflow](https://stackoverflow.com/questions/51804117/conditions-are-met-but-program-not-breaking-out-of-while-loop) - conditions are met, but program not breaking out of while loop 
-
-[Back to top](<#table-of-contents>)
-
-  #### Admin comment
-  ![Admin comment](/image/superuser-add-comment.png)
-  - Every template in this project is equipped with Favicon. This is to ease navigation for user in case of more tabs opened.
-  #### Admin delete
-  ![Admin delete](/image/superuser-delete.png)
-  - Every template in this project is equipped with Favicon. This is to ease navigation for user in case of more tabs opened.
-  #### Admin reation
-  ![Admin reation](/image/superuser-reaction2.png)
-  - Every template in this project is equipped with Favicon. This is to ease navigation
-
-[Back to top](<#table-of-content>)
-
 ## Validation
 
 Validation will be here [validation.md](/docs/validation.md) file.
@@ -495,13 +418,13 @@ Validation will be here [validation.md](/docs/validation.md) file.
 ## Bugs
 
 - [** Stackoverflow Django annotate() multiple times causes wrong answers **] (https://stackoverflow.com/questions/1265190/django-annotate-multiple-times-causes-wrong-answers) - It helped in fixing bug with likes and dislikes showing wrong counts by adding distinct=True in my multiple annotation in the home view see below
-![fixed bug](image.png)
+![fixed bug](image will be put here.png)
 
 [Back to top](<#table-of-content>)
 
 # Deployment**
 
-## Transfer of progress from IDE**
+## Transfer of progress from IDE
 
 - **Task :** To ensure regular commitments are done to avoid any data/progress loss.
 - **Method :** 
@@ -556,7 +479,7 @@ Validation will be here [validation.md](/docs/validation.md) file.
     - Obtain Cloudinary URL in format `cloudinary://USER:PASSKEY@ENVIRONMENT`
     - Update `settings.py` in the project directory
 
-  ### Settings.py & file-tree**
+  ### Settings.py & file-tree
 
   - **Task :** Prepare `settings.py` adn file-tree for deployment 
   - **Method :** 
@@ -618,8 +541,8 @@ Validation will be here [validation.md](/docs/validation.md) file.
 ## Technologies & Credits**
 
 ### Technologies used to develop and deploy this project
+- [Google Fonts](https://fonts.google.com/) site was used to pick the best typography style. The most importance was given to balance between style and readability. As a developer I needed to ensure that all text is displayed clear.
 
-- [**Balsamiq**](https://balsamiq.com/support/) - to create wireframes.
 - [**Schemas**](https://app.diagrams.net/) - to create database structure.
 
 - [**Django/Jinja**](https://docs.djangoproject.com/en/5.0/) - main Framework of the project
@@ -629,17 +552,16 @@ Validation will be here [validation.md](/docs/validation.md) file.
 - [**Java Script**](https://developer.mozilla.org/en-US/docs/Web/JavaScript) - dynamic templates programming language of this project (FrontEnd)
 - [**jQuery**](https://api.jquery.com/) - API for JavaScript - dynamic templates programming language of this project (FrontEnd)
 - [**Bootstrap v. 5.**](https://getbootstrap.com/) - styling framework used in this project (FrontEnd)
-
 - [**Gitpod**](https://gitpod.com/) - online IDE - gitpod was used to create this project
 - [**Git**](https://git-scm.com/doc) - to make commitments of progress and push the results back to GitHub
 - [**GitHub**](https://github.com/) - to keep the track of version control
 - [**Heroku**](https://heroku.com) - to deploy this project
-
 - [**Google Fonts**](https://fonts.google.com/) - used for picking the best typography
 - [**PostgresSQL**](https://www.postgressql.com/) - used as a database storage
 - [**Cloudinary**](https://console.cloudinary.com/) - used as a storage of static files
 - [**FavIcon.io**](https://favicon.io/favicon-converter/) - used to compress favicon
 - [**W3Schools**](https://www.w3schools.com/) - useful information and cheat sheets
+- [**Google Fonts**](https://fonts.google.com/) site was used to pick the best typography style. The most importance was given to balance between style and readability. As a developer I needed to ensure that all text is displayed clear.
 
 [Back to top](<#table-of-content>)
 
@@ -671,24 +593,30 @@ Validation will be here [validation.md](/docs/validation.md) file.
 [Back to top](<#table-of-content>)
 
 ### Credits
--this might change!!!!
+
 - [**The Django admin site**](https://docs.djangoproject.com/en/5.0/ref/contrib/admin/) - How to set up my Superuser Admin.
 - [**jQuery.post()**](https://api.jquery.com/jQuery.post/)
 - [**Django documentation template comments**](https://docs.djangoproject.com/en/5.0/ref/templates/language/#comments) - Setting up my comments template 
 - [**django-gravatar**](https://github.com/twaddington/django-gravatar) - How to use gravatar icons on my blog.
-- [**Geeksforgeeks Django Jinja**] (https://www.geeksforgeeks.org/jinja-for-server-side-rendering-in-django/) - How to work with jinja.
-- [**Django Templates**] (https://docs.djangoproject.com/fr/4.2/topics/templates/) - How to work with templates.
-- [**Django documentation Model.__str__**] (https://docs.djangoproject.com/en/5.0/ref/models/instances/) - How to work with model string.
-- [**Stackoverflow How to set up Django website with jQuery**] (https://stackoverflow.com/questions/12031825/how-to-set-up-django-website-with-jquery)
+- [**Geeksforgeeks Django Jinja**](https://www.geeksforgeeks.org/jinja-for-server-side-rendering-in-django/) - How to work with jinja.
+- [**Django Templates**](https://docs.djangoproject.com/fr/4.2/topics/templates/) - How to work with templates.
+- [**Django documentation Model.__str__**](https://docs.djangoproject.com/en/5.0/ref/models/instances/) - How to work with model string.
+- [**Stackoverflow How to set up Django website with jQuery**](https://stackoverflow.com/questions/12031825/how-to-set-up-django-website-with-jquery)
+- [**color testing**](https://color.a11y.com/Contrast/) - Checked my website color contex
+- [**Password validation**](https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators) - with Django
+- [**time zone**](https://docs.djangoproject.com/en/5.0/topics/i18n/) - Internationalization
+- [**user authentication and management**](https://youtu.be/WuyKxdLcw3w?si=a_-3HyADtu5sblOR) - user authentication and management
+- [**Ajax forn submission**](https://youtu.be/KgnPSmrQrXI?si=Y1Whk2AATEYZB1Dz) - Ajax forn submission
+
 
 [Back to top](<#table-of-contents>)
 
  ## Acknowledgments
- The application `Python quiz` was completed as the Portfolio Project  (*Python*) for the Full Stack Software Development Diploma at the [Code Institute](https://codeinstitute.net/).
+ The application `Just Ask` was completed as the Portfolio Project 4 for the Full Stack Software Development Diploma at the [Code Institute](https://codeinstitute.net/).
   - A special thanks to my cohort facilitator `Ms. Kay Welfare` for her advice and support her quick feedback was very helpful and encouraging.
-  - I would like to thank my mentor Mr. [Precious Ijege](https://www.linkedin.com/in/precious-ijege-908a00168/) for relevant feedback during the project.
+  - I would like to thank my mentor` Mr. Precious Ijege` for relevant feedback during the project.
   
  - **Developer :** [Elsie Nagawa ](https://github.com/EIN-1/justask)
- 19.07.2024.
+ 22.07.2024.
 
  [Back to top](<#table-of-contents>)
