@@ -132,8 +132,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
-
-TIME_ZONE = 'GMT'
+# When i put UTC OR GMT here the time didn't change as i had expected so am going to stick to the standard UTC
+# I would have prefered GMT but I don't have enought time left for my project so am going to focus on the remaining tasks for now!
+TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
