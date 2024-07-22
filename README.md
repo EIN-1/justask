@@ -1,18 +1,14 @@
 ![logo](static/img/justask.png)
 
 
-# ***JustAsk Blog - Pp4***
-![am responsive]()
+# ***JustAsk Blog - Project Portfolio 4***
+![am responsive](image/amResponsive.png)
 # **1. Key project information**
 
 - **Description :** **Just ask** is a question-and-answer website where users can ask questions, answer questions, and interact with other users.
 - **Key project goal :** To familiarize visitors of this page with **justask** blog
 - **Audience :** Target audience are users that are using search engines to ask quetions and those who are looking for answers from various topics
 - **Live version :** Live version of **Just Ask** page can be viewed at [JustAsk](https://just-ask-b3c36fe12bcc.herokuapp.com/).
-
-![Mockup]()
-
----
 
 ## Table of Contents
 + [UX](#ux "UX")
@@ -45,14 +41,12 @@
 
 ## UX
 
-### Site Purpose:
-
 ## Project Management
 
 ### Kanban Board & User Stories
-I've been using the application [Kanban Board](https://trello.com/) and the project board in GitHub to keep my project together. It has been working really well and has helped me structure up my work a lot. Trello was used on a more general plan and GitHub was used to plan and organize my user stories.
+I've been using the application ``Kanban Board`` and the project board in GitHub to keep my project together. It has been working really well and has helped me structure up my work a lot. Trello was used on a more general plan and GitHub was used to plan and organize my user stories.
 
-![Kanban Board](readme/assets/images/trello.png)
+![Kanban Board](image/userstories1.png)
 
 
 [Back to top](<#table-of-content>)
@@ -68,25 +62,7 @@ Models used (besides standard user model) in this project are:
 * **Comment** - Handles all the comments
 * **UserProfile** - Handles the user profile information (first name, last name, presentation and featured image for the specific user/reviewer). There is a one-to-one relation to the user model to connect it to the standard user model.
 
-<details><summary><b>Database Schema</b></summary>
-
-![Database Schema](readme/assets/images/database_schema.png)
-</details><br/>
-
-# **User Experience (UX)**
-
-## Wireframes
-The wireframes for the site were created in the software [Balsamiq](https://balsamiq.com). The wireframes have been created for desktop, tablet and mobile devices. The text content wasn't finalized during the wireframe process. It's worth mentioning that there are visual differences compared to the wireframes, the reason being design choices that was made during the creation process.
-
-<details><summary><b>Wireframes</b></summary>
-
-![Wireframes](readme/assets/images/balsamiq.png)
-</details><br/>
-
-## Design
-### Flowchart:
-![Flowchart](Documents/py.flowchart.png)
-I used [Lucid](https://www.lucidchart.com/) to create a flowchart, to enhence the overall structure.
+![Database Schema](docs/dbase/schema.db.png)
 
 [Back to top](<#table-of-contents>)
 
@@ -94,14 +70,7 @@ I used [Lucid](https://www.lucidchart.com/) to create a flowchart, to enhence th
 
 ### Existing Features:
 
-
 [Back to top](https://github.com/Blog#1key-project-information)
-  
----
-
-# **. User Experience (UX)**
-
-## **.1. The Strategy Plan**
 
 ### The Idea
 
@@ -113,16 +82,14 @@ The target audience is anyone curouis of the outside world and is interested to 
 - User can comment
 - User can `delete` or `edit` his/her posts
 
-### **.1. Site Goals**
+### Site Goals
 
-- Inform and Educate: Provide accurate and up-to-date information on baby care and parenting.
-- Engage and Support: Create a community where parents can connect, share experiences, and offer mutual support.
+- Share knowledge and experiences with the globle communty and to offer mutual support to one another.
 
 ### Epics
 
 As a thought process of the strategy plane, 9 epics were created and utilized. Please see below the detail list of epics with links, or a link to the project's [Kanban Board](https://github.com/users/EIN-1/projects/5). Those Epics were further sliced into USER STORIES.
 
-![Kanban Board](/image/userstories1.png)
 ![Kanban Board](/image/userstories2.png)
 
 - [Epic 1: Environment Configuration](https://github.com/users/EIN-1/projects/5/views/1?pane=issue&itemId=70745632)
@@ -149,46 +116,28 @@ User stories were created based on the Epics. Each user story uses the MoSCoW pr
 
 **Won't-Have**: Features that are explicitly excluded from the project scope.
 
-
-### List of user stories sorted by Epic :
-
-## **.2. The Scope Plane**
+## The Scope Plane
 
 After decided on the strategy, the scope plane was carefully created.
 
-### .2.1. Features to be implemented
+### Features 
 
 - **Search** : Search bar for guests and users is provided on landing page so users can find specific News Posts, Styles or Team members.
 - **Comment**: Allow users to reply directly to another comment. Replies would then be shown directly underneath that comment as a conversation.
 
-## **.. The Structure Plane**
-
-### ..1. Site Maps
-
-## Database Schemas
-
-Following schema shows intended database structure:
-
-![Database schema](/docs/dbase/schema.db.png)
-- I designed my database for coding to stay in the line and to have a clear picture of my database.
-
-## The Skeleton Plane
-
-
-### Wire-frames
-[wireframes](/docs/wireframes.png)
-
- I created simple ![wireframes](/docs/wireframes.png) for the homepage, and the article detail page. For the registration and login page I was planning to use the default layout, so I omitted wireframes for those pages.
-
+[Back to top](https://github.com/Blog#1key-project-information)
 
 ## The Surface Plane
 
  ### Color pallette
-- I used primary, succeess, light, dark for my webpage as they are the defaults of bootstrap.
+- I used primary, success, light, dark for my webpage as they are the defaults of bootstrap.
 
-# Features
+  + dark = black
+  + primary = blue
+  + success = green
+  + light = smoke white
 
- ## Features used in every HTML template
+## Features used 
 
   ### Header
   ![header](/image/header.png)
@@ -230,7 +179,7 @@ Following schema shows intended database structure:
  ![categories](/image/categories.png)
  - Every template in this project is equipped with Favicon. This is to ease navigation for user in case of more tabs opened. 
  ### Admin
- ![Superuser](/image/superuser.png)
+ ![Superuser](/image/Admin.png)
  - Every template in this project is equipped with Favicon. This is to ease navigation for user in case of more tabs opened.
   #### Admin  for user in case of more tabs opened.
 
@@ -241,27 +190,19 @@ Following schema shows intended database structure:
 
  The following custom error pages were created :
 
- - 403 - Received when user attempts to access a web resource for which they lack the necessary permissions. 
+ ![Error 404](/image/noQuetionFound.png)
  - 404 - Encountered when the requested web resource by user is not found on the server. 
- - 500 - Displayed when the web server encounters an internal error while processing the request.
+  ![Error 500](/image/warning.png)
+ - 500 - Displayed when the web server encounters an internal error while processing the reques then it sends you a warning.
+
 
 ## Main Content
 
   ### Landing Page
-  ![header](/image/header.png)
+  ![header](/image/main.png)
   - **Template File :** `home.html` - extends `base.html`
   - Contains list of posts.
-  - Provides user with all Posts published along with name of creator, date created and a snippet of Post body. Also number of votes and comments is provided to both logged in and not logged in users 
-
-  ### next Page
-
-  - **Template File :** `post_detail.html` - extends `base.html`
-  - **User :** Provides user with selected Post along with name of creator, date created and full Post body. User sees votes and amount of comments. Logged in user has ability to comment, delete and vote.
-
-### **4.2.4. Read Later Page**
-
-- **Template File :** `read_later.html` - extends `base.html`
-- **User :** Enables logged in user to read bookmarked posts. If there is no bookmarked posts, 
+  - Provides user with all Posts published along with name of creator, date created and a snippet of Post body. Also number of votes and comments is provided to both logged in and not logged in users.
 
 ### Forms
 
@@ -269,27 +210,6 @@ Following schema shows intended database structure:
 - **Template File :** `*.html` in `./templates/account` - extends `base.html`
 - **User :** Forms do interact with user. They are designed to be clear and to the point, always in center of the screen. 
 
-
-# Validation, Testing & Bugs
-## Testing
-
-### Validator Testing
-  #### PEP8 CI Validation
-  ![PEP8 CI Validation](Documents/pep-validator.png)
-  No errors were found in [CI PEP8 Online testing](https://pep8ci.herokuapp.com/).
-
-  #### Lighthouse
-  ![Lighthouse test](docs/testing/lighthouse3.png)
-  In general it was working well with [Lighthouse testing](https://pep8ci.herokuapp.com/)
-
-### Manual Testing
-  #### Erroe message 
-  ![Invalid Input ](Documents/invalid-input.png)
-    Any input that is not a number from the given options is an error, the user will be prompted with an `error message` until the player enters the correct number.
-
-  #### Invalid response
-  ![Invalid choise at the end](Documents/yes-or-no.png)
-  Any input other than a `yes or no` will be considered `invalid` at the end of the game, this is not case sensitive so it can be in lower or uppercase letters.
 
 ### Responsiveness Test
 The responsive design tests were carried out manually with [Google Chrome DevTools](https://developer.chrome.com/docs/devtools/) and [Responsive Design Checker](https://www.responsivedesignchecker.com/).
@@ -336,15 +256,30 @@ the browsers below.
 - Python Language
 
 ### Frameworks, Libraries & Programs
-- [Lucid](https://www.lucidchart.com) - to create the mock-up in preparation for the project.
-- [codeanywhere](https://code.visualstudio.com/) - used as the coding environment.
-- [GitHub](https://github.com/) - to store the repository for submission.
-- [Heroku](https://id.heroku.com/) - to deploy the live version of the terminal.
-- [AmIResponsive](https://ui.dev/amiresponsive?url=https://hangmangame-pp3-python-d5764adc1207.herokuapp.com/) - the responsive preview image on different gadgets.
-- [iloveimg](https://www.iloveimg.com/) - to compress the images.
-- Colorama - to add colored text to improve the readability by adding a color to the print statements and improve the user experience.
-- pyfiglet - to add ASCII font text in the game to improve the user experience.
-- pycountry - to add all the country names for the user to type in his country location.
+
+- [**AmIResponsive**](https://ui.dev/amiresponsive) - the responsive preview image on different gadgets.
+- [**iloveimg**](https://www.iloveimg.com/) - to compress the images.
+- [**Google Fonts**](https://fonts.google.com/) site was used to pick the best typography style. The most importance was given to balance between style and readability. As a developer I needed to ensure that all text is displayed clear.
+- [**Schemas**](https://app.diagrams.net/) - to create database structure.
+
+- [**Django/Jinja**](https://docs.djangoproject.com/en/5.0/) - main Framework of the project
+- [**Python**](https://www.python.org/) - main BackEnd programming language of the project
+- [**HTML**](https://developer.mozilla.org/en-US/docs/Web/HTML) - templates programming language of this project (FrontEnd)
+- [**CSS**](https://developer.mozilla.org/en-US/docs/Web/CSS) - styling the project via external CSS file `./static/css/style.css`
+- [**Java Script**](https://developer.mozilla.org/en-US/docs/Web/JavaScript) - dynamic templates programming language of this project (FrontEnd)
+- [**jQuery**](https://api.jquery.com/) - API for JavaScript - dynamic templates programming language of this project (FrontEnd)
+- [**Bootstrap v. 5.**](https://getbootstrap.com/) - styling framework used in this project (FrontEnd)
+- [**Gitpod**](https://gitpod.com/) - online IDE - gitpod was used to create this project
+- [**Git**](https://git-scm.com/doc) - to make commitments of progress and push the results back to GitHub
+- [**GitHub**](https://github.com/) - to keep the track of version control
+- [**Heroku**](https://heroku.com) - to deploy this project
+- [**Google Fonts**](https://fonts.google.com/) - used for picking the best typography
+- [**PostgresSQL**](https://www.postgressql.com/) - used as a database storage
+- [**Cloudinary**](https://console.cloudinary.com/) - used as a storage of static files
+- [**FavIcon.io**](https://favicon.io/favicon-converter/) - used to compress favicon
+- [**W3Schools**](https://www.w3schools.com/) - useful information and cheat sheets
+- [**Google Fonts**](https://fonts.google.com/) site was used to pick the best typography style. The most importance was given to balance between style and readability. As a developer I needed to ensure that all text is displayed clear.
+
 
 [Back to top](<#table-of-contents>)
 
@@ -379,45 +314,37 @@ the browsers below.
   * Live deployment [Python quiz](https://python-quiz-da8ccddf3267.herokuapp.com/)
 
   [Back to top](<#table-of-contents>)
-## Fork
-  ### How To Fork The Repository On GitHub
-  ![Fork](Documents/fork.png)
-  It is possible to do a copy of a GitHub Repository by forking the GitHub account. The copy can then be viewed and it is also possible to do changes in the copy without affecting the original repository. To fork the repository, take these steps:
-
-  1. After logging in to GitHub, locate the repository. On the top right side of the page there is a 'Fork' button. Click on the button to create a copy of the original repository.
 
   [Back to top](<#table-of-content>)
 
-## Clone
-  ### Create A Local Clone of A Project
-  ![Clone](Documents/clone.png)
-  To create a local clone of your repository, follow these steps:
 
-  1. When you are in the repository, find the code tab and click it.
-  2. To the left of the green GitPod button, press the 'code' menu. There you will find a link to the repository. Click on the clipboard icon to copy the URL.
-  . Use an IDE and open Git Bash. Change directory to the location where you want the cloned directory to be made.
-  4. Type 'git clone', and then paste the URL that you copied from GitHub. Press enter and a local clone will be created.
-
-  [Back to top](<#table-of-content>)
 
 
 ## Validation
 
-Validation will be here [validation.md](/docs/validation.md) file.
+[html validator](docs/testing/html-validator.png)
+- The 3 errors could be fixed by changes the id names in each form but my time runout so i plan to fix the future.
+
+[css validator](docs/testing/css.Validator.png)
+- The warming are coming from the Django librarries, I was looking through them but they are almost the same dublicated warnings, I look forward in digging more into them when I have more time.
 
 [Back to top](<#table-of-content>)
 
 ## Testing
+- I used lighthouse testing and these are the results for desktop 
+  ![lighthouse testing](/docs/testing/lighthousePC.png) 
 
--Tested for responsiveness manually.
-![lighthouse testing](/docs/testing/lighthouse3.png) 
--I used lighthouse testing for my page
+- I used lighthouse testing and these are the results for mobile devices
+   ![lighthouse testing](/docs/testing/lighthousePhone.png) 
+
+- Tested for responsiveness manually and it was responding well.
 
 [Back to top](<#table-of-content>)
 
 ## Bugs
+- wrong count in likes, dislikes and comments but got fixed
 
-- [** Stackoverflow Django annotate() multiple times causes wrong answers **] (https://stackoverflow.com/questions/1265190/django-annotate-multiple-times-causes-wrong-answers) - It helped in fixing bug with likes and dislikes showing wrong counts by adding distinct=True in my multiple annotation in the home view see below
+- [**Stackoverflow Django annotate() multiple times causes wrong answers**] (https://stackoverflow.com/questions/1265190/django-annotate-multiple-times-causes-wrong-answers) - It helped in fixing bug with likes and dislikes showing wrong counts by adding distinct=True in my multiple annotation in the home view see below
 ![fixed bug](image will be put here.png)
 
 [Back to top](<#table-of-content>)
@@ -432,13 +359,32 @@ Validation will be here [validation.md](/docs/validation.md) file.
    - command `git commit -m "[commit description]"` was used to add commitments into queue
    - command `git push` was used to push all commitments to remote repository on GitHub
 
+## Fork
+  ### How To Fork The Repository On GitHub
+
+  It is possible to do a copy of a GitHub Repository by ``forking the GitHub account``. The copy can then be viewed and it is also possible to do changes in the copy without affecting the original repository. To fork the repository, take these steps:
+
+  1. After ``logging in to GitHub``, locate the ``repository``. On the ``top right side`` of the page there is a ``'Fork' button``. Click on the button to ``create a copy`` of the original repository.
+
+## Clone
+  ### Create A Local Clone of A Project
+  
+  To create a local clone of your repository, follow these steps:
+
+  1. When you are in the repository, find the ``code tab`` and click it.
+  2. To the ``left of the green GitPod button``, press the ``'code' menu``. There you will find a link to the repository. Click on the ``clipboard icon`` to copy the URL.
+  Use an IDE and ``open Git Bash``. Change directory to the location where you want the cloned directory to be made.
+  4. Type ``git clone``, and then ``paste the URL that you copied`` from GitHub. Press enter and a local clone will be created.
+
+  [Back to top](<#table-of-content>)
+
 ## Offline cloning
 
   - **Task :** To use repository on local machine.
   - **Method :** 
   - Navigate to GitHub and follow `Code -> HTTPS -> Copy button` . after those steps open your local coding environment and type `git clone [copied link]`.
 
-## Deployment Prerequisites**
+## Deployment Prerequisites
 
   ### Gmail
 
@@ -520,7 +466,7 @@ Validation will be here [validation.md](/docs/validation.md) file.
 
 [Back to top](<#table-of-content>)
 
-  ### Deployment to Heroku**
+  ### Deployment to Heroku
 
 - **Task :** To ensure users are able to view live version of **Aneta's Glimmer** project.
 - **Method :** 
@@ -537,33 +483,6 @@ Validation will be here [validation.md](/docs/validation.md) file.
   - Navigate to `Deploy > Deploy Branch`
   - Optionally, you can enable automatic deploys
   - See the deployment log - if the deployment was successful, you will be prompted with option to see live page  
-
-## Technologies & Credits**
-
-### Technologies used to develop and deploy this project
-- [Google Fonts](https://fonts.google.com/) site was used to pick the best typography style. The most importance was given to balance between style and readability. As a developer I needed to ensure that all text is displayed clear.
-
-- [**Schemas**](https://app.diagrams.net/) - to create database structure.
-
-- [**Django/Jinja**](https://docs.djangoproject.com/en/5.0/) - main Framework of the project
-- [**Python**](https://www.python.org/) - main BackEnd programming language of the project
-- [**HTML**](https://developer.mozilla.org/en-US/docs/Web/HTML) - templates programming language of this project (FrontEnd)
-- [**CSS**](https://developer.mozilla.org/en-US/docs/Web/CSS) - styling the project via external CSS file `./static/css/style.css`
-- [**Java Script**](https://developer.mozilla.org/en-US/docs/Web/JavaScript) - dynamic templates programming language of this project (FrontEnd)
-- [**jQuery**](https://api.jquery.com/) - API for JavaScript - dynamic templates programming language of this project (FrontEnd)
-- [**Bootstrap v. 5.**](https://getbootstrap.com/) - styling framework used in this project (FrontEnd)
-- [**Gitpod**](https://gitpod.com/) - online IDE - gitpod was used to create this project
-- [**Git**](https://git-scm.com/doc) - to make commitments of progress and push the results back to GitHub
-- [**GitHub**](https://github.com/) - to keep the track of version control
-- [**Heroku**](https://heroku.com) - to deploy this project
-- [**Google Fonts**](https://fonts.google.com/) - used for picking the best typography
-- [**PostgresSQL**](https://www.postgressql.com/) - used as a database storage
-- [**Cloudinary**](https://console.cloudinary.com/) - used as a storage of static files
-- [**FavIcon.io**](https://favicon.io/favicon-converter/) - used to compress favicon
-- [**W3Schools**](https://www.w3schools.com/) - useful information and cheat sheets
-- [**Google Fonts**](https://fonts.google.com/) site was used to pick the best typography style. The most importance was given to balance between style and readability. As a developer I needed to ensure that all text is displayed clear.
-
-[Back to top](<#table-of-content>)
 
 
 ### Requirements.txt
