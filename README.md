@@ -12,16 +12,9 @@
 
 ## Table of Contents
 + [UX](#ux "UX")
-  + [Site Purpose](#site-purpose "Site Purpose")
-  + [Audience](#audience "Audience")
-  + [Communication](#communication "Communication")
-  + [Current User Goals](#current-user-goals "Current User Goals")
-  + [New User Goals](#new-user-goals "New User Goals")
-  + [Future Goals](#future-goals "Future Goals")
 + [Design](#design "Design")
-   + [Flowchart](#flowchart "Flowchart")
+
 + [Features](#features "Features")
-  +
 + [Testing](#testing "Testing")
   + [Validator Testing](#validator-testing "Validator Testing")
   + [Manual Testing](#manual-testing "Manual Testing")
@@ -62,6 +55,7 @@ Models used (besides standard user model) in this project are:
 * **Comment** - Handles all the comments
 * **UserProfile** - Handles the user profile information (first name, last name, presentation and featured image for the specific user/reviewer). There is a one-to-one relation to the user model to connect it to the standard user model.
 
+### Design
 ![Database Schema](docs/dbase/schema.db.png)
 
 [Back to top](<#table-of-contents>)
@@ -125,7 +119,7 @@ After decided on the strategy, the scope plane was carefully created.
 - **Search** : Search bar for guests and users is provided on landing page so users can find specific News Posts, Styles or Team members.
 - **Comment**: Allow users to reply directly to another comment. Replies would then be shown directly underneath that comment as a conversation.
 
-[Back to top](https://github.com/Blog#1key-project-information)
+[Back to top](<#table-of-contents>)
 
 ## The Surface Plane
 
@@ -181,6 +175,9 @@ After decided on the strategy, the scope plane was carefully created.
  ### Admin
  ![Superuser](/image/Admin.png)
  - Every template in this project is equipped with Favicon. This is to ease navigation for user in case of more tabs opened.
+
+ [Back to top](<#table-of-contents>)
+
   #### Admin  for user in case of more tabs opened.
 
  
@@ -203,6 +200,8 @@ After decided on the strategy, the scope plane was carefully created.
   - **Template File :** `home.html` - extends `base.html`
   - Contains list of posts.
   - Provides user with all Posts published along with name of creator, date created and a snippet of Post body. Also number of votes and comments is provided to both logged in and not logged in users.
+
+[Back to top](<#table-of-contents>)
 
 ### Forms
 
@@ -232,7 +231,8 @@ The responsive design tests were carried out manually with [Google Chrome DevToo
 | Links      | pass                  | pass               | pass      | pass     |
 | Images     | pass                  | pass               | pass      | pass     |
 
-[Back to top](<#table-of-content>) 
+[Back to top](<#table-of-contents>)
+
 ### Browser Compatibility
 `justask` blog was tested for functionality and appearance in the following browsers on desktop. No visible or funcional issues on all 
 the browsers below.
@@ -314,11 +314,6 @@ the browsers below.
   * Live deployment [Python quiz](https://python-quiz-da8ccddf3267.herokuapp.com/)
 
   [Back to top](<#table-of-contents>)
-
-  [Back to top](<#table-of-content>)
-
-
-
 
 ## Validation
 
@@ -412,6 +407,8 @@ the browsers below.
     - Confirm the instance by pressing `Create Instance`
     - Obtain database URL in format 
     - Update `settings.py` in the project directory
+
+[Back to top](<#table-of-contents>)
 
   ### Cloudinary
 
