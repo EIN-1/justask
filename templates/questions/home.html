@@ -32,8 +32,8 @@
       <div class="container">
         <div class="row gap-5">
           {% if not questions %}
-            <h1>Question not found or unknown character!</h1>
-            <a href="{% url 'home' %}" class="text-center">Please return to Homepage</a>
+            <h1>Question not found</h1>
+            <a href="{% url 'home' %}" class="text-center">click here to return to Homepage</a>
           {% else %}          
             {% for question in questions %}
               <div class="card question-card" data-question-id="{{ question.id }}">
