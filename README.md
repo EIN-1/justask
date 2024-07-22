@@ -15,11 +15,17 @@
 + [Design](#design "Design")
 
 + [Features](#features "Features")
+  + [The Idea](#the-idea "The Idea")
+  + [Epics](#epics "Epics")
+  + [User stories](#user-stories "User stories")
+  + [Surface Plane](#surface-plane "Surface Plane")
+  + [Used Elements](#used-elements "Used Elements")
 + [Testing](#testing "Testing")
   + [Validator Testing](#validator-testing "Validator Testing")
   + [Manual Testing](#manual-testing "Manual Testing")
   + [Bugs](#bugs "Bugs")
   + [Remaining Bugs](#remaining-bugs "Remaining bugs")
+  + [Error Pages](#error-pages "Error Pages")
 + [Technologies Used](#technologies-used "Technologies Used")
   + [Main Language](#main-language "Main Language")
   + [Frameworks, Libraries & Programs](#frameworks-libraries-programs "Frameworks, Libraries & Programs")
@@ -29,8 +35,8 @@
     + [Frok](#fork "Fork")
     + [Clone](#clone "Clone")
 + [Credits](#credits "Credits")
-  + [Content](#content "Content")
-  + [Acknowledgements](#acknowledgements "Acknowledgements")
+
++ [Acknowledgements](#acknowledgements "Acknowledgements")
 
 ## UX
 
@@ -99,7 +105,7 @@ As a thought process of the strategy plane, 9 epics were created and utilized. P
 
 User stories were created based on the Epics. Each user story uses the MoSCoW prioritization technique. Each user story on the [Kanban Board](https://github.com/users/EIN-1/projects/5/views/1) was given (MoSCoW) labels.
 
-
+### MoSCoW
 #### MoSCoW prioritization technique stands for:
 
 **Must-Have**: Critical requirements that must be implemented for the project to be considered successful.
@@ -110,18 +116,9 @@ User stories were created based on the Epics. Each user story uses the MoSCoW pr
 
 **Won't-Have**: Features that are explicitly excluded from the project scope.
 
-## The Scope Plane
-
-After decided on the strategy, the scope plane was carefully created.
-
-### Features 
-
-- **Search** : Search bar for guests and users is provided on landing page so users can find specific News Posts, Styles or Team members.
-- **Comment**: Allow users to reply directly to another comment. Replies would then be shown directly underneath that comment as a conversation.
-
 [Back to top](<#table-of-contents>)
 
-## The Surface Plane
+## Surface Plane
 
  ### Color pallette
 - I used primary, success, light, dark for my webpage as they are the defaults of bootstrap.
@@ -131,7 +128,14 @@ After decided on the strategy, the scope plane was carefully created.
   + success = green
   + light = smoke white
 
-## Features used 
+## Used Elements
+
+  ### Landing Page
+  ![header](/image/main.png)
+  - The banner explains what the website blog do and how to manover!
+  - **Template File :** `home.html` - extends `base.html`
+  - Contains list of posts.
+  - Provides user with all Posts published along with name of creator, date created and a snippet of Post body. Also number of votes and comments is provided to both logged in and not logged in users.
 
   ### Header
   ![header](/image/header.png)
@@ -148,6 +152,8 @@ After decided on the strategy, the scope plane was carefully created.
   - Every page has a footer at the bottom of the page.
   - The footer shows the copyright text and links to four different social media websites. Each link opens in a new tab.
 
+[Back to top](<#table-of-contents>)
+
   ### Login
 ![login](/image/login-form.png)
 - Every template in this project is equipped with Favicon. This is to ease navigation for user in case of more tabs opened. 
@@ -157,51 +163,41 @@ After decided on the strategy, the scope plane was carefully created.
   ### Reset password
   ![reset](/image/reset-password.png)
  - Every template in this project is equipped with Favicon. This is to ease navigation for user in case of more tabs opened. 
- ### Landing page
- ![landing page](/image/landing%20page.png)
- - Every template in this project is equipped with Favicon. This is to ease navigation for user in case of more tabs opened. 
- ### Profile
- ![profile](/image/user-profile.png)
- - Every template in this project is equipped with Favicon. This is to ease navigation for user in case of more tabs opened. 
- ### Search
- ![search](/image/search.png)
- - Every template in this project is equipped with Favicon. This is to ease navigation for user in case of more tabs opened. 
- ### Highlight post
- ![post](/image/highlight.png)
- - Every template in this project is equipped with Favicon. This is to ease navigation for user in case of more tabs opened. 
- ### Categories
- ![categories](/image/categories.png)
- - Every template in this project is equipped with Favicon. This is to ease navigation for user in case of more tabs opened. 
- ### Admin
- ![Superuser](/image/Admin.png)
- - Every template in this project is equipped with Favicon. This is to ease navigation for user in case of more tabs opened.
-
- [Back to top](<#table-of-contents>)
-
-  #### Admin  for user in case of more tabs opened.
-
- 
- ### Error Pages
-
- - This project is designed to have custom error pages. In case of user clicks on broken link, submits action that isn't supported or tries to reach certain view without permission, then user isn't completely "cut off" from browsing, instead an error page with header and footer appears and user is informed of the situation.
-
- The following custom error pages were created :
-
- ![Error 404](/image/noQuetionFound.png)
- - 404 - Encountered when the requested web resource by user is not found on the server. 
-  ![Error 500](/image/warning.png)
- - 500 - Displayed when the web server encounters an internal error while processing the reques then it sends you a warning.
-
-
-## Main Content
-
-  ### Landing Page
-  ![header](/image/main.png)
-  - **Template File :** `home.html` - extends `base.html`
-  - Contains list of posts.
-  - Provides user with all Posts published along with name of creator, date created and a snippet of Post body. Also number of votes and comments is provided to both logged in and not logged in users.
 
 [Back to top](<#table-of-contents>)
+
+ ### Profile
+ ![profile](/image/user-profile.png)
+ - User profile one can see all the reactions done by a user.. 
+ 
+ [Back to top](<#table-of-contents>)
+ ### Search
+ ![search](/image/search.png)
+ - The search button is in the middle of the search bar, here you can search anything you like. 
+ ### Highlight post
+ ![post](/image/highlight.png)
+ - When you are in user profile and click view question like it takes you directly to the question and it highlights it like this.
+ 
+ [Back to top](<#table-of-contents>)
+
+ ### Categories
+ ![categories](/image/categories.png)
+ - You can click on a category and see all the questions in it or chose a category that you might want to talk about.
+ ### Super user Admin
+ ![Superuser](/image/Admin.png)
+ - Super user Admin can delete, edit and add all elements on the app.
+ [Back to top](<#table-of-contents>)
+
+  ### Admin can do alot of things, below are a few of them.
+![Admin add comment](/image/superuser-add-comment.png)
+- Admin can add comment to user of choice
+![Admin change question](/image/adminChangeQuestion.png)
+- Admin  can change question to user of choice
+![Admin users view](/image/superuser-users-view.png)
+- Admin can view all the user
+
+[Back to top](<#table-of-contents>)
+
 
 ### Forms
 
@@ -209,9 +205,29 @@ After decided on the strategy, the scope plane was carefully created.
 - **Template File :** `*.html` in `./templates/account` - extends `base.html`
 - **User :** Forms do interact with user. They are designed to be clear and to the point, always in center of the screen. 
 
+#### Forms authenticators
+- all felds on a form must be filled 
+![field authenticator](image/userAuthentic.png)
+![field authenticator](image/userAuthentic2.png)
+
+[Back to top](<#table-of-contents>)
+
+#### User feedback
+ - after an action reation the user gets a feedback
+![user feedback1](image/userFeedback1.png)
+![user feedback2](image/userFeedback2.png)
+
+[Back to top](<#table-of-contents>)
+
+#### Admin feedback and authentication
+ - after an action reation the Admin gets a feedback and authentication
+![admin feedback1](image/adminChangeQuestion.png)
+![admin feedback1](image/adminDeleteUser.png)
+
+[Back to top](<#table-of-contents>)
 
 ### Responsiveness Test
-The responsive design tests were carried out manually with [Google Chrome DevTools](https://developer.chrome.com/docs/devtools/) and [Responsive Design Checker](https://www.responsivedesignchecker.com/).
+The responsive design tests were carried out manually with [Google Chrome DevTools](https://developer.chrome.com/docs/devtools/) and [Responsive Design](https://ui.dev/amiresponsive).
 
 | Desktop    | Display > 1280px      | Display < 1280px   |
 |------------|-----------------------|--------------------|
@@ -243,13 +259,6 @@ the browsers below.
 
 [Back to top](<#table-of-content>)
 
-### Bugs
-- while loop was not exiting but it was an operander issue, it got fixed as for now no bugs
-
-### Remaining Bugs
-- No bugs remaining as far as I know.
-
-[Back to top](<#table-of-contents>)
 
 ## Technologies Used
 ### Main Language
@@ -315,7 +324,9 @@ the browsers below.
 
   [Back to top](<#table-of-contents>)
 
-## Validation
+# Testing
+
+## Validator Testing
 
 [html validator](docs/testing/html-validator.png)
 - The 3 errors could be fixed by changes the id names in each form but my time runout so i plan to fix the future.
@@ -323,9 +334,9 @@ the browsers below.
 [css validator](docs/testing/css.Validator.png)
 - The warming are coming from the Django librarries, I was looking through them but they are almost the same dublicated warnings, I look forward in digging more into them when I have more time.
 
-[Back to top](<#table-of-content>)
+[Back to top](<#table-of-contents>)
 
-## Testing
+## Manual Testing
 - I used lighthouse testing and these are the results for desktop 
   ![lighthouse testing](/docs/testing/lighthousePC.png) 
 
@@ -334,17 +345,34 @@ the browsers below.
 
 - Tested for responsiveness manually and it was responding well.
 
-[Back to top](<#table-of-content>)
+[Back to top](<#table-of-contents>)
 
 ## Bugs
 - wrong count in likes, dislikes and comments but got fixed
 
 - [**Stackoverflow Django annotate() multiple times causes wrong answers**] (https://stackoverflow.com/questions/1265190/django-annotate-multiple-times-causes-wrong-answers) - It helped in fixing bug with likes and dislikes showing wrong counts by adding distinct=True in my multiple annotation in the home view see below
-![fixed bug](image will be put here.png)
 
-[Back to top](<#table-of-content>)
+### Remaining Bugs
+- No bugs remaining as far as I know.
 
-# Deployment**
+[Back to top](<#table-of-contents>)
+
+ ### Error Pages
+
+ - This project is designed to have custom error pages. In case of user clicks on broken link, submits action that isn't supported or tries to reach certain view without permission, then user isn't completely "cut off" from browsing, instead an error page with header and footer appears and user is informed of the situation.
+
+ The following custom error pages were created :
+
+ ![Error 404](/image/noQuetionFound.png)
+ - 404 - Encountered when the requested web resource by user is not found on the server. 
+  ![Error 500](/image/warning.png)
+ - 500 - Displayed when the web server encounters an internal error while processing the reques then it sends you a warning.
+
+[Back to top](<#table-of-contents>)
+
+
+
+# Deployment
 
 ## Transfer of progress from IDE
 
@@ -371,7 +399,7 @@ the browsers below.
   Use an IDE and ``open Git Bash``. Change directory to the location where you want the cloned directory to be made.
   4. Type ``git clone``, and then ``paste the URL that you copied`` from GitHub. Press enter and a local clone will be created.
 
-  [Back to top](<#table-of-content>)
+  [Back to top](<#table-of-contents>)
 
 ## Offline cloning
 
@@ -461,7 +489,7 @@ the browsers below.
     - commit and push changes to GitHub 
 
 
-[Back to top](<#table-of-content>)
+[Back to top](<#table-of-contents>)
 
   ### Deployment to Heroku
 
@@ -506,7 +534,7 @@ the browsers below.
     `export DATABASE_URL='my postgreSQL datbase'`
   Then `python manage.py runserver` to go to the browser.
 
-[Back to top](<#table-of-content>)
+[Back to top](<#table-of-contents>)
 
 ### Credits
 
