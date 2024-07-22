@@ -6,12 +6,12 @@
 }
 
 /** default button color override**/
-button .btn .btn-primary {
+button .btn .btn-primary .btn-outline-primary {
   color:  #003CF0 !important;
 }
 
-.button .btn .btn-primary {
-  color: #ffff !important;
+.button .btn .btn-primary .btn-outline-primary a {
+  background-color: #ffff !important;
 }
 
 /** footer**/
