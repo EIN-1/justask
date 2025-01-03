@@ -52,7 +52,7 @@ def home(request):
             dislike_count=Count('reactions', filter=Q(reactions__reaction='dislike'), distinct=True)
         ).order_by('-created_at')
     
-    category_list = Category.objects.all()
+    category_list = Category.objects.all().order_by('name')
 
 
     paginator = Paginator(question_list, 10)
