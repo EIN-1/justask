@@ -318,7 +318,8 @@
       var likeCount = $(this).find('.like-count');
       var dislikeCount = $(this).find('.dislike-count');
 
-      {# Send a post request to react-to-question with the question_id, reaction and the csrf_token and refresh the page if successful else show prompt error message #}
+      // Send a post request to react-to-question with the question_id, reaction and the csrf_token 
+      // and refresh the page if successful else show prompt error message
 
       $.ajax({
           type: 'POST',
@@ -343,14 +344,14 @@
     var urlParams = new URLSearchParams(window.location.search);
     var questionId = urlParams.get('question_id');
 
-    {% comment %} If question_id exists, highlight the selected question {% endcomment %}
+    // If question_id exists, highlight the selected question
     if(questionId){
       var questionCard = $('.question-card[data-question-id="' + questionId + '"]');
       if(questionCard.length){
-        {% comment %} Highlight question card {% endcomment %}
+        // Highlight question card
         questionCard.css('background-color', '#ffffcc');
 
-        {% comment %} Scroll to question card {% endcomment %}
+        // Scroll to question card 
         $('html, body').animate({
           scrollTop: questionCard.offset().top - 20
         }, 1000);
