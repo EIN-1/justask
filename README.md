@@ -367,7 +367,7 @@ the browsers below.
    git clone <paste-copied-URL>
    ```
 
-![Clone Repository](documentation/gameImages/clone.png)
+![Clone Repository]()
 
 [Back to top](#table-of-contents)
 
@@ -380,7 +380,7 @@ the browsers below.
 2. Locate the repository you want to fork.
 3. On the **top-right side** of the page, click the **Fork** button to create a copy of the repository.
 
-![Forking Repository](documentation/gameImages/clone.png)
+![Forking Repository]()
 
 [Back to top](#table-of-contents)
 
@@ -402,7 +402,7 @@ pip3 freeze > requirements.txt
 4. Enter a **unique app name** and select your **region**.
 5. Click **Create App**.
 
-![Heroku New App](documentation/gameImages/deploy.png)
+![Heroku New App]()
 
 [Back to top](#table-of-contents)
 
