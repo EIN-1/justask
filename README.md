@@ -30,10 +30,13 @@
   + [Main Language](#main-language "Main Language")
   + [Frameworks, Libraries & Programs](#frameworks-libraries-programs "Frameworks, Libraries & Programs")
 + [Deployment](#deployment "Deployment")
-    + [Version Control](#version-control "Version Control")
-    + [Page Deployment](#page-deployment "Page Deployment")
-    + [Frok](#fork "Fork")
-    + [Clone](#clone "Clone")
+  + [Deployment on GitHub Pages](#deployment-on-github-pages)
+  + [Cloning the Repository](#cloning-the-repository)
+  + [Forking the Repository](#forking-the-repository)
+  + [Deploying on Heroku](#deploying-on-heroku)
+  + [Settings.py & File-Tree Configuration](#settingspy--file-tree-configuration)
+  + [Running the Application](#running-the-application)
+  + [Page Deployment](#page-deployment)
 + [Credits](#credits "Credits")
 
 + [Acknowledgements](#acknowledgements "Acknowledgements")
@@ -289,40 +292,7 @@ the browsers below.
 - [**W3Schools**](https://www.w3schools.com/) - useful information and cheat sheets
 - [**Google Fonts**](https://fonts.google.com/) site was used to pick the best typography style. The most importance was given to balance between style and readability. As a developer I needed to ensure that all text is displayed clear.
 
-
 [Back to top](<#table-of-contents>)
-
-## Deployment
-  ### Version Control
-  The version control was maintained using git within Codeanywhere to push code to the main repository.
-
-  * From the codeanywhere terminal type `"git add ."`, to make changes and/or updates to the files.
-
-  * Type `"git commit -m (insert a short descriptive text)"`, which commits the changes and updates the files.
-
-  * Use the `"git push"` command, which pushes the committed changes to the main repository. 
-
-  ### Page Deployment
-  The app was deployed to Heroku CLI. The steps to deploy are as follows:
-
-  * After creating an account and logging in, click `"creat new"` to create a new app from the dashboard.
-  * Create a unique name for the app and select my region; press `"Create app"`.
-  * When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
-      1. `heroku/python`
-      2. `heroku/nodejs`
-  * Go to `"Settings"` and navigate to `Config Vars`.
-  * Add Config Var. 
-    * For this app I only used: `KEY` = `PORT` : `VALUE` = `8000`.
-  * Add buildpacks `Python` and `NodeJS` - in this order.
-  * Click the `Deploy Branch`.
-  * Scroll Down to Deployment Method and select GitHub.
-  * Select the repository to be deployed and connect to Heroku.
-  * Scroll down to deploy: 
-      * at first I used`Option 2` it selects manually deploys (Will Update manually with every "git push"). To see my progress and changes.
-      * at the end I used `Option 1` it selects Automatic deploys (Will Update automatically with every "git push"). This was chosen for this project.
-  * Live deployment [Python quiz](https://python-quiz-da8ccddf3267.herokuapp.com/)
-
-  [Back to top](<#table-of-contents>)
 
 # Testing
 
@@ -370,171 +340,163 @@ the browsers below.
 
 [Back to top](<#table-of-contents>)
 
-
-
 # Deployment
+## Deployment on GitHub Pages
 
-## Transfer of progress from IDE
+### Steps:
+1. Navigate to the **Settings** tab in your GitHub repository.  
+2. Click on **Pages** from the left-hand menu.  
+3. In the **Branch** section, select the **Main** branch from the drop-down menu.  
+4. Once selected, the page will refresh, and a success ribbon will appear indicating successful deployment.  
+5. Any changes pushed to the **master/main** branch will automatically update the live project: 👉 [Just ASK](https://just-ask-b3c36fe12bcc.herokuapp.com/)  
 
-- **Task :** To ensure regular commitments are done to avoid any data/progress loss.
-- **Method :** 
-   - commands `git add [filename]` was used to add specific file to staging area, alternatively command `git add .` was used to add all changed files to staging area
-   - command `git commit -m "[commit description]"` was used to add commitments into queue
-   - command `git push` was used to push all commitments to remote repository on GitHub
+![GitHub Deployment](documentation/gameImages/deploy.png)
 
-## Fork
-  ### How To Fork The Repository On GitHub
+[Back to top](#table-of-contents)
 
-  It is possible to do a copy of a GitHub Repository by ``forking the GitHub account``. The copy can then be viewed and it is also possible to do changes in the copy without affecting the original repository. To fork the repository, take these steps:
+---
 
-  1. After ``logging in to GitHub``, locate the ``repository``. On the ``top right side`` of the page there is a ``'Fork' button``. Click on the button to ``create a copy`` of the original repository.
+## Cloning the Repository
 
-## Clone
-  ### Create A Local Clone of A Project
-  
-  To create a local clone of your repository, follow these steps:
+### Steps:
+1. Visit the [GitHub Repository](https://github.com/EIN-1/justask).  
+2. Click the **Code** button and select **HTTPS**, then copy the link.  
+3. Open **Git Bash** and navigate to your desired directory.  
+4. Run the following command:
+   ```bash
+   git clone <paste-copied-URL>
+   ```
 
-  1. When you are in the repository, find the ``code tab`` and click it.
-  2. To the ``left of the green GitPod button``, press the ``'code' menu``. There you will find a link to the repository. Click on the ``clipboard icon`` to copy the URL.
-  Use an IDE and ``open Git Bash``. Change directory to the location where you want the cloned directory to be made.
-  4. Type ``git clone``, and then ``paste the URL that you copied`` from GitHub. Press enter and a local clone will be created.
+![Clone Repository](documentation/gameImages/clone.png)
 
-  [Back to top](<#table-of-contents>)
+[Back to top](#table-of-contents)
 
-## Offline cloning
+---
 
-  - **Task :** To use repository on local machine.
-  - **Method :** 
-  - Navigate to GitHub and follow `Code -> HTTPS -> Copy button` . after those steps open your local coding environment and type `git clone [copied link]`.
+## Forking the Repository
 
-## Deployment Prerequisites
+### Steps:
+1. Log in to **GitHub**.
+2. Locate the repository you want to fork.
+3. On the **top-right side** of the page, click the **Fork** button to create a copy of the repository.
 
-  ### Gmail
+![Forking Repository](documentation/gameImages/clone.png)
 
-  - **Task :** Obtain GMail username and app key (password) - GMAIL SMTP to be used as mailing client.
-  - **Method :** 
-    - Navigate to `https://accounts.google.com/` and follow all steps for registering new email address
-    - Login to google with newly created email address and password.
-    - Navigate to `https://accounts.google.com/` once again
-    - Select `Security > Signing in to Google > 2-Step Verification > App Passwords`
-    - Enter a name of the app password and select `Generate`
-    - You will get app password in format `xxxx xxxx xxxx xxxx`
-    - Update `settings.py` in the project directory
+[Back to top](#table-of-contents)
 
-  ### PostgreSQL
+---
 
-  - **Task :** Obtain database URL to be used as project's database.
-  - **Method :** 
-    - Select one of the DB providers, I did use [PostgreSQL](https://www.postgresql.org/) which I received from Code institute per resquest.
-    
-    below will be deleted
-    - Navigate to `https://dbs.ci-dbs.net/` and follow all steps for registering new account
-    - Login to CI DB with newly created account credentials
-    - Navigate to `+ Create New Instance`
-    - Select `Name, Plan and Region`
-    - Confirm the instance by pressing `Create Instance`
-    - Obtain database URL in format 
-    - Update `settings.py` in the project directory
+## Deploying on Heroku
 
-[Back to top](<#table-of-contents>)
+### Prerequisites
+Ensure `requirements.txt` has all dependencies:
 
-  ### Cloudinary
+```bash
+pip3 freeze > requirements.txt
+```
 
-  - **Task :** Obtain Cloudinary URL to be used as project's static storage
-  - **Method :** 
-    - Select one of the static storage providers, I did use [Cloudinary](https://console.cloudinary.com/)
-    - Navigate to `https://console.cloudinary.com/` and follow all steps for registering new account
-    - Login to Cloudinary with newly created account credentials
-    - Navigate to `+ Add a new environment`
-    - Confirm your selection
-    - Obtain Cloudinary URL in format `cloudinary://USER:PASSKEY@ENVIRONMENT`
-    - Update `settings.py` in the project directory
+### Steps:
+1. Log in or sign up for a [Heroku](https://www.heroku.com/) account.
+2. Open the **Dashboard**.
+3. Click **New** → **Create new app**.
+4. Enter a **unique app name** and select your **region**.
+5. Click **Create App**.
 
-  ### Settings.py & file-tree
+![Heroku New App](documentation/gameImages/deploy.png)
 
-  - **Task :** Prepare `settings.py` adn file-tree for deployment 
-  - **Method :** 
-    - Create file `env.py` to keep all sensitive information in
-    - See example of `env.py` file *( Appendix 48 )*
-    - Add `env.py` into `.gitignore` file to ensure this fill won't be uploaded to GitHub
-    - update `settings.py` with `import os`
-    - for every secured variable add code `VARIABLE = os.environ.get("VARIABLE")`
-    - ensure this process for Gmail, ElephantSQL, Cloudinary, DEBUG and Django Secret Key
-    - update default database settings in `settings.py` with `
-  if "DATABASE_URL" in os.environ:
-      DATABASES = {"default": dj_database_url.parse(os.environ.get("DATABASE_URL"))}
-  else:
-      DATABASES = {
-          "default": {
-              "ENGINE": "django.db.backends.sqlite3",
-              "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
-          }
-      }`
-    - update default static settings in `settings.py` with `
-    STATIC_URL = "/static/"
-  STATICFILES_STORAGE = "cloudinary_storage.storage.StaticHashedCloudinaryStorage"
-  STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
-  STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
-  CLOUDINARY_URL = os.environ.get("CLOUDINARY_URL")
-  MEDIA = "/media/"
-  DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
-    `
-    - update email settings in `settings.py` with `EMAIL_HOST = "smtp.gmail.com"
-  EMAIL_PORT = 587
-  EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER")
-  EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD")
-  EMAIL_USE_TLS = True`
-    - Migrate - your database models to Database using `python manage.py migrate` command
-    - Create directories `.\static` and `.\templates`
-    - commit and push changes to GitHub 
+[Back to top](#table-of-contents)
+
+---
+
+## Settings.py & File-Tree Configuration
+
+### Steps:
+1. **Create `env.py`:** Store all sensitive information.
+2. **Ignore Sensitive Files:** Add `env.py` to `.gitignore` to prevent exposure.
+3. **Update `settings.py`:**
+   - Import OS:
+     ```python
+     import os
+     ```
+   - Configure the database:
+     ```python
+     if "DATABASE_URL" in os.environ:
+         DATABASES = {"default": dj_database_url.parse(os.environ.get("DATABASE_URL"))}
+     else:
+         DATABASES = {
+             "default": {
+                 "ENGINE": "django.db.backends.sqlite3",
+                 "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
+             }
+         }
+     ```
+   - Configure static and media files:
+     ```python
+     STATIC_URL = "/static/"
+     STATICFILES_STORAGE = "cloudinary_storage.storage.StaticHashedCloudinaryStorage"
+     STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
+     STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+     CLOUDINARY_URL = os.environ.get("CLOUDINARY_URL")
+     MEDIA_URL = "/media/"
+     DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
+     ```
+   - Configure email settings:
+     ```python
+     EMAIL_HOST = "smtp.gmail.com"
+     EMAIL_PORT = 587
+     EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER")
+     EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD")
+     EMAIL_USE_TLS = True
+     ```
+4. **Run Database Migrations:**
+   ```bash
+   python manage.py migrate
+   ```
+5. **Create `static` and `templates` Directories**
+6. **Commit and Push Changes to GitHub**
+
+[Back to top](#table-of-contents)
+
+---
+
+## Running the Application
+
+### Set Environment Variables in Development:
+```bash
+export DEBUG=True
+export SECRET_KEY='random_string'
+export DATABASE_URL='your_postgres_database_url'
+```
+
+### Run the Server:
+```bash
+python manage.py runserver
+```
+
+[Back to top](#table-of-contents)
+
+---
+
+## Page Deployment
+
+### Steps:
+1. Log in and click **Create new** on the dashboard.
+2. Name the app and select a region. Click **Create App**.
+3. Add two buildpacks in the **Settings** tab:
+   - heroku/python
+   - heroku/nodejs
+4. Add **Config Vars**:
+   - `KEY`: `PORT` → `VALUE`: `8000`
+5. Connect GitHub and deploy:
+   - **Manual Deploy** for manual updates.
+   - **Automatic Deploy** for auto-updates.
+
+🔗 **Live Deployment:** [Just ASK](https://just-ask-b3c36fe12bcc.herokuapp.com/)
+
+[Back to top](#table-of-contents)
 
 
-[Back to top](<#table-of-contents>)
-
-  ### Deployment to Heroku
-
-- **Task :** To ensure users are able to view live version of **Aneta's Glimmer** project.
-- **Method :** 
-  - Register & Log In with heroku
-  - Navigate to `New > Create New App`
-  - Select Name of the app that is unique
-  - Navigate to `Settings > Reveal Config Vars`
-  - Add all variables from `env.py` to ConfigVars of Heroku App 
-  - Add variable pair `PORT:5000`
-  - For the testing deployment add variable pair `COLLECT_STATIC:1`
-  - Add the Heroku app URL into `ALLOWED HOSTS` in `settings.py`
-  - In root create file name `Procfile`
-  - Navigate to `Deploy > GitHub > Connect`
-  - Navigate to `Deploy > Deploy Branch`
-  - Optionally, you can enable automatic deploys
-  - See the deployment log - if the deployment was successful, you will be prompted with option to see live page  
-
-
-### Requirements.txt
-- Before running the system install all requirements by running the command below
-  `pip install -r requirments.txt` 
-    asgiref==.8.1
-    dj-database-url==0.5.0
-    Django==4.2.13
-    django-bootstrap-v5==1.0.11
-    django-fontawesome-5==1.0.18
-    django-gravatar2==1.4.4
-    django-static-jquery==2.1.4
-    Faker==26.0.0
-    gunicorn==22.0.0
-    psycopg2==2.9.9
-    python-decouple==.8
-    sqlparse==0.5.0
-    whitenoise==6.7.0
-
-- following commands to set environment variables in developement:
-  Press enter after every export command
-    `export DEBUG=True`
-    `export SECRET_KEY='random_striing'`
-    `export DATABASE_URL='my postgreSQL datbase'`
-  Then `python manage.py runserver` to go to the browser.
-
-[Back to top](<#table-of-contents>)
+---
 
 ### Credits
 
