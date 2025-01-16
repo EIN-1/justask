@@ -45,6 +45,8 @@ CSRF_TRUSTED_ORIGINS = [
     "https://just-ask-b3c36fe12bcc.herokuapp.com",
     "http://just-ask-b3c36fe12bcc.herokuapp.com",
     "https://8000-ein1-justask-gd10zbphhse.ws.codeinstitute-ide.net"
+    "https://8000-ein1-justask-d8araazxqxk.ws-eu117.gitpod.io",
+    "https://*.gitpod.io",  # allows all gitpod.io subdomains
 ]
 
 if DEBUG:

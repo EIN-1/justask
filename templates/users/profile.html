@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load gravatar %}
 {% load fontawesome_5 %}
+{% load static %}
 
 {% block content %}
 <div class="container">
@@ -120,31 +121,40 @@
     </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-</script>
+
 <script>
+    // parse the JSON data into JavaScript
+    const commentsData = JSON.parse(document.getElementById('comments-data').textContent);
+    const likedQuestionsData = JSON.parse(document.getElementById('liked-questions-data').textContent);
+    const dislikedQuestionsData = JSON.parse(document.getElementById('disliked-questions-data').textContent);
+
     $(document).ready(function(){
         $('.list-group-item').on('click', function(){
-            var content = '';
-            var type = $(this).data('type');
+            let content = '';
+            let type = $(this).data('type');
+
             switch(type){
                 case 'comments':
                     content='<h5>Comment</h5>';
-                    {% for comment in comments %}
-                        content += '<p>{{ comment.content }}</p><p>{{ comment.question.title }}</p>'
-                    {% endfor %}
+                    commentsData.forEach(comment => {
+                        content += '<p>{{ comment.content }}</p><p>{{ comment.question.title }}</p>';
+                    });
                     break;
+
                 case 'likes':
-                    content = '<h5>Likes</h5>'
-                    {% for question in liked_questions %}
-                            content += '<p>{{question.title}}</p>';
-                    {% endfor %}
+                    content = '<h5>Likes</h5>';
+                    likedQuestionsData.forEach(comment => {
+                        content += '<p>{{question.title }}</p>';
+                    });
                     break;
+
                 case 'dislikes':
-                    content = '<h5>Dislikes</h5>'
-                    {% for question in disliked_questions %}
-                            content += '<p>{{ question.title }}</p>'
-                    {% endfor %}
+                    content = '<h5>Dislikes</h5>';
+                    dislikedQuestionsData.forEach(comment => {
+                        content += '<p>{{ question.title }}</p>';
+                    });
                     break;
+
                 default:
                     content = '<p>No data available</p>';
                     break;

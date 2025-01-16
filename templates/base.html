@@ -80,20 +80,51 @@
 
             <!-- jumbotron about may page -->
             <div class="jumbotron-container jumbotron-fluid justify-content-center text-center d-flex bg-light text-dark mx-auto">
-                <div class="col-md-7 d-ms-4">
-                
+                <div class="col-md-7 ms-4">
                     <!--callout-->
-                    <h4 class="font-italic font-weight-normal"> On this website blog you can review or post questions and the following will happen:</h4>
-                    <h4><strong class="text-success">You will get feedback from fellow users</strong></h4>
-                    <h5>fellow users will like, comment or dislike your post based on their own perspectives</h5>
-                    <h5>you will interact with different people around the globe.</h5>
-                    <h5>We welcome guest on our blog but they can only view.</h5>
-                    <h5 class="text-primary">Click login on the top right corner to enyoy the interraction benefits of members only!</h5>
+                    <div id="content-preview">
+                        <!-- Shortened content for mobile -->
+                        <h4 class="font-italic font-weight-normal"> On this website blog you can review or post questions and the following will happen:</h4>
+                    </div>
+
+                    <div id="content-full" class="d-none">
+                        <!-- Hidden full content -->
+                        <h4><strong class="text-success">You will get feedback from fellow users</strong></h4>
+                        <h5>fellow users will like, comment or dislike your post based on their own perspectives</h5>
+                        <h5>you will interact with different people around the globe.</h5>
+                        <h5>We welcome guest on our blog but they can only view.</h5>
+                        <h5 class="text-primary">Click login on the top right corner to enjoy the interaction benefits of members only!</h5>
+                    </div>
+
+                    <!-- Read More Button -->
+                    <button id="read-more-btn" class="btn btn-primary mt-3">Read More</button>
                 </div>
             </div>
 
-            {% block content %} {% endblock content %}
+            <!-- Optimized JavaScript for Read More Button -->
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    const readMoreBtn = document.getElementById('read-more-btn');
+                    const contentFull = document.getElementById('content-full');
+                    const contentPreview = document.getElementById('content-preview');
+
+                    readMoreBtn.addEventListener('click', function () {
+                        if (contentFull.classList.contains('d-none')) {
+                            contentFull.classList.remove('d-none');  // Show full content
+                            contentPreview.classList.add('d-none');  // Hide preview
+                            readMoreBtn.textContent = 'Read Less';
+                        } else {
+                            contentFull.classList.add('d-none');    // Hide full content
+                            contentPreview.classList.remove('d-none');  // Show preview
+                            readMoreBtn.textContent = 'Read More';
+                        }
+                    });
+                });
+            </script>
+
+            {% block content %}{% endblock content %}
             {% include 'partials/footer.html' %}
+
         </div>
         
     </body>
