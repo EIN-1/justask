@@ -317,6 +317,163 @@ the browsers below.
 
 [Back to top](<#table-of-contents>)
 
+# new new
+# 🧪 Testing
+
+## ✅ Validator Testing
+
+### **HTML Validator**  
+![HTML Validator](docs/testing/html-validator.png)  
+- There are **3 errors** that could be fixed by changing the **ID names** in each form.  
+- Due to time constraints, I plan to fix these issues in the future.
+
+### **CSS Validator**  
+![CSS Validator](docs/testing/css-validator.png)  
+- The **warnings** originate from Django libraries.  
+- Many of these warnings are duplicated, and I plan to explore solutions when more time is available.
+
+### **JSHint Testing**  
+![JSHint Validator](docs/testing/jshint-validator.png)  
+- **Version:** 2.13.6  
+- **About:** Static code analysis tool for JavaScript.  
+
+#### 🔧 **Configure Metrics**
+
+- There are **53 functions** in this file.
+- The **largest function** takes **3 arguments**, while the **median** is **1**.
+- The **largest function** has **30 statements**, while the **median** is **3**.
+- The **most complex function** has a **cyclomatic complexity** of **11**, while the **median** is **2**.
+
+
+[🔝 Back to top](#table-of-contents)
+
+---
+
+## 🛠️ Manual Testing
+
+- **Lighthouse Testing (Desktop):**  
+  ![Lighthouse Desktop](docs/testing/lighthousePC.png)
+
+- **Lighthouse Testing (Mobile):**  
+  ![Lighthouse Mobile](docs/testing/lighthousePhone.png)
+
+- **Responsiveness:**  
+  - Manually tested across devices.  
+  - The website responds well on various screen sizes.
+
+[🔝 Back to top](#table-of-contents)
+
+---
+
+## 🤖 Automatic Testing
+
+### **Test Execution**
+
+Command used to run the Django test suite:
+
+```bash
+DATABASE_URL=sqlite:///db.sqlite3 python manage.py test
+```
+
+**Output:**
+
+```
+Found 6 test(s).
+Creating test database for alias 'default'...
+System check identified no issues (0 silenced).
+1
+......
+----------------------------------------------------------------------
+Ran 6 tests in 2.010s
+
+OK
+Destroying test database for alias 'default'...
+```
+
+Command used to run the Django test suite with coverage:
+
+```bash
+DATABASE_URL=sqlite:///db.sqlite3 coverage run manage.py test
+```
+
+**Output:**
+
+```
+Found 6 test(s).
+Creating test database for alias 'default'...
+System check identified no issues (0 silenced).
+1
+......
+----------------------------------------------------------------------
+Ran 6 tests in 2.394s
+
+OK
+Destroying test database for alias 'default'...
+```
+
+---
+
+### 📊 **Coverage Report**
+
+Command used to generate the coverage report:
+
+```bash
+coverage report
+```
+
+**Results:**
+
+💡 **Tip:** For a better viewing experience, enable dark mode on your platform if supported.
+
+---
+
+```
+Name                                                                                  Stmts   Miss  Cover
+---------------------------------------------------------------------------------------------------------
+comments/__init__.py                                                                      0      0   100%
+comments/admin.py                                                                         1      0   100%
+comments/apps.py                                                                          4      0   100%
+comments/migrations/0001_initial.py                                                       7      0   100%
+comments/migrations/0002_alter_comment_author.py                                          6      0   100%
+comments/migrations/__init__.py                                                           0      0   100%
+comments/models.py                                                                       10      1    90%
+comments/tests.py                                                                         1      0   100%
+config/__init__.py                                                                        0      0   100%
+config/settings.py                                                                       40      6    85%
+config/urls.py                                                                            3      0   100%
+forms.py                                                                                 18      0   100%
+manage.py                                                                                11      2    82%
+question/__init__.py                                                                      0      0   100%
+question/admin.py                                                                        22      0   100%
+question/apps.py                                                                          4      0   100%
+question/migrations/0001_initial.py                                                       7      0   100%
+question/migrations/0002_question_dislikes.py                                             4      0   100%
+question/migrations/0003_remove_question_dislikes_remove_question_likes_and_more.py       6      0   100%
+question/migrations/0004_alter_reaction_user.py                                           6      0   100%
+question/migrations/0005_alter_reaction_question.py                                       5      0   100%
+question/migrations/0006_category_question_category.py                                    5      0   100%
+question/migrations/__init__.py                                                           0      0   100%
+question/models.py                                                                       22      1    95%
+question/tests.py                                                                        44      0   100%
+question/urls.py                                                                          3      0   100%
+question/views.py                                                                       127     44    65%
+users/__init__.py                                                                         0      0   100%
+users/admin.py                                                                            1      0   100%
+users/apps.py                                                                             4      0   100%
+users/migrations/__init__.py                                                              0      0   100%
+users/models.py                                                                           1      0   100%
+users/tests.py                                                                            1      0   100%
+users/urls.py                                                                             4      0   100%
+users/views.py                                                                           46     29    37%
+---------------------------------------------------------------------------------------------------------
+TOTAL                                                                                   413     83    80%
+```
+
+---
+
+[🔝 Back to top](#table-of-contents)
+
+
 ## Bugs
 - wrong count in likes, dislikes and comments but got fixed
 
