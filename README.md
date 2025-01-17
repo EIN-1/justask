@@ -2,7 +2,8 @@
 
 
 # ***JustAsk Blog - Project Portfolio 4***
-![am responsive](image/amResponsive.png)
+![am responsive](image/ami-responsive.png)
+
 # **1. Key project information**
 
 - **Description :** **Just ask** is a question-and-answer website where users can ask questions, answer questions, and interact with other users.
@@ -10,26 +11,36 @@
 - **Audience :** Target audience are users that are using search engines to ask quetions and those who are looking for answers from various topics
 - **Live version :** Live version of **Just Ask** page can be viewed at [JustAsk](https://just-ask-b3c36fe12bcc.herokuapp.com/).
 
-## Table of Contents
-+ [UX](#ux "UX")
-+ [Design](#design "Design")
+# Table of Contents
 
-+ [Features](#features "Features")
-  + [The Idea](#the-idea "The Idea")
-  + [Epics](#epics "Epics")
-  + [User stories](#user-stories "User stories")
-  + [Surface Plane](#surface-plane "Surface Plane")
-  + [Used Elements](#used-elements "Used Elements")
-+ [Testing](#testing "Testing")
-  + [Validator Testing](#validator-testing "Validator Testing")
-  + [Manual Testing](#manual-testing "Manual Testing")
-  + [Bugs](#bugs "Bugs")
-  + [Remaining Bugs](#remaining-bugs "Remaining bugs")
-  + [Error Pages](#error-pages "Error Pages")
-+ [Technologies Used](#technologies-used "Technologies Used")
-  + [Main Language](#main-language "Main Language")
-  + [Frameworks, Libraries & Programs](#frameworks-libraries-programs "Frameworks, Libraries & Programs")
-+ [Deployment](#deployment "Deployment")
++ [UX](#ux)
++ [Design](#design)
++ [Features](#features)
+  + [The Idea](#the-idea)
+  + [Epics](#epics)
+  + [User stories](#user-stories)
+  + [Surface Plane](#surface-plane)
+  + [Used Elements](#used-elements)
++ [Testing](#testing)
+  + [Automatic Testing](#automatic-testing)
+    + [Test Execution](#test-execution)
+    + [Coverage Report](#coverage-report)
+  + [Validator Testing](#validator-testing)
+    + [HTML Validator](#html-validator)
+    + [CSS Validator](#css-validator)
+    + [JSHint Testing](#jshint-testing)
+  + [Manual Testing](#manual-testing)
+    + [Responsiveness Test](#responsiveness-test)
+    + [Browser Compatibility](#browser-compatibility)
+  + [Bugs](#bugs)
+    + [Fixed Bugs](#fixed-bugs)
+    + [Remaining Bugs](#remaining-bugs)
+  + [Error Pages](#error-pages)
+  + [User Stories](#user-stories)
++ [Technologies Used](#technologies-used)
+  + [Main Language](#main-language)
+  + [Frameworks, Libraries & Programs](#frameworks-libraries-programs)
++ [Deployment](#deployment)
   + [Deployment on GitHub Pages](#deployment-on-github-pages)
   + [Cloning the Repository](#cloning-the-repository)
   + [Forking the Repository](#forking-the-repository)
@@ -37,9 +48,8 @@
   + [Settings.py & File-Tree Configuration](#settingspy--file-tree-configuration)
   + [Running the Application](#running-the-application)
   + [Page Deployment](#page-deployment)
-+ [Credits](#credits "Credits")
-
-+ [Acknowledgements](#acknowledgements "Acknowledgements")
++ [Credits](#credits)
++ [Acknowledgements](#acknowledgements)
 
 ## UX
 
@@ -65,7 +75,7 @@ Models used (besides standard user model) in this project are:
 * **UserProfile** - Handles the user profile information (first name, last name, presentation and featured image for the specific user/reviewer). There is a one-to-one relation to the user model to connect it to the standard user model.
 
 ### Design
-![Database Schema](docs/dbase/schema.db.png)
+![Database Schema](image/schemaDrawio.png)
 
 [Back to top](<#table-of-contents>)
 
@@ -229,41 +239,8 @@ User stories were created based on the Epics. Each user story uses the MoSCoW pr
 
 [Back to top](<#table-of-contents>)
 
-### Responsiveness Test
-The responsive design tests were carried out manually with [Google Chrome DevTools](https://developer.chrome.com/docs/devtools/) and [Responsive Design](https://ui.dev/amiresponsive).
-
-| Desktop    | Display > 1280px      | Display < 1280px   |
-|------------|-----------------------|--------------------|
-| Render     | pass                  | pass               |
-| Links      | pass                  | pass               |
-| Images     | pass                  | pass               |
-
-| Tablet     | Samsung Galaxy Tab 10 | Amazon Kindle Fire | iPad Mini | iPad Pro |
-|------------|-----------------------|--------------------|-----------|----------|
-| Render     | pass                  | pass               | pass      | pass     |
-| Links      | pass                  | pass               | pass      | pass     |
-| Images     | pass                  | pass               | pass      | pass     |
-
-| Phone      |Galaxy S5/S6/S7/S20+   | iPhone 6/7/8/ plus | iPhone 14pro max     |
-|------------|-----------------------|--------------------|----------------------|
-| Render     | pass                  | pass               | pass      | pass     |
-| Links      | pass                  | pass               | pass      | pass     |
-| Images     | pass                  | pass               | pass      | pass     |
-
-[Back to top](<#table-of-contents>)
-
-### Browser Compatibility
-`justask` blog was tested for functionality and appearance in the following browsers on desktop. No visible or funcional issues on all 
-the browsers below.
-
-- Google Chrome - Version 121.0.6422.114 (Official Build) (64-bit)
-- Microsoft Edge - Version 124.0.2478.80 (Official build) (64-bit)
-- Mozilla Firefox - 127.0 (64-bit)
-
-[Back to top](<#table-of-content>)
-
-
 ## Technologies Used
+
 ### Main Language
 - Python Language
 
@@ -296,76 +273,7 @@ the browsers below.
 
 # Testing
 
-## Validator Testing
-
-[html validator](docs/testing/html-validator.png)
-- The 3 errors could be fixed by changes the id names in each form but my time runout so i plan to fix the future.
-
-[css validator](docs/testing/css.Validator.png)
-- The warming are coming from the Django librarries, I was looking through them but they are almost the same dublicated warnings, I look forward in digging more into them when I have more time.
-
-[Back to top](<#table-of-contents>)
-
-## Manual Testing
-- I used lighthouse testing and these are the results for desktop 
-  ![lighthouse testing](/docs/testing/lighthousePC.png) 
-
-- I used lighthouse testing and these are the results for mobile devices
-   ![lighthouse testing](/docs/testing/lighthousePhone.png) 
-
-- Tested for responsiveness manually and it was responding well.
-
-[Back to top](<#table-of-contents>)
-
-# new new
-# 🧪 Testing
-
-## ✅ Validator Testing
-
-### **HTML Validator**  
-![HTML Validator](docs/testing/html-validator.png)  
-- There are **3 errors** that could be fixed by changing the **ID names** in each form.  
-- Due to time constraints, I plan to fix these issues in the future.
-
-### **CSS Validator**  
-![CSS Validator](docs/testing/cssValidator.png)  
-- The **warnings** originate from Django libraries.  
-- Many of these warnings are duplicated, and I plan to explore solutions when more time is available.
-
-### **JSHint Testing**  
-![JSHint Validator](docs/testing/jshint.png)  
-- **Version:** 2.13.6  
-- **About:** Static code analysis tool for JavaScript.  
-
-#### 🔧 **Configure Metrics**
-
-- There are **53 functions** in this file.
-- The **largest function** takes **3 arguments**, while the **median** is **1**.
-- The **largest function** has **30 statements**, while the **median** is **3**.
-- The **most complex function** has a **cyclomatic complexity** of **11**, while the **median** is **2**.
-
-
-[🔝 Back to top](#table-of-contents)
-
----
-
-## 🛠️ Manual Testing
-
-- **Lighthouse Testing (Desktop):**  
-  ![Lighthouse Desktop](docs/testing/lighthousePC.png)
-
-- **Lighthouse Testing (Mobile):**  
-  ![Lighthouse Mobile](docs/testing/lighthouse-mobile.png)
-
-- **Responsiveness:**  
-  - Manually tested across devices.  
-  - The website responds well on various screen sizes.
-
-[🔝 Back to top](#table-of-contents)
-
----
-
-## 🤖 Automatic Testing
+## Automatic Testing
 
 ### **Test Execution**
 
@@ -379,9 +287,7 @@ DATABASE_URL=sqlite:///db.sqlite3 python manage.py test
 
 ![manage.py test](image/manage.py-testing.png)
 
-[🔝 Back to top](#table-of-contents)
-
-
+[Back to top](#table-of-contents)
 
 Command used to run the Django test suite with coverage:
 
@@ -393,9 +299,9 @@ DATABASE_URL=sqlite:///db.sqlite3 coverage run manage.py test
 
 ![coverage run](image/coverage-run-test.png)
 
-[🔝 Back to top](#table-of-contents)
+[Back to top](#table-of-contents)
 
-### 📊 **Coverage Report**
+### **Coverage Report**
 
 Command used to generate the coverage report:
 
@@ -407,32 +313,95 @@ coverage report
 
 ![coverage report](image/coverage-report.png)
 
-[🔝 Back to top](#table-of-contents)
+[Back to top](#table-of-contents)
 
- ---
+## Validator Testing
 
-## Bugs
-- wrong count in likes, dislikes and comments but got fixed
+### **HTML Validator**  
+![HTML Validator](docs/testing/html-validator.png)  
+- There are **3 errors** that could be fixed by changing the **ID names** in each form.  
+- Due to time constraints, I plan to fix these issues in the future.
 
-- [**Stackoverflow Django annotate() multiple times causes wrong answers**] (https://stackoverflow.com/questions/1265190/django-annotate-multiple-times-causes-wrong-answers) - It helped in fixing bug with likes and dislikes showing wrong counts by adding distinct=True in my multiple annotation in the home view see below
+### **CSS Validator**  
+![CSS Validator](docs/testing/css-validator.png)  
+- The **warnings** originate from Django libraries.  
+- Many of these warnings are duplicated, and I plan to explore solutions when more time is available.
 
-### Remaining Bugs
-- No bugs remaining as far as I know.
+### **JSHint Testing**  
+![JSHint Validator](docs/testing/jshint-validator.png)  
+- **Version:** 2.13.6  
+- **About:** Static code analysis tool for JavaScript.  
+- **Documentation:** [JSHint Docs](https://jshint.com/docs/)  
+- **Installation:** [Install JSHint](https://jshint.com/install/)  
+- **Contribution:** [Contribute](https://jshint.com/contribute/)  
+- **Blog:** [JSHint Blog](https://jshint.com/blog/)
 
-[Back to top](<#table-of-contents>)
+[Back to top](#table-of-contents)
 
- ### Error Pages
+---
 
- - This project is designed to have custom error pages. In case of user clicks on broken link, submits action that isn't supported or tries to reach certain view without permission, then user isn't completely "cut off" from browsing, instead an error page with header and footer appears and user is informed of the situation.
+## Manual Testing
 
- The following custom error pages were created :
+### **Responsiveness Test**
 
- ![Error 404](/image/noQuetionFound.png)
- - 404 - Encountered when the requested web resource by user is not found on the server. 
-  ![Error 500](/image/warning.png)
- - 500 - Displayed when the web server encounters an internal error while processing the reques then it sends you a warning.
+The responsive design was tested manually using:
+- [Google Chrome DevTools](https://developer.chrome.com/docs/devtools/)  
+- [Am I Responsive?](https://ui.dev/amiresponsive)  
 
-[Back to top](<#table-of-contents>)
+| **Device Type** | **Device/Screen Size**      | **Render** | **Links** | **Images** |
+|-----------------|----------------------------|------------|-----------|------------|
+| **Desktop**     | Display > 1280px          | ✅ Pass    | ✅ Pass   | ✅ Pass    |
+|                 | Display < 1280px          | ✅ Pass    | ✅ Pass   | ✅ Pass    |
+| **Tablet**      | Samsung Galaxy Tab 10     | ✅ Pass    | ✅ Pass   | ✅ Pass    |
+|                 | Amazon Kindle Fire        | ✅ Pass    | ✅ Pass   | ✅ Pass    |
+|                 | iPad Mini                 | ✅ Pass    | ✅ Pass   | ✅ Pass    |
+|                 | iPad Pro                  | ✅ Pass    | ✅ Pass   | ✅ Pass    |
+| **Phone**       | Galaxy S5/S6/S7/S20+      | ✅ Pass    | ✅ Pass   | ✅ Pass    |
+|                 | iPhone 6/7/8/Plus         | ✅ Pass    | ✅ Pass   | ✅ Pass    |
+|                 | iPhone 14 Pro Max         | ✅ Pass    | ✅ Pass   | ✅ Pass    |
+
+[Back to top](#table-of-contents)
+
+### **Browser Compatibility**
+
+- **Google Chrome** – Version 121.0.6422.114 (64-bit)  
+- **Microsoft Edge** – Version 124.0.2478.80 (64-bit)  
+- **Mozilla Firefox** – Version 127.0 (64-bit)  
+
+[Back to top](#table-of-contents)
+
+### **Bugs**
+
+#### **Fixed Bugs**
+- Incorrect counts in **likes**, **dislikes**, and **comments** were fixed.  
+- **Reference:** [Django annotate() multiple times causes wrong answers](https://stackoverflow.com/questions/1265190/django-annotate-multiple-times-causes-wrong-answers)  
+  - *Fix applied by adding `distinct=True` in the home view for multiple annotations.*
+
+#### **Remaining Bugs**
+- No known bugs at this time.
+
+[Back to top](#table-of-contents)
+
+---
+
+### **Error Pages**
+
+Custom error pages were implemented to enhance user experience in case of broken links or unauthorized actions.
+
+- **404 Error:** Page not found  
+  ![Error 404](image/noQuetionFound.png)  
+- **500 Error:** Internal server error  
+  ![Error 500](image/warning.png)  
+
+[Back to top](#table-of-contents)
+
+---
+
+### 👥 **User Stories**
+
+- As a user, I want to... *(complete this with detailed user stories)*
+
+[Back to top](#table-of-contents)
 
 # Deployment
 ## Deployment on GitHub Pages
@@ -617,6 +586,6 @@ python manage.py runserver
   - I would like to thank my mentor` Mr. Precious Ijege` for relevant feedback during the project.
   
  - **Developer :** [Elsie Nagawa ](https://github.com/EIN-1/justask)
- 22.07.2024.
+ 17.01.2025.
 
  [Back to top](<#table-of-contents>)
