@@ -14,13 +14,14 @@
 # Table of Contents
 
 + [UX](#ux)
-+ [Design](#design)
+  + [User Stories](#user-stories)
+  + [Project Management](#project-management)
+  + [Database Schema](#database-schema)
+  + [Design](#design)
 + [Features](#features)
+  + [Existing Features](#existing-features)
   + [The Idea](#the-idea)
-  + [Epics](#epics)
-  + [User stories](#user-stories)
-  + [Surface Plane](#surface-plane)
-  + [Used Elements](#used-elements)
+  + [The Ideal User](#the-ideal-user)
 + [Testing](#testing)
   + [Automatic Testing](#automatic-testing)
     + [Test Execution](#test-execution)
@@ -37,67 +38,56 @@
     + [Remaining Bugs](#remaining-bugs)
   + [Error Pages](#error-pages)
   + [User Stories](#user-stories)
-+ [Technologies Used](#technologies-used)
-  + [Main Language](#main-language)
-  + [Frameworks, Libraries & Programs](#frameworks-libraries-programs)
-+ [Deployment](#deployment)
-  + [Deployment on GitHub Pages](#deployment-on-github-pages)
-  + [Cloning the Repository](#cloning-the-repository)
-  + [Forking the Repository](#forking-the-repository)
-  + [Deploying on Heroku](#deploying-on-heroku)
-  + [Settings.py & File-Tree Configuration](#settingspy--file-tree-configuration)
-  + [Running the Application](#running-the-application)
-  + [Page Deployment](#page-deployment)
-+ [Credits](#credits)
-+ [Acknowledgements](#acknowledgements)
+  + [Comprehensive Functional Testing](#comprehensive-functional-testing)
+    + [Navigation Bar](#navigation-bar)
+    + [Question Submission Form](#question-submission-form)
+    + [Login Form](#login-form)
+    + [Registration Form](#registration-form)
+    + [Search Bar](#search-bar)
+    + [Read More/Less Button](#read-moreless-button)
+    + [Like and Dislike Button](#like-and-dislike-button)
+    + [Comment Button](#comment-button)
+    + [Responsiveness](#responsiveness)
 
-## UX
+[Back to top](#table-of-contents)
+
+---
+# UX
+## User Stories
+### For Users
+
+* As a **USER** I want to **REGISTER AND LOG IN** so that I can **INTERACT WITH CONTENT ON THE PLATFORM**.
+
+* As a **USER** I want to **ASK QUESTIONS** so that I can **RECEIVE ANSWERS FROM THE COMMUNITY**.
+
+* As a **USER** I want to **EDIT OR DELETE MY OWN QUESTIONS** so that I can **MANAGE MY CONTENT**.
+
+* As a **USER** I want to **COMMENT ON QUESTIONS** so that I can **CONTRIBUTE TO DISCUSSIONS**.
+
+* As a **USER** I want to **DELETE MY OWN COMMENTS** so that I can **MANAGE WHAT I SHARE**.
+
+* As a **USER** I want to **LIKE OR DISLIKE POSTS** so that I can **EXPRESS MY OPINION**.
+
+* As a **USER** I want to **SEARCH FOR QUESTIONS** so that I can **FIND TOPICS OF INTEREST**.
+
+### For Admins
+
+* As an **ADMIN** I want to **MANAGE USER CONTENT** so that I can **MAINTAIN THE QUALITY OF POSTS**.
+
+* As an **ADMIN** I want to **APPROVE OR REMOVE INAPPROPRIATE CONTENT** so that the **PLATFORM REMAINS SAFE**.
+
+* As an **ADMIN** I want to **MANAGE USER ACCOUNTS** so that I can **CONTROL PLATFORM ACCESS**.
+
+* As an **ADMIN** I want to **MONITOR PLATFORM PERFORMANCE** so that I can **IMPROVE THE USER EXPERIENCE**.
+
+[Back to top](#table-of-contents)
 
 ## Project Management
-
-### Kanban Board & User Stories
+### Kanban Board
+![Kanban Board](image/userstories1.png)
 I've been using the application ``Kanban Board`` and the project board in GitHub to keep my project together. It has been working really well and has helped me structure up my work a lot. Trello was used on a more general plan and GitHub was used to plan and organize my user stories.
 
-![Kanban Board](image/userstories1.png)
-
-
 [Back to top](<#table-of-content>)
-
-### Database Schema
-application [draw.io](docs/dbase/schema.db.png).
-
-Models used (besides standard user model) in this project are:
-
-* **Category** - Handles categories. I made a specific model to be able to add more dynamics (create / remove categories going forward in the admin backend instead of 'hard code' it in the code).
-* **Genre** - Handles genres. I made a specific model to be able to add more dynamics (create / remove genres going forward in the admin backend instead of 'hard code' it in the code).
-* **Post** - Handles all the reviews
-* **Comment** - Handles all the comments
-* **UserProfile** - Handles the user profile information (first name, last name, presentation and featured image for the specific user/reviewer). There is a one-to-one relation to the user model to connect it to the standard user model.
-
-### Design
-![Database Schema](image/schemaDrawio.png)
-
-[Back to top](<#table-of-contents>)
-
-## Features
-
-### Existing Features:
-
-[Back to top](https://github.com/Blog#1key-project-information)
-
-### The Idea
-
-**Just ask** Blog website is a question-and-answer website where users can ask questions, answer questions, and interact with other users by liking or dislinking comments. It covers a wide range of topics from technology and business to health and entertainment. Users can follow topics, answer questions based on their expertise, and engage in discussions with a community of users. Just Ask's objective is to connect people with information and allow them to share knowledge and learn from each other.
-### The Ideal User
-The target audience is anyone curouis of the outside world and is interested to interact with other people.
-
-- User can `like` or `dislike`on posts
-- User can comment
-- User can `delete` or `edit` his/her posts
-
-### Site Goals
-
-- Share knowledge and experiences with the globle communty and to offer mutual support to one another.
 
 ### Epics
 
@@ -114,43 +104,59 @@ As a thought process of the strategy plane, 9 epics were created and utilized. P
 - [Epic 7: Create search bar and button](https://github.com/users/EIN-1/projects/5/views/1?pane=issue&itemId=70745624)
 - [Epic 9: Testing and Validation](https://github.com/users/EIN-1/projects/5/views/1?pane=issue&itemId=70745636)
 
-### User stories
+[Back to top](<#table-of-contents>)
 
-User stories were created based on the Epics. Each user story uses the MoSCoW prioritization technique. Each user story on the [Kanban Board](https://github.com/users/EIN-1/projects/5/views/1) was given (MoSCoW) labels.
+## MoSCoW prioritization :
 
-### MoSCoW
-#### MoSCoW prioritization technique stands for:
+- **Must-Have**: Critical requirements for project success.
+- **Should-Have**: Important but not critical features.
+- **Could-Haves**:Desirable but non-essential features.
+- **Won't-Have**: Features explicitly excluded from the project scope.
 
-**Must-Have**: Critical requirements that must be implemented for the project to be considered successful.
+## Database Schema
+![Database Schema](image/schemaDrawio.png)
+Models used (besides standard user model) in this project are:
 
-**Should-Have**: Important requirements that are not critical but add significant value.
-
-**Could-Haves**: Desirable features that would be nice to have but are not crucial.
-
-**Won't-Have**: Features that are explicitly excluded from the project scope.
+* **Category** - Handles categories. I made a specific model to be able to add more dynamics (create / remove categories going forward in the admin backend instead of 'hard code' it in the code).
+* **Genre** - Handles genres. I made a specific model to be able to add more dynamics (create / remove genres going forward in the admin backend instead of 'hard code' it in the code).
+* **Post** - Handles all the reviews
+* **Comment** - Handles all the comments
+* **UserProfile** - Handles the user profile information (first name, last name, presentation and featured image for the specific user/reviewer). There is a one-to-one relation to the user model to connect it to the standard user model.
 
 [Back to top](<#table-of-contents>)
 
-## Surface Plane
-
- ### Color pallette
+## Design
+### Color pallette
 - I used primary, success, light, dark for my webpage as they are the defaults of bootstrap.
 
   + dark = black
   + primary = blue
   + success = green
   + light = smoke white
+# Features
+## Existing Features:
+### The Idea
+
+**Just ask** Blog website is a question-and-answer website where users can ask questions, answer questions, and interact with other users by liking or dislinking comments. It covers a wide range of topics from technology and business to health and entertainment. Users can follow topics, answer questions based on their expertise, and engage in discussions with a community of users. Just Ask's objective is to connect people with information and allow them to share knowledge and learn from each other.
+### The Ideal User
+The target audience is anyone curouis of the outside world and is interested to interact with other people.
+
+- User can `like` or `dislike`on posts
+- User can comment with time stamp and delete own comments
+- User can `delete` or `edit` his/her posts
+
+[Back to top](<#table-of-contents>)
 
 ## Used Elements
 
-  ### Landing Page
+ ### Landing Page
   ![header](/image/main.png)
   - The banner explains what the website blog do and how to manover!
   - **Template File :** `home.html` - extends `base.html`
   - Contains list of posts.
   - Provides user with all Posts published along with name of creator, date created and a snippet of Post body. Also number of votes and comments is provided to both logged in and not logged in users.
 
-  ### Header
+ ### Header
   ![header](/image/header.png)
 
   - It is fully responsive and includes the just ask blog name on the left and member links and blog slogan on the right.
@@ -159,25 +165,25 @@ User stories were created based on the Epics. Each user story uses the MoSCoW pr
 
   - After logging in, the links on the right side are replaced by the Read Later and a log-out button.
 
-  ### Footer
+ ### Footer
   ![footer](/image/footer.png)
 
   - Every page has a footer at the bottom of the page.
   - The footer shows the copyright text and links to four different social media websites. Each link opens in a new tab.
 
-[Back to top](<#table-of-contents>)
+ [Back to top](<#table-of-contents>)
 
-  ### Login
+ ### Login
 ![login](/image/login-form.png)
 - Every template in this project is equipped with Favicon. This is to ease navigation for user in case of more tabs opened. 
-  ### Register
+ ### Register
   ![register](/image/register-form.png)
   - Every template in this project is equipped with Favicon. This is to ease navigation for user in case of more tabs opened. 
-  ### Reset password
+ ### Reset password
   ![reset](/image/reset-password.png)
  - Every template in this project is equipped with Favicon. This is to ease navigation for user in case of more tabs opened. 
 
-[Back to top](<#table-of-contents>)
+  [Back to top](<#table-of-contents>)
 
  ### Profile
  ![profile](/image/user-profile.png)
@@ -201,18 +207,18 @@ User stories were created based on the Epics. Each user story uses the MoSCoW pr
  - Super user Admin can delete, edit and add all elements on the app.
  [Back to top](<#table-of-contents>)
 
-  ### Admin can do alot of things, below are a few of them.
-![Admin add comment](/image/superuser-add-comment.png)
-- Admin can add comment to user of choice
-![Admin change question](/image/adminChangeQuestion.png)
-- Admin  can change question to user of choice
-![Admin users view](/image/superuser-users-view.png)
-- Admin can view all the user
+ ### Admin can do alot of things, below are a few of them.
+ ![Admin add comment](/image/superuser-add-comment.png)
+ - Admin can add comment to user of choice
+ ![Admin change question](/image/adminChangeQuestion.png)
+ - Admin  can change question to user of choice
+ ![Admin users view](/image/superuser-users-view.png)
+ - Admin can view all the user
 
 [Back to top](<#table-of-contents>)
 
 
-### Forms
+ ### Forms
 
 - **App :** `AllAuth` extension
 - **Template File :** `*.html` in `./templates/account` - extends `base.html`
@@ -239,12 +245,13 @@ User stories were created based on the Epics. Each user story uses the MoSCoW pr
 
 [Back to top](<#table-of-contents>)
 
-## Technologies Used
+# Technologies Used
 
-### Main Language
-- Python Language
+## Language
+- Python
+- Javascript
 
-### Frameworks, Libraries & Programs
+## Frameworks, Libraries & Programs
 
 - [**AmIResponsive**](https://ui.dev/amiresponsive) - the responsive preview image on different gadgets.
 - [**iloveimg**](https://www.iloveimg.com/) - to compress the images.
@@ -271,9 +278,9 @@ User stories were created based on the Epics. Each user story uses the MoSCoW pr
 
 [Back to top](<#table-of-contents>)
 
-# Testing
+# 🧪 Testing
 
-## Automatic Testing
+## **Automatic Testing**
 
 ### **Test Execution**
 
@@ -315,93 +322,191 @@ coverage report
 
 [Back to top](#table-of-contents)
 
-## Validator Testing
+---
+
+## ✅ Validator Testing
 
 ### **HTML Validator**  
 ![HTML Validator](docs/testing/html-validator.png)  
-- There are **3 errors** that could be fixed by changing the **ID names** in each form.  
-- Due to time constraints, I plan to fix these issues in the future.
+- **3 errors** found related to **ID names** in forms. These will be fixed in the future.
 
 ### **CSS Validator**  
-![CSS Validator](docs/testing/css-validator.png)  
-- The **warnings** originate from Django libraries.  
-- Many of these warnings are duplicated, and I plan to explore solutions when more time is available.
+![CSS Validator](docs/testing/cssValidator.png) 
+- No errors found 
+- Warnings stem from Django libraries.
 
 ### **JSHint Testing**  
-![JSHint Validator](docs/testing/jshint-validator.png)  
-- **Version:** 2.13.6  
-- **About:** Static code analysis tool for JavaScript.  
-- **Documentation:** [JSHint Docs](https://jshint.com/docs/)  
-- **Installation:** [Install JSHint](https://jshint.com/install/)  
-- **Contribution:** [Contribute](https://jshint.com/contribute/)  
-- **Blog:** [JSHint Blog](https://jshint.com/blog/)
+![JSHint Validator](docs/testing/jshint.png)  
+No errors or warnings found.
 
 [Back to top](#table-of-contents)
 
 ---
 
-## Manual Testing
+## 🛠️ Manual Testing
 
-### **Responsiveness Test**
+### 📱 **Responsiveness Test**
 
-The responsive design was tested manually using:
+Tested using:
 - [Google Chrome DevTools](https://developer.chrome.com/docs/devtools/)  
-- [Am I Responsive?](https://ui.dev/amiresponsive)  
+- [Am I Responsive?](https://ui.dev/amiresponsive)
 
-| **Device Type** | **Device/Screen Size**      | **Render** | **Links** | **Images** |
-|-----------------|----------------------------|------------|-----------|------------|
-| **Desktop**     | Display > 1280px          | ✅ Pass    | ✅ Pass   | ✅ Pass    |
-|                 | Display < 1280px          | ✅ Pass    | ✅ Pass   | ✅ Pass    |
-| **Tablet**      | Samsung Galaxy Tab 10     | ✅ Pass    | ✅ Pass   | ✅ Pass    |
-|                 | Amazon Kindle Fire        | ✅ Pass    | ✅ Pass   | ✅ Pass    |
-|                 | iPad Mini                 | ✅ Pass    | ✅ Pass   | ✅ Pass    |
-|                 | iPad Pro                  | ✅ Pass    | ✅ Pass   | ✅ Pass    |
-| **Phone**       | Galaxy S5/S6/S7/S20+      | ✅ Pass    | ✅ Pass   | ✅ Pass    |
-|                 | iPhone 6/7/8/Plus         | ✅ Pass    | ✅ Pass   | ✅ Pass    |
-|                 | iPhone 14 Pro Max         | ✅ Pass    | ✅ Pass   | ✅ Pass    |
+| **Device Type** | **Screen Size**           | **Render** | **Links** | **Images** |
+|-----------------|--------------------------|------------|-----------|------------|
+| **Desktop**     | > 1280px / < 1280px     | ✅ Pass    | ✅ Pass   | ✅ Pass    |
+| **Tablet**      | Samsung Tab / iPad      | ✅ Pass    | ✅ Pass   | ✅ Pass    |
+| **Phone**       | Galaxy / iPhone Models  | ✅ Pass    | ✅ Pass   | ✅ Pass    |
 
 [Back to top](#table-of-contents)
 
-### **Browser Compatibility**
+### 🌐 **Browser Compatibility**
 
-- **Google Chrome** – Version 121.0.6422.114 (64-bit)  
-- **Microsoft Edge** – Version 124.0.2478.80 (64-bit)  
-- **Mozilla Firefox** – Version 127.0 (64-bit)  
-
-[Back to top](#table-of-contents)
-
-### **Bugs**
-
-#### **Fixed Bugs**
-- Incorrect counts in **likes**, **dislikes**, and **comments** were fixed.  
-- **Reference:** [Django annotate() multiple times causes wrong answers](https://stackoverflow.com/questions/1265190/django-annotate-multiple-times-causes-wrong-answers)  
-  - *Fix applied by adding `distinct=True` in the home view for multiple annotations.*
-
-#### **Remaining Bugs**
-- No known bugs at this time.
+- **Google Chrome** – 121.0.6422.114  
+- **Microsoft Edge** – 124.0.2478.80  
+- **Mozilla Firefox** – 127.0  
 
 [Back to top](#table-of-contents)
 
 ---
 
-### **Error Pages**
+### 🐞 **Bugs**
 
-Custom error pages were implemented to enhance user experience in case of broken links or unauthorized actions.
+#### ✅ **Fixed Bugs**
+- Incorrect counts in **likes**, **dislikes**, and **comments** resolved.  
+- **Reference:** [Django annotate() fix](https://stackoverflow.com/questions/1265190/django-annotate-multiple-times-causes-wrong-answers)  
+
+#### ❗ **Remaining Bugs**
+- None.
+
+[Back to top](#table-of-contents)
+
+---
+
+### ⚠️ **Error Pages**
 
 - **404 Error:** Page not found  
-  ![Error 404](image/noQuetionFound.png)  
+  ![404 Error](image/noQuetionFound.png)  
 - **500 Error:** Internal server error  
-  ![Error 500](image/warning.png)  
+  ![500 Error](image/warning.png)  
 
 [Back to top](#table-of-contents)
 
 ---
 
-### 👥 **User Stories**
+## 👥 **User Stories testing**
+### For Users
 
-- As a user, I want to... *(complete this with detailed user stories)*
+* **As a user, I want to register and log in so that I can interact with content on the platform.**  
+  - **Expected:** New users can create an account and log in.  
+  - **Testing:** Accessed the registration and login pages and successfully signed up/logged in.  
+  - **Result:** ✅ Pass. User registration and login function correctly.  
+
+* **As a user, I want to ask questions so that I can receive answers from the community.**  
+  - **Expected:** Users can post new questions.  
+  - **Testing:** Logged in, navigated to the "Ask Question" page, submitted a question.  
+  - **Result:** ✅ Pass. Question appeared on the homepage.  
+
+* **As a user, I want to edit or delete my own questions so that I can manage my content.**  
+  - **Expected:** Users can edit or delete their own questions.  
+  - **Testing:** Edited and deleted my posted question.  
+  - **Result:** ✅ Pass. Edits saved, and the delete function worked with a success message.  
+
+* **As a user, I want to comment on questions so that I can contribute to discussions.**  
+  - **Expected:** Users can add comments to questions.  
+  - **Testing:** Added a comment to a question.  
+  - **Result:** ✅ Pass. Comment posted successfully.  
+
+* **As a user, I want to delete my own comments so that I can manage what I share.**  
+  - **Expected:** Users can delete their own comments.  
+  - **Testing:** Deleted a comment I made.  
+  - **Result:** ✅ Pass. Comment deleted with a success message.  
+
+* **As a user, I want to like or dislike posts so that I can express my opinion.**  
+  - **Expected:** Clicking like/dislike updates the count and shows a success message.  
+  - **Testing:** Liked and disliked multiple posts.  
+  - **Result:** ✅ Pass. Counts updated and success message appeared.  
+
+* **As a user, I want to search for questions so that I can find topics of interest.**  
+  - **Expected:** Search returns relevant questions.  
+  - **Testing:** Searched for a topic using the search bar.  
+  - **Result:** ✅ Pass. Relevant results displayed.  
+
+### For Admins
+
+* **As an admin, I want to manage user content so that I can maintain the quality of posts.**  
+  - **Expected:** Admin can edit or delete any question or comment.  
+  - **Testing:** Logged in as admin and modified user content.  
+  - **Result:** ✅ Pass. Admin actions performed successfully.  
+
+* **As an admin, I want to approve or remove inappropriate content so that the platform remains safe.**  
+  - **Expected:** Admin can moderate content.  
+  - **Testing:** Flagged and removed inappropriate content.  
+  - **Result:** ✅ Pass. Admin can remove content.  
+
+* **As an admin, I want to manage user accounts so that I can control platform access.**  
+  - **Expected:** Admin can view, suspend, or delete users.  
+  - **Testing:** Managed user accounts from the admin panel.  
+  - **Result:** ✅ Pass. User management features work correctly.  
+
+* **As an admin, I want to monitor the platform's performance so that I can improve the user experience.**  
+  - **Expected:** Admin can view performance reports and analytics.  
+  - **Testing:** Checked admin dashboard for analytics.  
+  - **Result:** ✅ Pass. Performance data is visible and accurate.  
+
 
 [Back to top](#table-of-contents)
+
+---
+
+## 🔍 **Comprehensive Functional Testing**
+
+### **Navigation Bar**
+- **Expected:** All navigation links should function correctly.
+- **Testing:** Clicked on Home, Login, and search bar links.
+- **Result:** ✅ All links worked.
+
+### **Question Submission Form**
+- **Expected:** Users should be able to submit a question when all required fields are filled.
+- **Testing:** Filled in all required fields and submitted the form.
+- **Result:** ✅ Question submitted successfully and appeared on the homepage.
+
+### **Login Form**
+- **Expected:** Users with correct credentials should be able to log in.
+- **Testing:** Entered correct and incorrect credentials.
+- **Result:** ✅ Successful login with correct credentials; error message displayed for incorrect ones.
+
+### **Registration Form**
+- **Expected:** Users should be able to register with valid data.
+- **Testing:** Entered valid/invalid registration data.
+- **Result:** ✅ Registration successful with valid data; errors displayed for invalid input.
+
+### **Search Bar**
+- **Expected:** Typing a keyword in the search bar should display relevant results.
+- **Testing:** Entered various keywords.
+- **Result:** ✅ Relevant results appeared.
+
+### **Read More/Less Button**
+- **Expected:** Toggles additional content visibility.
+- **Testing:** Clicked the button; content expanded/collapsed.
+- **Result:** ✅ Functioned as expected.
+
+### **Like and Dislike Button**
+- **Expected:** Counts should toggle and show success messages.
+- **Testing:** Clicked both buttons.
+- **Result:** ✅ Counts updated correctly.
+
+### **Comment Button**
+- **Expected:** Users can add and delete their own comments, with timestamps and success messages after each action.
+- **Testing:** Logged in, added a comment, then deleted it.
+- **Result:** ✅ Pass. Success message displayed after each action.
+
+### **Responsiveness**
+- **Expected:** Layout should adapt to all devices.
+- **Testing:** Tested on multiple devices.
+- **Result:** ✅ Fully responsive.
+
+[Back to top](#table-of-contents)
+
 
 # Deployment
 ## Deployment on GitHub Pages
