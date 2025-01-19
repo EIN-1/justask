@@ -516,9 +516,9 @@ Tested using:
 2. Click on **Pages** from the left-hand menu.  
 3. In the **Branch** section, select the **Main** branch from the drop-down menu.  
 4. Once selected, the page will refresh, and a success ribbon will appear indicating successful deployment.  
-5. Any changes pushed to the **master/main** branch will automatically update the live project: 👉 [Just ASK](https://just-ask-b3c36fe12bcc.herokuapp.com/)  
+5. Any changes pushed to the **main** branch will automatically update the live project: 👉 [Just ASK](https://just-ask-b3c36fe12bcc.herokuapp.com/)  
 
-![GitHub Deployment](documentation/gameImages/deploy.png)
+![GitHub Deployment](docs/github/github-deploy.png)
 
 [Back to top](#table-of-contents)
 
@@ -535,7 +535,7 @@ Tested using:
    git clone <paste-copied-URL>
    ```
 
-![Clone Repository]()
+![Clone Repository](docs/github/clone.png)
 
 [Back to top](#table-of-contents)
 
@@ -548,7 +548,7 @@ Tested using:
 2. Locate the repository you want to fork.
 3. On the **top-right side** of the page, click the **Fork** button to create a copy of the repository.
 
-![Forking Repository]()
+![Forking Repository](docs/github/fork.png)
 
 [Back to top](#table-of-contents)
 
@@ -570,7 +570,8 @@ pip3 freeze > requirements.txt
 4. Enter a **unique app name** and select your **region**.
 5. Click **Create App**.
 
-![Heroku New App]()
+![Heroku New App](docs/heroku/create-app.png)
+![Heroku New App](docs/heroku/create-app2.png)
 
 [Back to top](#table-of-contents)
 
@@ -659,6 +660,8 @@ python manage.py runserver
    - **Manual Deploy** for manual updates.
    - **Automatic Deploy** for auto-updates.
 
+   ![Hconfig var](docs/heroku/config-var.png)
+
 🔗 **Live Deployment:** [Just ASK](https://just-ask-b3c36fe12bcc.herokuapp.com/)
 
 [Back to top](#table-of-contents)
@@ -687,7 +690,7 @@ python manage.py runserver
 
  ## Acknowledgments
  The application `Just Ask` was completed as the Portfolio Project 4 for the Full Stack Software Development Diploma at the [Code Institute](https://codeinstitute.net/).
-  - A special thanks to my cohort facilitator `Ms. Kay Welfare` for her advice and support her quick feedback was very helpful and encouraging.
+ 
   - I would like to thank my mentor` Mr. Precious Ijege` for relevant feedback during the project.
   
  - **Developer :** [Elsie Nagawa ](https://github.com/EIN-1/justask)
